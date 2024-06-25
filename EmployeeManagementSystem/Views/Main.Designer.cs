@@ -52,7 +52,9 @@
             this.Btn_Sidebar = new System.Windows.Forms.Button();
             this.SidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.NavbarTransition = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.MainContent = new System.Windows.Forms.Panel();
+            this.DepartmentContainer = new System.Windows.Forms.Panel();
+            this.Btn_Department = new System.Windows.Forms.Button();
             this.SidebarContainer.SuspendLayout();
             this.DashboardContainer.SuspendLayout();
             this.ProjectsContainer.SuspendLayout();
@@ -60,6 +62,7 @@
             this.PayrollContainer.SuspendLayout();
             this.LogoutContainer.SuspendLayout();
             this.NavbarContainer.SuspendLayout();
+            this.DepartmentContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // SidebarContainer
@@ -69,6 +72,7 @@
             this.SidebarContainer.Controls.Add(this.DashboardContainer);
             this.SidebarContainer.Controls.Add(this.ProjectsContainer);
             this.SidebarContainer.Controls.Add(this.EmployeesContainer);
+            this.SidebarContainer.Controls.Add(this.DepartmentContainer);
             this.SidebarContainer.Controls.Add(this.PayrollContainer);
             this.SidebarContainer.Controls.Add(this.LogoutContainer);
             this.SidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
@@ -208,7 +212,7 @@
             this.PayrollContainer.Controls.Add(this.Btn_Payroll);
             this.PayrollContainer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PayrollContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PayrollContainer.Location = new System.Drawing.Point(3, 262);
+            this.PayrollContainer.Location = new System.Drawing.Point(3, 313);
             this.PayrollContainer.MinimumSize = new System.Drawing.Size(300, 45);
             this.PayrollContainer.Name = "PayrollContainer";
             this.PayrollContainer.Size = new System.Drawing.Size(300, 45);
@@ -231,7 +235,7 @@
             this.LogoutContainer.Controls.Add(this.Btn_Logout);
             this.LogoutContainer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LogoutContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LogoutContainer.Location = new System.Drawing.Point(3, 313);
+            this.LogoutContainer.Location = new System.Drawing.Point(3, 364);
             this.LogoutContainer.Name = "LogoutContainer";
             this.LogoutContainer.Size = new System.Drawing.Size(300, 45);
             this.LogoutContainer.TabIndex = 4;
@@ -292,19 +296,45 @@
             this.NavbarTransition.Interval = 10;
             this.NavbarTransition.Tick += new System.EventHandler(this.NavbarTransition_Tick);
             // 
-            // panel2
+            // MainContent
             // 
-            this.panel2.Location = new System.Drawing.Point(326, 109);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(924, 564);
-            this.panel2.TabIndex = 2;
+            this.MainContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.MainContent.Location = new System.Drawing.Point(326, 109);
+            this.MainContent.Name = "MainContent";
+            this.MainContent.Size = new System.Drawing.Size(924, 564);
+            this.MainContent.TabIndex = 2;
+            // 
+            // DepartmentContainer
+            // 
+            this.DepartmentContainer.Controls.Add(this.Btn_Department);
+            this.DepartmentContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DepartmentContainer.Location = new System.Drawing.Point(3, 262);
+            this.DepartmentContainer.Name = "DepartmentContainer";
+            this.DepartmentContainer.Size = new System.Drawing.Size(300, 45);
+            this.DepartmentContainer.TabIndex = 0;
+            // 
+            // Btn_Department
+            // 
+            this.Btn_Department.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Department.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Department.Image")));
+            this.Btn_Department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Department.Location = new System.Drawing.Point(0, 0);
+            this.Btn_Department.Name = "Btn_Department";
+            this.Btn_Department.Size = new System.Drawing.Size(300, 45);
+            this.Btn_Department.TabIndex = 0;
+            this.Btn_Department.Text = "Department";
+            this.Btn_Department.UseVisualStyleBackColor = true;
+            this.Btn_Department.Click += new System.EventHandler(this.Btn_Department_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.MainContent);
             this.Controls.Add(this.NavbarContainer);
             this.Controls.Add(this.SidebarContainer);
             this.Name = "Main";
@@ -317,6 +347,7 @@
             this.PayrollContainer.ResumeLayout(false);
             this.LogoutContainer.ResumeLayout(false);
             this.NavbarContainer.ResumeLayout(false);
+            this.DepartmentContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -345,6 +376,8 @@
         private System.Windows.Forms.Button Btn_Payroll;
         private System.Windows.Forms.Timer SidebarTransition;
         private System.Windows.Forms.Timer NavbarTransition;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel MainContent;
+        private System.Windows.Forms.Panel DepartmentContainer;
+        private System.Windows.Forms.Button Btn_Department;
     }
 }

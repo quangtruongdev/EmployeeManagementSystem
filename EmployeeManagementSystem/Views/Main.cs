@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeManagementSystem.Forms.Department;
+using System;
 using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Views
@@ -124,6 +125,16 @@ namespace EmployeeManagementSystem.Views
             {
                 SidebarTransition.Start();
             }
+        }
+
+        private void Btn_Department_Click(object sender, EventArgs e)
+        {
+            Department department = new Department();
+            department.TopLevel = false;
+            department.Dock = DockStyle.Fill;
+            MainContent.Controls.Clear();
+            MainContent.Controls.Add(department);
+            department.Show();
         }
     }
 }
