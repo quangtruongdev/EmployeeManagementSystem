@@ -1,4 +1,5 @@
-﻿using EmployeeManagementSystem.Forms.Department;
+﻿using EmployeeManagementSystem.Forms.Dashboard;
+using EmployeeManagementSystem.Forms.Department;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
 using EmployeeManagementSystem.Interfaces;
@@ -142,7 +143,8 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_Dashboard_Click(object sender, EventArgs e)
         {
-            // Handle dashboard button click
+            DashboardForm dashboard = new DashboardForm();
+            Shared.ShowMainContent(dashboard, MainContent);
         }
 
         private void EnsureSidebarOpen()
