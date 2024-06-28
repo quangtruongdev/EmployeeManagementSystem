@@ -31,6 +31,7 @@ namespace EmployeeManagementSystem.Forms.Project
             var totalPages = results.TotalPages;
 
             Tbl_Projects.Columns.Clear();
+            Tbl_Projects.AutoGenerateColumns = false;
 
             var projectId = new DataGridViewTextBoxColumn
             {
@@ -80,7 +81,7 @@ namespace EmployeeManagementSystem.Forms.Project
             var editButton = new DataGridViewButtonColumn
             {
                 HeaderText = "",
-                Name = "Btn_Edit",
+                Name = "BtnEdit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true,
                 Width = 50,
@@ -92,7 +93,7 @@ namespace EmployeeManagementSystem.Forms.Project
             var deleteButton = new DataGridViewButtonColumn
             {
                 HeaderText = "",
-                Name = "Btn_Delete",
+                Name = "BtnDelete",
                 Text = "Delete",
                 UseColumnTextForButtonValue = true,
                 Width = 50,
@@ -101,6 +102,23 @@ namespace EmployeeManagementSystem.Forms.Project
             Tbl_Projects.Columns.Add(deleteButton);
 
             Tbl_Projects.DataSource = projects;
+
+            PageOnPage.Text = $"Page {currentPage}/{totalPages}";
+
+            Btn_Pre.Enabled = currentPage > 1;
+            Btn_Next.Enabled = currentPage < totalPages;
+        }
+
+        private void Btn_Pre_Click(object sender, EventArgs e)
+        {
+                currentPage--;
+                LoadProjects();
+        }
+
+        private void Btn_Next_Click(object sender, EventArgs e)
+        {
+                currentPage++;
+                LoadProjects();
         }
     }
 }

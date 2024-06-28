@@ -36,15 +36,13 @@
             this.PageOnPage = new System.Windows.Forms.Label();
             this.Btn_Next = new System.Windows.Forms.Button();
             this.Btn_Pre = new System.Windows.Forms.Button();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Tbl_Projects)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.SuspendLayout();
@@ -57,15 +55,13 @@
             this.Tbl_Projects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Tbl_Projects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Tbl_Projects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
             this.ProjectId,
-            this.Column3,
+            this.ProjectName,
             this.Description,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9});
+            this.StartDate,
+            this.EndDate,
+            this.BtnEdit,
+            this.BtnDelete});
             this.Tbl_Projects.Location = new System.Drawing.Point(-1, 103);
             this.Tbl_Projects.Name = "Tbl_Projects";
             this.Tbl_Projects.RowHeadersWidth = 51;
@@ -127,6 +123,7 @@
             this.Btn_Next.TabIndex = 1;
             this.Btn_Next.Text = "Next";
             this.Btn_Next.UseVisualStyleBackColor = true;
+            this.Btn_Next.Click += new System.EventHandler(this.Btn_Next_Click);
             // 
             // Btn_Pre
             // 
@@ -137,26 +134,21 @@
             this.Btn_Pre.TabIndex = 0;
             this.Btn_Pre.Text = "Previous";
             this.Btn_Pre.UseVisualStyleBackColor = true;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
+            this.Btn_Pre.Click += new System.EventHandler(this.Btn_Pre_Click);
             // 
             // ProjectId
             // 
             this.ProjectId.DataPropertyName = "ProjectId";
-            this.ProjectId.HeaderText = "Id";
+            this.ProjectId.HeaderText = "Project Id";
             this.ProjectId.MinimumWidth = 6;
             this.ProjectId.Name = "ProjectId";
             // 
-            // Column3
+            // ProjectName
             // 
-            this.Column3.DataPropertyName = "ProjectName";
-            this.Column3.HeaderText = "Name";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.ProjectName.DataPropertyName = "ProjectName";
+            this.ProjectName.HeaderText = "Project Name";
+            this.ProjectName.MinimumWidth = 6;
+            this.ProjectName.Name = "ProjectName";
             // 
             // Description
             // 
@@ -165,42 +157,31 @@
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
             // 
-            // Column5
+            // StartDate
             // 
-            this.Column5.DataPropertyName = "StartDate";
-            this.Column5.HeaderText = "Start At";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
+            this.StartDate.DataPropertyName = "StartDate";
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.MinimumWidth = 6;
+            this.StartDate.Name = "StartDate";
             // 
-            // Column6
+            // EndDate
             // 
-            this.Column6.DataPropertyName = "EndDate";
-            this.Column6.HeaderText = "End At";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
+            this.EndDate.DataPropertyName = "EndDate";
+            this.EndDate.HeaderText = "End Date";
+            this.EndDate.MinimumWidth = 6;
+            this.EndDate.Name = "EndDate";
             // 
-            // Column7
+            // BtnEdit
             // 
-            this.Column7.DataPropertyName = "EmployeeId";
-            this.Column7.HeaderText = "Leader";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
+            this.BtnEdit.HeaderText = "";
+            this.BtnEdit.MinimumWidth = 6;
+            this.BtnEdit.Name = "BtnEdit";
             // 
-            // Column8
+            // BtnDelete
             // 
-            this.Column8.HeaderText = "";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.Text = "Edit";
-            this.Column8.UseColumnTextForButtonValue = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.Text = "Delete";
-            this.Column9.UseColumnTextForButtonValue = true;
+            this.BtnDelete.HeaderText = "";
+            this.BtnDelete.MinimumWidth = 6;
+            this.BtnDelete.Name = "BtnDelete";
             // 
             // Project
             // 
@@ -231,14 +212,12 @@
         private System.Windows.Forms.Label PageOnPage;
         private System.Windows.Forms.Button Btn_Next;
         private System.Windows.Forms.Button Btn_Pre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewButtonColumn Column8;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
+        private System.Windows.Forms.DataGridViewButtonColumn BtnEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn BtnDelete;
     }
 }
