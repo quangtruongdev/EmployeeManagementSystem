@@ -6,9 +6,9 @@ namespace EmployeeManagementSystem.Interfaces
     public interface IDepartment
     {
         List<Department> GetDepartments();
-        Department GetDepartmentById(int id);
+        Department GetDepartmentById(string id);
         void AddDepartment(Department department);
         void UpdateDepartment(Department department);
-        void DeleteDepartment(int id);
+        void DeleteDepartment(string id);
     }
 }

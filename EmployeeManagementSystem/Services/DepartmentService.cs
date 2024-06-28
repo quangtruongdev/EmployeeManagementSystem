@@ -22,7 +22,7 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public Department GetDepartmentById(int id)
+        public Department GetDepartmentById(string id)
         {
             try
             {
@@ -62,18 +62,18 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public void DeleteDepartment(int id)
+        public void DeleteDepartment(string id)
         {
-            try
-            {
-                Department department = db.Departments.FirstOrDefault(d => d.DepartmentID == id);
-                db.Departments.DeleteOnSubmit(department);
-                db.SubmitChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //try
+            //{
+            //    Department department = db.Departments.FirstOrDefault(d => d.DepartmentID == id);
+            //    db.Departments.DeleteOnSubmit(department);
+            //    db.SubmitChanges();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
         }
     }
 }

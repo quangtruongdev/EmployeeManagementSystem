@@ -225,6 +225,7 @@
             this.Btn_Payroll.TabIndex = 0;
             this.Btn_Payroll.Text = "Payroll";
             this.Btn_Payroll.UseVisualStyleBackColor = true;
+            this.Btn_Payroll.Click += new System.EventHandler(this.Btn_Payroll_Click);
             // 
             // LogoutContainer
             // 
@@ -294,6 +295,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Location = new System.Drawing.Point(326, 109);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(924, 564);

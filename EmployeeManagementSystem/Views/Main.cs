@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeManagementSystem.Forms.Salary;
+using System;
 using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Views
@@ -124,6 +125,16 @@ namespace EmployeeManagementSystem.Views
             {
                 SidebarTransition.Start();
             }
+        }
+
+        private void Btn_Payroll_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            Salary salary = new Salary();
+            salary.TopLevel = false;
+            salary.Dock = DockStyle.Fill;
+            panel2.Controls.Add(salary);
+            salary.Show();
         }
     }
 }

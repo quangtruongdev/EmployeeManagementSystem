@@ -42,9 +42,9 @@ namespace EmployeeManagementSystem.Models
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
-    partial void InsertPositon(Positon instance);
-    partial void UpdatePositon(Positon instance);
-    partial void DeletePositon(Positon instance);
+    partial void InsertPosition(Position instance);
+    partial void UpdatePosition(Position instance);
+    partial void DeletePosition(Position instance);
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
@@ -61,6 +61,12 @@ namespace EmployeeManagementSystem.Models
     partial void UpdateUserRole(UserRole instance);
     partial void DeleteUserRole(UserRole instance);
     #endregion
+		
+		public DatabaseDataContext() : 
+				base(global::EmployeeManagementSystem.Properties.Settings.Default.employeeManagerConnectionString1, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public DatabaseDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -85,13 +91,8 @@ namespace EmployeeManagementSystem.Models
 		{
 			OnCreated();
 		}
-
-        public DatabaseDataContext() : base("Data Source=DESKTOP-1VJ4V0G;Initial Catalog=employeeManager;Integrated Security=True")
-        {
-			OnCreated();
-        }
-
-        public System.Data.Linq.Table<ContactDetail> ContactDetails
+		
+		public System.Data.Linq.Table<ContactDetail> ContactDetails
 		{
 			get
 			{
@@ -123,11 +124,11 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Positon> Positons
+		public System.Data.Linq.Table<Position> Positions
 		{
 			get
 			{
-				return this.GetTable<Positon>();
+				return this.GetTable<Position>();
 			}
 		}
 		
@@ -178,9 +179,9 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ContactID;
+		private string _ContactID;
 		
-		private System.Nullable<int> _EmployeeID;
+		private string _EmployeeID;
 		
 		private string _PhoneNumber;
 		
@@ -194,9 +195,9 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnContactIDChanging(int value);
+    partial void OnContactIDChanging(string value);
     partial void OnContactIDChanged();
-    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
     partial void OnPhoneNumberChanging(string value);
     partial void OnPhoneNumberChanged();
@@ -212,8 +213,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ContactID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ContactID
 		{
 			get
 			{
@@ -232,8 +233,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
-		public System.Nullable<int> EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50)")]
+		public string EmployeeID
 		{
 			get
 			{
@@ -256,7 +257,7 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="Char(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(12)")]
 		public string PhoneNumber
 		{
 			get
@@ -276,7 +277,7 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="Char(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255)")]
 		public string Email
 		{
 			get
@@ -343,7 +344,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._EmployeeID = default(Nullable<int>);
+						this._EmployeeID = default(string);
 					}
 					this.SendPropertyChanged("Employee");
 				}
@@ -377,7 +378,7 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _DepartmentID;
+		private string _DepartmentID;
 		
 		private string _DepartmentName;
 		
@@ -387,7 +388,7 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDepartmentIDChanging(int value);
+    partial void OnDepartmentIDChanging(string value);
     partial void OnDepartmentIDChanged();
     partial void OnDepartmentNameChanging(string value);
     partial void OnDepartmentNameChanged();
@@ -399,8 +400,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int DepartmentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DepartmentID
 		{
 			get
 			{
@@ -491,11 +492,9 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _EmployeeID;
+		private string _EmployeeID;
 		
-		private int _ProjectID;
-		
-		private string _Role;
+		private string _ProjectID;
 		
 		private EntityRef<Employee> _Employee;
 		
@@ -505,12 +504,10 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
-    partial void OnProjectIDChanging(int value);
+    partial void OnProjectIDChanging(string value);
     partial void OnProjectIDChanged();
-    partial void OnRoleChanging(string value);
-    partial void OnRoleChanged();
     #endregion
 		
 		public EmployeeProject()
@@ -520,8 +517,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string EmployeeID
 		{
 			get
 			{
@@ -544,8 +541,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ProjectID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ProjectID
 		{
 			get
 			{
@@ -564,26 +561,6 @@ namespace EmployeeManagementSystem.Models
 					this._ProjectID = value;
 					this.SendPropertyChanged("ProjectID");
 					this.OnProjectIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(255)")]
-		public string Role
-		{
-			get
-			{
-				return this._Role;
-			}
-			set
-			{
-				if ((this._Role != value))
-				{
-					this.OnRoleChanging(value);
-					this.SendPropertyChanging();
-					this._Role = value;
-					this.SendPropertyChanged("Role");
-					this.OnRoleChanged();
 				}
 			}
 		}
@@ -615,7 +592,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._EmployeeID = default(int);
+						this._EmployeeID = default(string);
 					}
 					this.SendPropertyChanged("Employee");
 				}
@@ -649,7 +626,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._ProjectID = default(int);
+						this._ProjectID = default(string);
 					}
 					this.SendPropertyChanged("Project");
 				}
@@ -683,7 +660,7 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _EmployeeID;
+		private string _EmployeeID;
 		
 		private string _FirstName;
 		
@@ -695,9 +672,9 @@ namespace EmployeeManagementSystem.Models
 		
 		private System.Nullable<System.DateTime> _HireDate;
 		
-		private System.Nullable<int> _DepartmentID;
+		private string _DepartmentID;
 		
-		private System.Nullable<int> _PositionID;
+		private string _PositionID;
 		
 		private EntitySet<ContactDetail> _ContactDetails;
 		
@@ -709,13 +686,13 @@ namespace EmployeeManagementSystem.Models
 		
 		private EntityRef<Department> _Department;
 		
-		private EntityRef<Positon> _Positon;
+		private EntityRef<Position> _Positon;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
     partial void OnFirstNameChanging(string value);
     partial void OnFirstNameChanged();
@@ -727,9 +704,9 @@ namespace EmployeeManagementSystem.Models
     partial void OnDateOfBirthChanged();
     partial void OnHireDateChanging(System.Nullable<System.DateTime> value);
     partial void OnHireDateChanged();
-    partial void OnDepartmentIDChanging(System.Nullable<int> value);
+    partial void OnDepartmentIDChanging(string value);
     partial void OnDepartmentIDChanged();
-    partial void OnPositionIDChanging(System.Nullable<int> value);
+    partial void OnPositionIDChanging(string value);
     partial void OnPositionIDChanged();
     #endregion
 		
@@ -740,12 +717,12 @@ namespace EmployeeManagementSystem.Models
 			this._Salaries = new EntitySet<Salary>(new Action<Salary>(this.attach_Salaries), new Action<Salary>(this.detach_Salaries));
 			this._UserAccounts = new EntitySet<UserAccount>(new Action<UserAccount>(this.attach_UserAccounts), new Action<UserAccount>(this.detach_UserAccounts));
 			this._Department = default(EntityRef<Department>);
-			this._Positon = default(EntityRef<Positon>);
+			this._Positon = default(EntityRef<Position>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string EmployeeID
 		{
 			get
 			{
@@ -864,8 +841,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int")]
-		public System.Nullable<int> DepartmentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="VarChar(50)")]
+		public string DepartmentID
 		{
 			get
 			{
@@ -888,8 +865,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="Int")]
-		public System.Nullable<int> PositionID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="VarChar(50)")]
+		public string PositionID
 		{
 			get
 			{
@@ -991,7 +968,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._DepartmentID = default(Nullable<int>);
+						this._DepartmentID = default(string);
 					}
 					this.SendPropertyChanged("Department");
 				}
@@ -999,7 +976,7 @@ namespace EmployeeManagementSystem.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Positon_Employee", Storage="_Positon", ThisKey="PositionID", OtherKey="PositionID", IsForeignKey=true)]
-		public Positon Positon
+		public Position Position
 		{
 			get
 			{
@@ -1007,7 +984,7 @@ namespace EmployeeManagementSystem.Models
 			}
 			set
 			{
-				Positon previousValue = this._Positon.Entity;
+				Position previousValue = this._Positon.Entity;
 				if (((previousValue != value) 
 							|| (this._Positon.HasLoadedOrAssignedValue == false)))
 				{
@@ -1025,9 +1002,9 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._PositionID = default(Nullable<int>);
+						this._PositionID = default(string);
 					}
-					this.SendPropertyChanged("Positon");
+					this.SendPropertyChanged("Position");
 				}
 			}
 		}
@@ -1102,12 +1079,12 @@ namespace EmployeeManagementSystem.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Positons")]
-	public partial class Positon : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Position : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _PositionID;
+		private string _PositionID;
 		
 		private string _PositionName;
 		
@@ -1117,20 +1094,20 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnPositionIDChanging(int value);
+    partial void OnPositionIDChanging(string value);
     partial void OnPositionIDChanged();
     partial void OnPositionNameChanging(string value);
     partial void OnPositionNameChanged();
     #endregion
 		
-		public Positon()
+		public Position()
 		{
 			this._Employees = new EntitySet<Employee>(new Action<Employee>(this.attach_Employees), new Action<Employee>(this.detach_Employees));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PositionID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string PositionID
 		{
 			get
 			{
@@ -1205,13 +1182,13 @@ namespace EmployeeManagementSystem.Models
 		private void attach_Employees(Employee entity)
 		{
 			this.SendPropertyChanging();
-			entity.Positon = this;
+			entity.Position = this;
 		}
 		
 		private void detach_Employees(Employee entity)
 		{
 			this.SendPropertyChanging();
-			entity.Positon = null;
+			entity.Position = null;
 		}
 	}
 	
@@ -1221,7 +1198,7 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ProjectID;
+		private string _ProjectID;
 		
 		private string _Description;
 		
@@ -1237,7 +1214,7 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnProjectIDChanging(int value);
+    partial void OnProjectIDChanging(string value);
     partial void OnProjectIDChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
@@ -1255,8 +1232,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ProjectID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ProjectID
 		{
 			get
 			{
@@ -1407,7 +1384,7 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _RoleID;
+		private string _RoleID;
 		
 		private string _RoleName;
 		
@@ -1417,7 +1394,7 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnRoleIDChanging(int value);
+    partial void OnRoleIDChanging(string value);
     partial void OnRoleIDChanged();
     partial void OnRoleNameChanging(string value);
     partial void OnRoleNameChanged();
@@ -1429,8 +1406,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int RoleID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RoleID
 		{
 			get
 			{
@@ -1521,9 +1498,9 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _SalaryID;
+		private string _SalaryID;
 		
-		private System.Nullable<int> _EmployeeID;
+		private string _EmployeeID;
 		
 		private System.Nullable<double> _SalaryAmount;
 		
@@ -1535,9 +1512,9 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSalaryIDChanging(int value);
+    partial void OnSalaryIDChanging(string value);
     partial void OnSalaryIDChanged();
-    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
     partial void OnSalaryAmountChanging(System.Nullable<double> value);
     partial void OnSalaryAmountChanged();
@@ -1551,8 +1528,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SalaryID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string SalaryID
 		{
 			get
 			{
@@ -1571,8 +1548,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
-		public System.Nullable<int> EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50)")]
+		public string EmployeeID
 		{
 			get
 			{
@@ -1662,7 +1639,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._EmployeeID = default(Nullable<int>);
+						this._EmployeeID = default(string);
 					}
 					this.SendPropertyChanged("Employee");
 				}
@@ -1696,13 +1673,13 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _UserID;
+		private string _UserID;
 		
 		private string _Username;
 		
 		private string _Password;
 		
-		private System.Nullable<int> _EmployeeID;
+		private string _EmployeeID;
 		
 		private EntitySet<UserRole> _UserRoles;
 		
@@ -1712,13 +1689,13 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanging(string value);
     partial void OnUserIDChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
     #endregion
 		
@@ -1729,8 +1706,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserID
 		{
 			get
 			{
@@ -1789,8 +1766,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
-		public System.Nullable<int> EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50)")]
+		public string EmployeeID
 		{
 			get
 			{
@@ -1853,7 +1830,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._EmployeeID = default(Nullable<int>);
+						this._EmployeeID = default(string);
 					}
 					this.SendPropertyChanged("Employee");
 				}
@@ -1899,9 +1876,9 @@ namespace EmployeeManagementSystem.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _UserID;
+		private string _UserID;
 		
-		private int _RoleID;
+		private string _RoleID;
 		
 		private EntityRef<Role> _Role;
 		
@@ -1911,9 +1888,9 @@ namespace EmployeeManagementSystem.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanging(string value);
     partial void OnUserIDChanged();
-    partial void OnRoleIDChanging(int value);
+    partial void OnRoleIDChanging(string value);
     partial void OnRoleIDChanged();
     #endregion
 		
@@ -1924,8 +1901,8 @@ namespace EmployeeManagementSystem.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserID
 		{
 			get
 			{
@@ -1948,8 +1925,8 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int RoleID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RoleID
 		{
 			get
 			{
@@ -1999,7 +1976,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._RoleID = default(int);
+						this._RoleID = default(string);
 					}
 					this.SendPropertyChanged("Role");
 				}
@@ -2033,7 +2010,7 @@ namespace EmployeeManagementSystem.Models
 					}
 					else
 					{
-						this._UserID = default(int);
+						this._UserID = default(string);
 					}
 					this.SendPropertyChanged("UserAccount");
 				}
