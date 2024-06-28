@@ -23,30 +23,7 @@ namespace EmployeeManagementSystem.Views
             InitializeComponent();
             InitializeTimers();
             _authService = new AuthService();
-            //this.Load += new EventHandler(Main_Load);
-        }
-
-        private bool CheckUserLogin()
-        {
-            var user = _authService.GetUserAccount(Session.Username);
-            return user != null;
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            if (!CheckUserLogin())
-            {
-                this.Hide(); // Ẩn form Main
-                LoginForm login = new LoginForm();
-                if (login.ShowDialog() != DialogResult.OK)
-                {
-                    this.Close(); // Đóng form Main nếu người dùng không đăng nhập
-                }
-                else
-                {
-                    this.Show(); // Hiển thị lại form Main nếu người dùng đăng nhập thành công
-                }
-            }
+            this.Load += Main_Load;
         }
 
         private void InitializeTimers()
@@ -155,28 +132,50 @@ namespace EmployeeManagementSystem.Views
             }
         }
 
-        private void Btn_Department_Click(object sender, EventArgs e)
+        private void Btn_Departments_Click(object sender, EventArgs e)
         {
             Department department = new Department();
-            department.TopLevel = false;
-            department.Dock = DockStyle.Fill;
-            MainContent.Controls.Clear();
-            MainContent.Controls.Add(department);
-            department.Show();
-        }
-
-        private void Btn_Logout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            LoginForm login = new LoginForm();
-            login.Show();
-            this.Hide();
+            Shared.ShowMainContent(department, MainContent);
         }
 
         private void Btn_Positions_Click(object sender, EventArgs e)
         {
             PositonsList positonsList = new PositonsList();
             Shared.ShowMainContent(positonsList, MainContent);
+        }
+
+        private void Btn_Logout_Click(object sender, EventArgs e)
+        {
+            SessionManager.ClearSession(); // Xóa thông tin phiên người dùng
+
+            // Hiển thị form đăng nhập
+            LoginForm login = new LoginForm();
+            login.FormClosed += LoginForm_FormClosed; // Đăng ký sự kiện FormClosed để theo dõi khi form đăng nhập đóng lại
+            login.Show();
+
+            // Ẩn form chính
+            this.Hide();
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Xử lý khi form đăng nhập đóng lại
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit(); // Đóng chương trình
+            }
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // set dashboard as default view
+        private void Main_Load(object sender, EventArgs e)
+        {
+            DashboardForm dashboard = new DashboardForm();
+            Shared.ShowMainContent(dashboard, MainContent);
         }
     }
 }
