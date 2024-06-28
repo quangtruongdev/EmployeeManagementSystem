@@ -69,15 +69,16 @@ namespace EmployeeManagementSystem.Forms.Department
             txtDepartmentName.Text = department.DepartmentName;
         }
 
-        private bool ValidateForm()
+        private void ValidateForm()
         {
+            bool isFormValid = true;
             string departmentName = txtDepartmentName.Text.Trim();
             if (string.IsNullOrEmpty(departmentName))
             {
-                MessageBox.Show("Department name is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                DepartmentNameError.Text = "Department name is required";
+                isFormValid = false;
             }
-            return true;
+            Btn_Submit.Enabled = isFormValid;
         }
     }
 }

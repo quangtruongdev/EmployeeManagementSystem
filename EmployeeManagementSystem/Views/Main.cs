@@ -1,4 +1,9 @@
 ﻿using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Login;
+using EmployeeManagementSystem.Forms.Positons;
+using EmployeeManagementSystem.Interfaces;
+using EmployeeManagementSystem.Services;
+using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -6,6 +11,7 @@ namespace EmployeeManagementSystem.Views
 {
     public partial class Main : Form
     {
+        private IAuth _authService;
         private bool projectsCollapsed = true;
         private bool employeesCollapsed = true;
         private bool sidebarCollapsed = true;
@@ -15,6 +21,31 @@ namespace EmployeeManagementSystem.Views
         {
             InitializeComponent();
             InitializeTimers();
+            _authService = new AuthService();
+            //this.Load += new EventHandler(Main_Load);
+        }
+
+        private bool CheckUserLogin()
+        {
+            var user = _authService.GetUserAccount(Session.Username);
+            return user != null;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            if (!CheckUserLogin())
+            {
+                this.Hide(); // Ẩn form Main
+                LoginForm login = new LoginForm();
+                if (login.ShowDialog() != DialogResult.OK)
+                {
+                    this.Close(); // Đóng form Main nếu người dùng không đăng nhập
+                }
+                else
+                {
+                    this.Show(); // Hiển thị lại form Main nếu người dùng đăng nhập thành công
+                }
+            }
         }
 
         private void InitializeTimers()
@@ -114,11 +145,6 @@ namespace EmployeeManagementSystem.Views
             // Handle dashboard button click
         }
 
-        private void Btn_Logout_Click(object sender, EventArgs e)
-        {
-            // Handle logout button click
-        }
-
         private void EnsureSidebarOpen()
         {
             if (sidebarCollapsed)
@@ -135,6 +161,20 @@ namespace EmployeeManagementSystem.Views
             MainContent.Controls.Clear();
             MainContent.Controls.Add(department);
             department.Show();
+        }
+
+        private void Btn_Logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Hide();
+        }
+
+        private void Btn_Positions_Click(object sender, EventArgs e)
+        {
+            PositonsList positonsList = new PositonsList();
+            Shared.ShowMainContent(positonsList, MainContent);
         }
     }
 }

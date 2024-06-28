@@ -92,7 +92,8 @@ namespace EmployeeManagementSystem.Forms.Department
             //    Tbl_Departments.Rows[i].Cells["STT"].Value = (currentPage - 1) * pageSize + i + 1;
             //}
 
-            PageOnPage.Text = $"Page {currentPage}/{totalPages}";
+
+            PageOnPage.Text = $"{currentPage}/{totalPages}";
 
             Btn_Pre.Enabled = currentPage > 1;
             Btn_Next.Enabled = currentPage < totalPages;

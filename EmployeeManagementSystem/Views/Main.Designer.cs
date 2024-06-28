@@ -42,8 +42,14 @@
             this.Btn_AddEmployee = new System.Windows.Forms.Button();
             this.Btn_AllEmployees = new System.Windows.Forms.Button();
             this.Btn_Employees = new System.Windows.Forms.Button();
+            this.DepartmentContainer = new System.Windows.Forms.Panel();
+            this.Btn_Department = new System.Windows.Forms.Button();
+            this.PositionsContainer = new System.Windows.Forms.Panel();
+            this.Btn_Positions = new System.Windows.Forms.Button();
             this.PayrollContainer = new System.Windows.Forms.Panel();
             this.Btn_Payroll = new System.Windows.Forms.Button();
+            this.LeaveManagementContainer = new System.Windows.Forms.Panel();
+            this.Btn_LeaveManagement = new System.Windows.Forms.Button();
             this.LogoutContainer = new System.Windows.Forms.Panel();
             this.Btn_Logout = new System.Windows.Forms.Button();
             this.ProjectsTransition = new System.Windows.Forms.Timer(this.components);
@@ -53,16 +59,16 @@
             this.SidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.NavbarTransition = new System.Windows.Forms.Timer(this.components);
             this.MainContent = new System.Windows.Forms.Panel();
-            this.DepartmentContainer = new System.Windows.Forms.Panel();
-            this.Btn_Department = new System.Windows.Forms.Button();
             this.SidebarContainer.SuspendLayout();
             this.DashboardContainer.SuspendLayout();
             this.ProjectsContainer.SuspendLayout();
             this.EmployeesContainer.SuspendLayout();
+            this.DepartmentContainer.SuspendLayout();
+            this.PositionsContainer.SuspendLayout();
             this.PayrollContainer.SuspendLayout();
+            this.LeaveManagementContainer.SuspendLayout();
             this.LogoutContainer.SuspendLayout();
             this.NavbarContainer.SuspendLayout();
-            this.DepartmentContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // SidebarContainer
@@ -73,7 +79,9 @@
             this.SidebarContainer.Controls.Add(this.ProjectsContainer);
             this.SidebarContainer.Controls.Add(this.EmployeesContainer);
             this.SidebarContainer.Controls.Add(this.DepartmentContainer);
+            this.SidebarContainer.Controls.Add(this.PositionsContainer);
             this.SidebarContainer.Controls.Add(this.PayrollContainer);
+            this.SidebarContainer.Controls.Add(this.LeaveManagementContainer);
             this.SidebarContainer.Controls.Add(this.LogoutContainer);
             this.SidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidebarContainer.Location = new System.Drawing.Point(0, 0);
@@ -207,12 +215,53 @@
             this.Btn_Employees.UseVisualStyleBackColor = true;
             this.Btn_Employees.Click += new System.EventHandler(this.Btn_Employees_Click);
             // 
+            // DepartmentContainer
+            // 
+            this.DepartmentContainer.Controls.Add(this.Btn_Department);
+            this.DepartmentContainer.Location = new System.Drawing.Point(3, 262);
+            this.DepartmentContainer.Name = "DepartmentContainer";
+            this.DepartmentContainer.Size = new System.Drawing.Size(300, 45);
+            this.DepartmentContainer.TabIndex = 0;
+            // 
+            // Btn_Department
+            // 
+            this.Btn_Department.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Department.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Department.Image")));
+            this.Btn_Department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Department.Location = new System.Drawing.Point(0, 0);
+            this.Btn_Department.Name = "Btn_Department";
+            this.Btn_Department.Size = new System.Drawing.Size(300, 45);
+            this.Btn_Department.TabIndex = 0;
+            this.Btn_Department.Text = "Department";
+            this.Btn_Department.UseVisualStyleBackColor = true;
+            this.Btn_Department.Click += new System.EventHandler(this.Btn_Department_Click);
+            // 
+            // PositionsContainer
+            // 
+            this.PositionsContainer.Controls.Add(this.Btn_Positions);
+            this.PositionsContainer.Location = new System.Drawing.Point(3, 313);
+            this.PositionsContainer.Name = "PositionsContainer";
+            this.PositionsContainer.Size = new System.Drawing.Size(300, 45);
+            this.PositionsContainer.TabIndex = 6;
+            // 
+            // Btn_Positions
+            // 
+            this.Btn_Positions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Positions.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Positions.Image")));
+            this.Btn_Positions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Positions.Location = new System.Drawing.Point(0, 0);
+            this.Btn_Positions.Name = "Btn_Positions";
+            this.Btn_Positions.Size = new System.Drawing.Size(300, 45);
+            this.Btn_Positions.TabIndex = 0;
+            this.Btn_Positions.Text = "Positions";
+            this.Btn_Positions.UseVisualStyleBackColor = true;
+            this.Btn_Positions.Click += new System.EventHandler(this.Btn_Positions_Click);
+            // 
             // PayrollContainer
             // 
             this.PayrollContainer.Controls.Add(this.Btn_Payroll);
             this.PayrollContainer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PayrollContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PayrollContainer.Location = new System.Drawing.Point(3, 313);
+            this.PayrollContainer.Location = new System.Drawing.Point(3, 364);
             this.PayrollContainer.MinimumSize = new System.Drawing.Size(300, 45);
             this.PayrollContainer.Name = "PayrollContainer";
             this.PayrollContainer.Size = new System.Drawing.Size(300, 45);
@@ -230,12 +279,31 @@
             this.Btn_Payroll.Text = "Payroll";
             this.Btn_Payroll.UseVisualStyleBackColor = true;
             // 
+            // LeaveManagementContainer
+            // 
+            this.LeaveManagementContainer.Controls.Add(this.Btn_LeaveManagement);
+            this.LeaveManagementContainer.Location = new System.Drawing.Point(3, 415);
+            this.LeaveManagementContainer.Name = "LeaveManagementContainer";
+            this.LeaveManagementContainer.Size = new System.Drawing.Size(300, 45);
+            this.LeaveManagementContainer.TabIndex = 0;
+            // 
+            // Btn_LeaveManagement
+            // 
+            this.Btn_LeaveManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_LeaveManagement.Image = ((System.Drawing.Image)(resources.GetObject("Btn_LeaveManagement.Image")));
+            this.Btn_LeaveManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_LeaveManagement.Location = new System.Drawing.Point(0, 0);
+            this.Btn_LeaveManagement.Name = "Btn_LeaveManagement";
+            this.Btn_LeaveManagement.Size = new System.Drawing.Size(300, 45);
+            this.Btn_LeaveManagement.TabIndex = 0;
+            this.Btn_LeaveManagement.Text = "Leave Management";
+            this.Btn_LeaveManagement.UseVisualStyleBackColor = true;
+            // 
             // LogoutContainer
             // 
             this.LogoutContainer.Controls.Add(this.Btn_Logout);
             this.LogoutContainer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoutContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LogoutContainer.Location = new System.Drawing.Point(3, 364);
+            this.LogoutContainer.Location = new System.Drawing.Point(3, 466);
             this.LogoutContainer.Name = "LogoutContainer";
             this.LogoutContainer.Size = new System.Drawing.Size(300, 45);
             this.LogoutContainer.TabIndex = 4;
@@ -307,28 +375,6 @@
             this.MainContent.Size = new System.Drawing.Size(924, 564);
             this.MainContent.TabIndex = 2;
             // 
-            // DepartmentContainer
-            // 
-            this.DepartmentContainer.Controls.Add(this.Btn_Department);
-            this.DepartmentContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DepartmentContainer.Location = new System.Drawing.Point(3, 262);
-            this.DepartmentContainer.Name = "DepartmentContainer";
-            this.DepartmentContainer.Size = new System.Drawing.Size(300, 45);
-            this.DepartmentContainer.TabIndex = 0;
-            // 
-            // Btn_Department
-            // 
-            this.Btn_Department.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Department.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Department.Image")));
-            this.Btn_Department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Department.Location = new System.Drawing.Point(0, 0);
-            this.Btn_Department.Name = "Btn_Department";
-            this.Btn_Department.Size = new System.Drawing.Size(300, 45);
-            this.Btn_Department.TabIndex = 0;
-            this.Btn_Department.Text = "Department";
-            this.Btn_Department.UseVisualStyleBackColor = true;
-            this.Btn_Department.Click += new System.EventHandler(this.Btn_Department_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -344,10 +390,12 @@
             this.DashboardContainer.ResumeLayout(false);
             this.ProjectsContainer.ResumeLayout(false);
             this.EmployeesContainer.ResumeLayout(false);
+            this.DepartmentContainer.ResumeLayout(false);
+            this.PositionsContainer.ResumeLayout(false);
             this.PayrollContainer.ResumeLayout(false);
+            this.LeaveManagementContainer.ResumeLayout(false);
             this.LogoutContainer.ResumeLayout(false);
             this.NavbarContainer.ResumeLayout(false);
-            this.DepartmentContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -379,5 +427,9 @@
         private System.Windows.Forms.Panel MainContent;
         private System.Windows.Forms.Panel DepartmentContainer;
         private System.Windows.Forms.Button Btn_Department;
+        private System.Windows.Forms.Panel PositionsContainer;
+        private System.Windows.Forms.Button Btn_Positions;
+        private System.Windows.Forms.Panel LeaveManagementContainer;
+        private System.Windows.Forms.Button Btn_LeaveManagement;
     }
 }
