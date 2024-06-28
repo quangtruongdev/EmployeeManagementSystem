@@ -42,6 +42,8 @@
             this.Btn_AddEmployee = new System.Windows.Forms.Button();
             this.Btn_AllEmployees = new System.Windows.Forms.Button();
             this.Btn_Employees = new System.Windows.Forms.Button();
+            this.DepartmentContainer = new System.Windows.Forms.Panel();
+            this.Btn_Department = new System.Windows.Forms.Button();
             this.PayrollContainer = new System.Windows.Forms.Panel();
             this.Btn_Payroll = new System.Windows.Forms.Button();
             this.LogoutContainer = new System.Windows.Forms.Panel();
@@ -53,16 +55,14 @@
             this.SidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.NavbarTransition = new System.Windows.Forms.Timer(this.components);
             this.MainContent = new System.Windows.Forms.Panel();
-            this.DepartmentContainer = new System.Windows.Forms.Panel();
-            this.Btn_Department = new System.Windows.Forms.Button();
             this.SidebarContainer.SuspendLayout();
             this.DashboardContainer.SuspendLayout();
             this.ProjectsContainer.SuspendLayout();
             this.EmployeesContainer.SuspendLayout();
+            this.DepartmentContainer.SuspendLayout();
             this.PayrollContainer.SuspendLayout();
             this.LogoutContainer.SuspendLayout();
             this.NavbarContainer.SuspendLayout();
-            this.DepartmentContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // SidebarContainer
@@ -147,6 +147,7 @@
             this.Btn_AllProjects.TabIndex = 1;
             this.Btn_AllProjects.Text = "All Projects";
             this.Btn_AllProjects.UseVisualStyleBackColor = true;
+            this.Btn_AllProjects.Click += new System.EventHandler(this.Btn_AllProjects_Click);
             // 
             // Btn_Projects
             // 
@@ -206,6 +207,28 @@
             this.Btn_Employees.Text = "Employees";
             this.Btn_Employees.UseVisualStyleBackColor = true;
             this.Btn_Employees.Click += new System.EventHandler(this.Btn_Employees_Click);
+            // 
+            // DepartmentContainer
+            // 
+            this.DepartmentContainer.Controls.Add(this.Btn_Department);
+            this.DepartmentContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DepartmentContainer.Location = new System.Drawing.Point(3, 262);
+            this.DepartmentContainer.Name = "DepartmentContainer";
+            this.DepartmentContainer.Size = new System.Drawing.Size(300, 45);
+            this.DepartmentContainer.TabIndex = 0;
+            // 
+            // Btn_Department
+            // 
+            this.Btn_Department.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Department.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Department.Image")));
+            this.Btn_Department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Department.Location = new System.Drawing.Point(0, 0);
+            this.Btn_Department.Name = "Btn_Department";
+            this.Btn_Department.Size = new System.Drawing.Size(300, 45);
+            this.Btn_Department.TabIndex = 0;
+            this.Btn_Department.Text = "Department";
+            this.Btn_Department.UseVisualStyleBackColor = true;
+            this.Btn_Department.Click += new System.EventHandler(this.Btn_Department_Click);
             // 
             // PayrollContainer
             // 
@@ -307,28 +330,6 @@
             this.MainContent.Size = new System.Drawing.Size(924, 564);
             this.MainContent.TabIndex = 2;
             // 
-            // DepartmentContainer
-            // 
-            this.DepartmentContainer.Controls.Add(this.Btn_Department);
-            this.DepartmentContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DepartmentContainer.Location = new System.Drawing.Point(3, 262);
-            this.DepartmentContainer.Name = "DepartmentContainer";
-            this.DepartmentContainer.Size = new System.Drawing.Size(300, 45);
-            this.DepartmentContainer.TabIndex = 0;
-            // 
-            // Btn_Department
-            // 
-            this.Btn_Department.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Department.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Department.Image")));
-            this.Btn_Department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Department.Location = new System.Drawing.Point(0, 0);
-            this.Btn_Department.Name = "Btn_Department";
-            this.Btn_Department.Size = new System.Drawing.Size(300, 45);
-            this.Btn_Department.TabIndex = 0;
-            this.Btn_Department.Text = "Department";
-            this.Btn_Department.UseVisualStyleBackColor = true;
-            this.Btn_Department.Click += new System.EventHandler(this.Btn_Department_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -344,10 +345,10 @@
             this.DashboardContainer.ResumeLayout(false);
             this.ProjectsContainer.ResumeLayout(false);
             this.EmployeesContainer.ResumeLayout(false);
+            this.DepartmentContainer.ResumeLayout(false);
             this.PayrollContainer.ResumeLayout(false);
             this.LogoutContainer.ResumeLayout(false);
             this.NavbarContainer.ResumeLayout(false);
-            this.DepartmentContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

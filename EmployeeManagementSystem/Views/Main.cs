@@ -1,4 +1,5 @@
 ﻿using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Project;
 using System;
 using System.Windows.Forms;
 
@@ -135,6 +136,16 @@ namespace EmployeeManagementSystem.Views
             MainContent.Controls.Clear();
             MainContent.Controls.Add(department);
             department.Show();
+        }
+
+        private void Btn_AllProjects_Click(object sender, EventArgs e)
+        {
+            Project project = new Project();
+            project.TopLevel = false;
+            project.Dock = DockStyle.Fill;
+            MainContent.Controls.Clear();
+            MainContent.Controls.Add(project);
+            project.Show();
         }
     }
 }
