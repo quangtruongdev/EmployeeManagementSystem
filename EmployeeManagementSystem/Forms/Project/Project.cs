@@ -18,6 +18,9 @@ namespace EmployeeManagementSystem.Forms.Project
         ProjectService _projectService;
         private int currentPage = 1;
         private int pageSize = 2;
+        private string projectNameKey = null;
+        private string startDateKey = null;
+        private string endDateKey = null;
         public Project()
         {
             InitializeComponent();
@@ -27,7 +30,7 @@ namespace EmployeeManagementSystem.Forms.Project
 
         public void LoadProjects()
         {
-            var results = _projectService.GetProjects(currentPage, pageSize);
+            var results = _projectService.GetProjects(currentPage, pageSize, projectNameKey, startDateKey, endDateKey);
             var projects = results.Projects;
             var totalPages = results.TotalPages;
 
@@ -191,6 +194,15 @@ namespace EmployeeManagementSystem.Forms.Project
             {
                 LoadProjects();
             }
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            projectNameKey = projectNameTextBox.Text;
+            startDateKey = startDateTextBox.Text;
+            endDateKey = endDateTextBox.Text;
+            currentPage = 1;
+            LoadProjects();
         }
     }
 }

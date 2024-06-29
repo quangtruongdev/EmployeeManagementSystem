@@ -24,18 +24,27 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public (List<Project> Projects, int totalProjects, int TotalPages) GetProjects(int page, int pageSize)
+        public (List<Project> Projects, int totalProjects, int TotalPages) 
+            GetProjects(int page, int pageSize, string projectNameKey = null
+            , string startDateKey = null, string endDateKey = null)
         {
             try
             {
                 using (var context = new DatabaseDataContext())
-                // this to make sure that data is newest
-                // because it use cache
+                // this to make sure that data is newest because it use cache
                 {
-                    var totalProjects = context.Projects.Count();
+                    var projects = context.Projects.AsQueryable();
+                    projects = (string.IsNullOrEmpty(projectNameKey)) ? projects 
+                        : projects.Where(p => p.ProjectName.Contains(projectNameKey));
+                    projects = (string.IsNullOrEmpty(startDateKey)) ? projects
+                        : projects.Where(p => p.StartDate == DateTime.Parse(startDateKey));
+                    projects = (string.IsNullOrEmpty(endDateKey)) ? projects
+                        : projects.Where(p => p.EndDate == DateTime.Parse(endDateKey));
+
+                    var totalProjects = projects.Count();
                     var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
 
-                    var Projects = context.Projects
+                    var Projects = projects
                                         .Skip((page - 1) * pageSize)
                                         .Take(pageSize)
                                         .ToList();

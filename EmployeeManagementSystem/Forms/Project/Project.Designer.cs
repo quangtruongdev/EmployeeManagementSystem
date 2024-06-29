@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Project));
             this.Tbl_Projects = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Btn_AddProject = new System.Windows.Forms.Button();
-            this.PagingContainer = new System.Windows.Forms.Panel();
-            this.PageOnPage = new System.Windows.Forms.Label();
-            this.Btn_Next = new System.Windows.Forms.Button();
-            this.Btn_Pre = new System.Windows.Forms.Button();
             this.ProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +38,19 @@
             this.BtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnMembersDetails = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Btn_AddProject = new System.Windows.Forms.Button();
+            this.PagingContainer = new System.Windows.Forms.Panel();
+            this.PageOnPage = new System.Windows.Forms.Label();
+            this.Btn_Next = new System.Windows.Forms.Button();
+            this.Btn_Pre = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.projectNameTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.startDateTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.endDateTextBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Tbl_Projects)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.SuspendLayout();
@@ -64,81 +71,13 @@
             this.BtnEdit,
             this.BtnDelete,
             this.BtnMembersDetails});
-            this.Tbl_Projects.Location = new System.Drawing.Point(-1, 103);
+            this.Tbl_Projects.Location = new System.Drawing.Point(-1, 133);
             this.Tbl_Projects.Name = "Tbl_Projects";
             this.Tbl_Projects.RowHeadersWidth = 51;
             this.Tbl_Projects.RowTemplate.Height = 24;
-            this.Tbl_Projects.Size = new System.Drawing.Size(1004, 441);
+            this.Tbl_Projects.Size = new System.Drawing.Size(1004, 411);
             this.Tbl_Projects.TabIndex = 0;
             this.Tbl_Projects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Projects_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Project";
-            // 
-            // Btn_AddProject
-            // 
-            this.Btn_AddProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_AddProject.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_AddProject.Image = ((System.Drawing.Image)(resources.GetObject("Btn_AddProject.Image")));
-            this.Btn_AddProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_AddProject.Location = new System.Drawing.Point(790, 12);
-            this.Btn_AddProject.Name = "Btn_AddProject";
-            this.Btn_AddProject.Size = new System.Drawing.Size(200, 45);
-            this.Btn_AddProject.TabIndex = 2;
-            this.Btn_AddProject.Text = "Add Project";
-            this.Btn_AddProject.UseVisualStyleBackColor = true;
-            this.Btn_AddProject.Click += new System.EventHandler(this.Btn_AddProject_Click);
-            // 
-            // PagingContainer
-            // 
-            this.PagingContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PagingContainer.Controls.Add(this.PageOnPage);
-            this.PagingContainer.Controls.Add(this.Btn_Next);
-            this.PagingContainer.Controls.Add(this.Btn_Pre);
-            this.PagingContainer.Location = new System.Drawing.Point(728, 559);
-            this.PagingContainer.Name = "PagingContainer";
-            this.PagingContainer.Size = new System.Drawing.Size(230, 40);
-            this.PagingContainer.TabIndex = 3;
-            // 
-            // PageOnPage
-            // 
-            this.PageOnPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PageOnPage.AutoSize = true;
-            this.PageOnPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PageOnPage.Location = new System.Drawing.Point(81, 12);
-            this.PageOnPage.Name = "PageOnPage";
-            this.PageOnPage.Size = new System.Drawing.Size(61, 16);
-            this.PageOnPage.TabIndex = 2;
-            this.PageOnPage.Text = "Page 1/1";
-            // 
-            // Btn_Next
-            // 
-            this.Btn_Next.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Btn_Next.Location = new System.Drawing.Point(155, 0);
-            this.Btn_Next.Name = "Btn_Next";
-            this.Btn_Next.Size = new System.Drawing.Size(75, 40);
-            this.Btn_Next.TabIndex = 1;
-            this.Btn_Next.Text = "Next";
-            this.Btn_Next.UseVisualStyleBackColor = true;
-            this.Btn_Next.Click += new System.EventHandler(this.Btn_Next_Click);
-            // 
-            // Btn_Pre
-            // 
-            this.Btn_Pre.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Btn_Pre.Location = new System.Drawing.Point(0, 0);
-            this.Btn_Pre.Name = "Btn_Pre";
-            this.Btn_Pre.Size = new System.Drawing.Size(75, 40);
-            this.Btn_Pre.TabIndex = 0;
-            this.Btn_Pre.Text = "Previous";
-            this.Btn_Pre.UseVisualStyleBackColor = true;
-            this.Btn_Pre.Click += new System.EventHandler(this.Btn_Pre_Click);
             // 
             // ProjectId
             // 
@@ -201,11 +140,151 @@
             this.BtnMembersDetails.MinimumWidth = 6;
             this.BtnMembersDetails.Name = "BtnMembersDetails";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Project";
+            // 
+            // Btn_AddProject
+            // 
+            this.Btn_AddProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_AddProject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_AddProject.Image = ((System.Drawing.Image)(resources.GetObject("Btn_AddProject.Image")));
+            this.Btn_AddProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_AddProject.Location = new System.Drawing.Point(790, 12);
+            this.Btn_AddProject.Name = "Btn_AddProject";
+            this.Btn_AddProject.Size = new System.Drawing.Size(200, 45);
+            this.Btn_AddProject.TabIndex = 2;
+            this.Btn_AddProject.Text = "Add Project";
+            this.Btn_AddProject.UseVisualStyleBackColor = true;
+            this.Btn_AddProject.Click += new System.EventHandler(this.Btn_AddProject_Click);
+            // 
+            // PagingContainer
+            // 
+            this.PagingContainer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PagingContainer.Controls.Add(this.PageOnPage);
+            this.PagingContainer.Controls.Add(this.Btn_Next);
+            this.PagingContainer.Controls.Add(this.Btn_Pre);
+            this.PagingContainer.Location = new System.Drawing.Point(379, 563);
+            this.PagingContainer.Name = "PagingContainer";
+            this.PagingContainer.Size = new System.Drawing.Size(230, 40);
+            this.PagingContainer.TabIndex = 3;
+            // 
+            // PageOnPage
+            // 
+            this.PageOnPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PageOnPage.AutoSize = true;
+            this.PageOnPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageOnPage.Location = new System.Drawing.Point(81, 12);
+            this.PageOnPage.Name = "PageOnPage";
+            this.PageOnPage.Size = new System.Drawing.Size(61, 16);
+            this.PageOnPage.TabIndex = 2;
+            this.PageOnPage.Text = "Page 1/1";
+            // 
+            // Btn_Next
+            // 
+            this.Btn_Next.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Btn_Next.Location = new System.Drawing.Point(155, 0);
+            this.Btn_Next.Name = "Btn_Next";
+            this.Btn_Next.Size = new System.Drawing.Size(75, 40);
+            this.Btn_Next.TabIndex = 1;
+            this.Btn_Next.Text = "Next";
+            this.Btn_Next.UseVisualStyleBackColor = true;
+            this.Btn_Next.Click += new System.EventHandler(this.Btn_Next_Click);
+            // 
+            // Btn_Pre
+            // 
+            this.Btn_Pre.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Btn_Pre.Location = new System.Drawing.Point(0, 0);
+            this.Btn_Pre.Name = "Btn_Pre";
+            this.Btn_Pre.Size = new System.Drawing.Size(75, 40);
+            this.Btn_Pre.TabIndex = 0;
+            this.Btn_Pre.Text = "Previous";
+            this.Btn_Pre.UseVisualStyleBackColor = true;
+            this.Btn_Pre.Click += new System.EventHandler(this.Btn_Pre_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Project Name";
+            // 
+            // projectNameTextBox
+            // 
+            this.projectNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.projectNameTextBox.Location = new System.Drawing.Point(107, 81);
+            this.projectNameTextBox.Name = "projectNameTextBox";
+            this.projectNameTextBox.Size = new System.Drawing.Size(208, 22);
+            this.projectNameTextBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(321, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Start Date";
+            // 
+            // startDateTextBox
+            // 
+            this.startDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.startDateTextBox.Location = new System.Drawing.Point(393, 81);
+            this.startDateTextBox.Name = "startDateTextBox";
+            this.startDateTextBox.Size = new System.Drawing.Size(208, 22);
+            this.startDateTextBox.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(607, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 16);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "End Date";
+            // 
+            // endDateTextBox
+            // 
+            this.endDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.endDateTextBox.Location = new System.Drawing.Point(676, 81);
+            this.endDateTextBox.Name = "endDateTextBox";
+            this.endDateTextBox.Size = new System.Drawing.Size(208, 22);
+            this.endDateTextBox.TabIndex = 5;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.searchBtn.Location = new System.Drawing.Point(915, 77);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 30);
+            this.searchBtn.TabIndex = 6;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
             // Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 628);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.endDateTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.startDateTextBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.projectNameTextBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.PagingContainer);
             this.Controls.Add(this.Btn_AddProject);
             this.Controls.Add(this.label1);
@@ -238,5 +317,12 @@
         private System.Windows.Forms.DataGridViewButtonColumn BtnEdit;
         private System.Windows.Forms.DataGridViewButtonColumn BtnDelete;
         private System.Windows.Forms.DataGridViewButtonColumn BtnMembersDetails;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox projectNameTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox startDateTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox endDateTextBox;
+        private System.Windows.Forms.Button searchBtn;
     }
 }
