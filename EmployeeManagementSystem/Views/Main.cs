@@ -1,3 +1,11 @@
+using EmployeeManagementSystem.Forms.Dashboard;
+using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Leave;
+using EmployeeManagementSystem.Forms.Login;
+using EmployeeManagementSystem.Forms.Positons;
+using EmployeeManagementSystem.Interfaces;
+using EmployeeManagementSystem.Services;
+using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -127,7 +135,7 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_Payroll_Click(object sender, EventArgs e)
         {
-            Salary salary = new Salary();
+            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
             Shared.ShowMainContent(salary, MainContent);
         }
 
