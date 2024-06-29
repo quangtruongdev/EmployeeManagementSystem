@@ -30,13 +30,15 @@ namespace EmployeeManagementSystem.Forms.Salary
 
             MessageBox.Show("Update successfully");
 
-            s.LoadData();
+            s.LoadData(1);
         }
 
         public void LoadData()
         {
             txt_email.ReadOnly = true;
             txt_name.ReadOnly = true;
+            txt_pos.ReadOnly = true;
+            txt_dep.ReadOnly = true;
 
             var email = Utils.Salary.Email;
 
@@ -46,9 +48,9 @@ namespace EmployeeManagementSystem.Forms.Salary
 
             txt_name.Text = query.name;
 
-            cbx_position.Text = query.posname;
+            txt_pos.Text = query.posname;
 
-            cbx_dep.Text = query.depname;
+            txt_dep.Text = query.depname;
 
             txt_salary.Text = query.salary.ToString();
         }

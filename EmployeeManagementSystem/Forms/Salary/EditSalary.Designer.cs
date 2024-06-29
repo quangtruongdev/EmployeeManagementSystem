@@ -38,8 +38,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_salary = new System.Windows.Forms.TextBox();
-            this.cbx_position = new System.Windows.Forms.ComboBox();
-            this.cbx_dep = new System.Windows.Forms.ComboBox();
+            this.txt_pos = new System.Windows.Forms.TextBox();
+            this.txt_dep = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -149,34 +149,32 @@
             this.txt_salary.Size = new System.Drawing.Size(301, 30);
             this.txt_salary.TabIndex = 3;
             // 
-            // cbx_position
+            // txt_pos
             // 
-            this.cbx_position.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_position.FormattingEnabled = true;
-            this.cbx_position.Location = new System.Drawing.Point(259, 285);
-            this.cbx_position.Name = "cbx_position";
-            this.cbx_position.Size = new System.Drawing.Size(304, 30);
-            this.cbx_position.TabIndex = 4;
+            this.txt_pos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pos.Location = new System.Drawing.Point(256, 288);
+            this.txt_pos.Name = "txt_pos";
+            this.txt_pos.Size = new System.Drawing.Size(301, 30);
+            this.txt_pos.TabIndex = 3;
             // 
-            // cbx_dep
+            // txt_dep
             // 
-            this.cbx_dep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_dep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_dep.FormattingEnabled = true;
-            this.cbx_dep.Location = new System.Drawing.Point(259, 228);
-            this.cbx_dep.Name = "cbx_dep";
-            this.cbx_dep.Size = new System.Drawing.Size(304, 30);
-            this.cbx_dep.TabIndex = 4;
+            this.txt_dep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_dep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_dep.Location = new System.Drawing.Point(256, 228);
+            this.txt_dep.Name = "txt_dep";
+            this.txt_dep.Size = new System.Drawing.Size(301, 30);
+            this.txt_dep.TabIndex = 3;
             // 
             // EditSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 562);
-            this.Controls.Add(this.cbx_dep);
-            this.Controls.Add(this.cbx_position);
             this.Controls.Add(this.txt_salary);
+            this.Controls.Add(this.txt_dep);
+            this.Controls.Add(this.txt_pos);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_name);
             this.Controls.Add(this.btn_update);
@@ -206,7 +204,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_salary;
-        private System.Windows.Forms.ComboBox cbx_position;
-        private System.Windows.Forms.ComboBox cbx_dep;
+        private System.Windows.Forms.TextBox txt_pos;
+        private System.Windows.Forms.TextBox txt_dep;
     }
 }

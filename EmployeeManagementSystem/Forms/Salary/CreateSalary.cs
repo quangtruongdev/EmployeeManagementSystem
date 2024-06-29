@@ -79,7 +79,7 @@ namespace EmployeeManagementSystem.Forms.Salary
 
             Salary s = Application.OpenForms.OfType<Salary>().FirstOrDefault();
 
-            s.LoadData();
+            s.LoadData(1);
         }
 
         public double? TryParseNullableDouble(string s)
