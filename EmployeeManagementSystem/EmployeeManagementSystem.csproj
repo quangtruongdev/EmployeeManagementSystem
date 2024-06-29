@@ -59,6 +59,12 @@
     <Compile Include="Forms\Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.Designer.cs">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Salary\EditSalary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,7 @@
     <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Services\SalaryService.cs" />
     <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\Salary.cs" />
     <Compile Include="Utils\Session.cs" />
     <Compile Include="Views\Main.cs">
       <SubType>Form</SubType>
@@ -95,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\CreateSalary.resx">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Salary\EditSalary.resx">
       <DependentUpon>EditSalary.cs</DependentUpon>
