@@ -127,12 +127,8 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_Payroll_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
             Salary salary = new Salary();
-            salary.TopLevel = false;
-            salary.Dock = DockStyle.Fill;
-            panel2.Controls.Add(salary);
-            salary.Show();
+            Shared.ShowMainContent(salary, MainContent);
         }
 
         private void Btn_Departments_Click(object sender, EventArgs e)
