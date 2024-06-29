@@ -50,6 +50,7 @@
       <Association Name="Employee_Salary" Member="Salaries" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Salary" />
       <Association Name="Employee_ContactDetail" Member="ContactDetails" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="ContactDetail" />
       <Association Name="Employee_EmployeeProject" Member="EmployeeProjects" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeProject" />
+      <Association Name="Employee_LeaveManagement" Member="LeaveManagements" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="LeaveManagement" />
       <Association Name="Department_Employee" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
       <Association Name="Positon_Employee" Member="Positon" ThisKey="PositionID" OtherKey="PositionID" Type="Positon" IsForeignKey="true" />
       <Association Name="UserAccount_Employee" Member="UserAccount" ThisKey="UserID" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
@@ -88,6 +89,18 @@
       <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Project_EmployeeProject" Member="EmployeeProjects" ThisKey="ProjectID" OtherKey="ProjectID" Type="EmployeeProject" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LeaveManagement" Member="LeaveManagements">
+    <Type Name="LeaveManagement">
+      <Column Name="LeaveID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeaveType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_LeaveManagement" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

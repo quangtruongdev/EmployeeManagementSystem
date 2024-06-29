@@ -1,5 +1,6 @@
 ﻿using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
 using EmployeeManagementSystem.Interfaces;
@@ -176,6 +177,12 @@ namespace EmployeeManagementSystem.Views
         {
             DashboardForm dashboard = new DashboardForm();
             Shared.ShowMainContent(dashboard, MainContent);
+        }
+
+        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
+        {
+            LeaveLists leaveLists = new LeaveLists();
+            Shared.ShowMainContent(leaveLists, MainContent);
         }
     }
 }
