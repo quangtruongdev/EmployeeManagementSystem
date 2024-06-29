@@ -21,5 +21,7 @@ namespace EmployeeManagementSystem.Interfaces
         void Payment(string email);
 
         IQueryable loadEmployee(string search, int pageSize);
+
+        int getTotalEmployeeHasSalary();
     }
 }

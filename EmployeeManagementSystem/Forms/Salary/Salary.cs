@@ -19,10 +19,10 @@ namespace EmployeeManagementSystem.Forms.Salary
 
         private void Salary_Load(object sender, EventArgs e)
         {
-            LoadData();
+            LoadData(1);
         }
 
-        public void LoadData()
+        public void LoadData(int crrPage)
         {
             dataGridView1.DataSource = null;
 
@@ -30,9 +30,33 @@ namespace EmployeeManagementSystem.Forms.Salary
 
             dataGridView1.AutoGenerateColumns = false;
 
-            var query = salaryService.LoadData(search, 1, 5);
+            var query = salaryService.LoadData(search, crrPage, 5);
 
             dataGridView1.DataSource = query;
+
+            var pages = Math.Ceiling((double)salaryService.getTotalEmployeeHasSalary() / 5);
+
+
+            lb_page.Text = crrPage + "/" + pages;
+
+            if (crrPage == 1)
+            {
+                btn_previous.Enabled = false;
+            }
+            else
+            {
+                btn_previous.Enabled = true;
+            }
+
+            if (crrPage == pages)
+            {
+                btn_next.Enabled = false;
+            }
+            else
+            {
+                btn_next.Enabled = true;
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -68,7 +92,7 @@ namespace EmployeeManagementSystem.Forms.Salary
 
                         MessageBox.Show("Payment for " + salary);
 
-                        LoadData();
+                        LoadData(1);
                     }
                 }
             }
@@ -94,7 +118,22 @@ namespace EmployeeManagementSystem.Forms.Salary
         {
             string search = txt_search.Text;
 
-            LoadData();
+            LoadData(1);
         }
+
+        private void btn_previous_Click(object sender, EventArgs e)
+        {
+            Utils.Salary.crrPage--;
+
+            LoadData(Utils.Salary.crrPage);
+        }
+
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            Utils.Salary.crrPage++;
+
+            LoadData(Utils.Salary.crrPage);
+        }
+
     }
 }

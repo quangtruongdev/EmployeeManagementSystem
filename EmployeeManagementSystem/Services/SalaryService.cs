@@ -247,5 +247,18 @@ namespace EmployeeManagementSystem.Services
                 return null;
             }
         }
+
+        public int getTotalEmployeeHasSalary()
+        {
+            try
+            {
+                DatabaseDataContext db = new DatabaseDataContext();
+                return db.Salaries.Count();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }
