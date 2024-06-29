@@ -12,6 +12,10 @@ namespace EmployeeManagementSystem.Forms.Salary
 
         SalaryService salaryService = new SalaryService();
 
+        public static string Email = "";
+
+        public static int crrPage = 1;
+
         public Salary()
         {
             InitializeComponent();
@@ -72,7 +76,7 @@ namespace EmployeeManagementSystem.Forms.Salary
 
                     string email = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                    Utils.Salary.Email = email;
+                    Email = email;
 
                     edit.ShowDialog();
                 }
@@ -123,16 +127,16 @@ namespace EmployeeManagementSystem.Forms.Salary
 
         private void btn_previous_Click(object sender, EventArgs e)
         {
-            Utils.Salary.crrPage--;
+            crrPage--;
 
-            LoadData(Utils.Salary.crrPage);
+            LoadData(crrPage);
         }
 
         private void btn_next_Click(object sender, EventArgs e)
         {
-            Utils.Salary.crrPage++;
+            crrPage++;
 
-            LoadData(Utils.Salary.crrPage);
+            LoadData(crrPage);
         }
 
     }

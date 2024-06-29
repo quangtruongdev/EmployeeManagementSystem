@@ -17,18 +17,16 @@ namespace EmployeeManagementSystem.Services
                 var employees = db.Employees;
                 var salaries = db.Salaries;
                 var positions = db.Positions;
-                var detail = db.ContactDetails;
 
                 var query = from s in salaries
                             join e in employees on s.EmployeeID equals e.EmployeeID
                             join p in positions on e.PositionID equals p.PositionID
-                            join d in detail on e.EmployeeID equals d.EmployeeID
                             select new
                             {
                                 e.FirstName,
                                 p.PositionName,
                                 s.SalaryAmount,
-                                d.Email
+                                e.Email
                             };
                 if (search != "")
                 {
@@ -53,21 +51,19 @@ namespace EmployeeManagementSystem.Services
                 DatabaseDataContext db = new DatabaseDataContext();
 
                 var tbl_employee = db.Employees;
-                var tbl_detail = db.ContactDetails;
                 var tbl_position = db.Positions;
                 var tbl_department = db.Departments;
                 var tbl_salary = db.Salaries;
 
                 var query = from emp in tbl_employee
-                            join detail in tbl_detail on emp.EmployeeID equals detail.EmployeeID
                             join pos in tbl_position on emp.PositionID equals pos.PositionID
                             join dep in tbl_department on emp.DepartmentID equals dep.DepartmentID
                             join sal in tbl_salary on emp.EmployeeID equals sal.EmployeeID
-                            where detail.Email == email
+                            where emp.Email == email
                             select new
                             {
                                 emp.FirstName,
-                                detail.Email,
+                                emp.Email,
                                 pos.PositionName,
                                 dep.DepartmentName,
                                 sal.SalaryAmount
@@ -116,10 +112,8 @@ namespace EmployeeManagementSystem.Services
             {
                 DatabaseDataContext db = new DatabaseDataContext();
                 var tbl_employee = db.Employees;
-                var tbl_detail = db.ContactDetails;
                 var query = from emp in tbl_employee
-                            join detail in tbl_detail on emp.EmployeeID equals detail.EmployeeID
-                            where detail.Email == email
+                            where emp.Email == email
                             select new
                             {
                                 emp.EmployeeID
@@ -154,13 +148,11 @@ namespace EmployeeManagementSystem.Services
             {
                 DatabaseDataContext db = new DatabaseDataContext();
                 var tbl_employee = db.Employees;
-                var tbl_detail = db.ContactDetails;
                 var tbl_salary = db.Salaries;
 
                 var query = from emp in tbl_employee
-                            join detail in tbl_detail on emp.EmployeeID equals detail.EmployeeID
                             join salary in tbl_salary on emp.EmployeeID equals salary.EmployeeID
-                            where detail.Email == email
+                            where emp.Email == email
                             select new
                             {
                                 emp.EmployeeID,
@@ -186,13 +178,11 @@ namespace EmployeeManagementSystem.Services
             {
                 DatabaseDataContext db = new DatabaseDataContext();
                 var tbl_employee = db.Employees;
-                var tbl_detail = db.ContactDetails;
                 var tbl_salary = db.Salaries;
 
                 var query = from emp in tbl_employee
-                            join detail in tbl_detail on emp.EmployeeID equals detail.EmployeeID
                             join salary in tbl_salary on emp.EmployeeID equals salary.EmployeeID
-                            where detail.Email == email
+                            where emp.Email == email
                             select new
                             {
                                 salary.SalaryID
@@ -218,19 +208,17 @@ namespace EmployeeManagementSystem.Services
 
                 var employees = db.Employees;
                 var positions = db.Positions;
-                var detail = db.ContactDetails;
                 var departments = db.Departments;
 
                 var query = from e in employees
                             join p in positions on e.PositionID equals p.PositionID
-                            join d in detail on e.EmployeeID equals d.EmployeeID
                             join dep in departments on e.DepartmentID equals dep.DepartmentID
                             select new
                             {
                                 e.FirstName,
                                 e.LastName,
                                 p.PositionName,
-                                d.Email,
+                                e.Email,
                                 dep.DepartmentName
                             };
                 if (search != "")

@@ -24,7 +24,7 @@ namespace EmployeeManagementSystem.Forms.Salary
         {
             Salary s = Application.OpenForms.OfType<Salary>().FirstOrDefault();
 
-            var email = Utils.Salary.Email;
+            var email = Salary.Email;
 
             salaryService.updateSalary(email, txt_salary.Text);
 
@@ -40,7 +40,7 @@ namespace EmployeeManagementSystem.Forms.Salary
             txt_pos.ReadOnly = true;
             txt_dep.ReadOnly = true;
 
-            var email = Utils.Salary.Email;
+            var email = Salary.Email;
 
             var query = salaryService.GetEmployeebyEmail(email);
 

@@ -27,17 +27,6 @@ namespace EmployeeManagementSystem.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K665D7S;Initial Catalog=employeeManager;Persist Security Info" +
-            "=True;User ID=sa;Password=123456;TrustServerCertificate=True")]
-        public string employeeManagerConnectionString1 {
-            get {
-                return ((string)(this["employeeManagerConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K665D7S;Initial Catalog=employeeManager;Persist Security Info" +
             "=True;User ID=sa;Password=123456;Encrypt=True;TrustServerCertificate=True")]
         public string employeeManagerConnectionString {
             get {
@@ -49,21 +38,21 @@ namespace EmployeeManagementSystem.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KC4B8TP;Initial Catalog=employeeManager;Persist Security Info" +
-            "=True;User ID=sa;Password=123456;Encrypt=True;TrustServerCertificate=True")]
-        public string employeeManagerConnectionString2 {
+            "=True;User ID=sa;TrustServerCertificate=True")]
+        public string employeeManagerConnectionString3 {
             get {
-                return ((string)(this["employeeManagerConnectionString2"]));
+                return ((string)(this["employeeManagerConnectionString3"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KC4B8TP;Initial Catalog=employeeManager;Persist Security Info" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K665D7S;Initial Catalog=employeeManager;Persist Security Info" +
             "=True;User ID=sa;Password=123456;TrustServerCertificate=True")]
-        public string employeeManagerConnectionString3 {
+        public string employeeManagerConnectionString1 {
             get {
-                return ((string)(this["employeeManagerConnectionString3"]));
+                return ((string)(this["employeeManagerConnectionString1"]));
             }
         }
     }
