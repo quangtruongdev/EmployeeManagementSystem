@@ -143,6 +143,7 @@
             // ProjectId
             // 
             this.ProjectId.DataPropertyName = "ProjectId";
+            this.ProjectId.FillWeight = 70.3877F;
             this.ProjectId.HeaderText = "Project Id";
             this.ProjectId.MinimumWidth = 6;
             this.ProjectId.Name = "ProjectId";
@@ -150,6 +151,7 @@
             // ProjectName
             // 
             this.ProjectName.DataPropertyName = "ProjectName";
+            this.ProjectName.FillWeight = 70.3877F;
             this.ProjectName.HeaderText = "Project Name";
             this.ProjectName.MinimumWidth = 6;
             this.ProjectName.Name = "ProjectName";
@@ -157,6 +159,7 @@
             // Description
             // 
             this.Description.DataPropertyName = "Description";
+            this.Description.FillWeight = 70.3877F;
             this.Description.HeaderText = "Description";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
@@ -164,6 +167,7 @@
             // StartDate
             // 
             this.StartDate.DataPropertyName = "StartDate";
+            this.StartDate.FillWeight = 70.3877F;
             this.StartDate.HeaderText = "Start Date";
             this.StartDate.MinimumWidth = 6;
             this.StartDate.Name = "StartDate";
@@ -171,24 +175,28 @@
             // EndDate
             // 
             this.EndDate.DataPropertyName = "EndDate";
+            this.EndDate.FillWeight = 70.3877F;
             this.EndDate.HeaderText = "End Date";
             this.EndDate.MinimumWidth = 6;
             this.EndDate.Name = "EndDate";
             // 
             // BtnEdit
             // 
+            this.BtnEdit.FillWeight = 70.3877F;
             this.BtnEdit.HeaderText = "";
             this.BtnEdit.MinimumWidth = 6;
             this.BtnEdit.Name = "BtnEdit";
             // 
             // BtnDelete
             // 
+            this.BtnDelete.FillWeight = 70.3877F;
             this.BtnDelete.HeaderText = "";
             this.BtnDelete.MinimumWidth = 6;
             this.BtnDelete.Name = "BtnDelete";
             // 
             // BtnMembersDetails
             // 
+            this.BtnMembersDetails.FillWeight = 70.3877F;
             this.BtnMembersDetails.HeaderText = "";
             this.BtnMembersDetails.MinimumWidth = 6;
             this.BtnMembersDetails.Name = "BtnMembersDetails";

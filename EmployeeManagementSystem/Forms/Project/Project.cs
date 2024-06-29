@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -156,7 +157,10 @@ namespace EmployeeManagementSystem.Forms.Project
                 }
                 else if (e.ColumnIndex == Tbl_Projects.Columns["BtnMembersDetails"].Index)
                 {
-                    //MembersDetails(projectId);
+                    var projectName = Tbl_Projects.Rows[e.RowIndex].Cells["ProjectName"].Value.ToString();
+                    string startDate = Tbl_Projects.Rows[e.RowIndex].Cells["StartDate"].Value.ToString();
+                    string endDate = Tbl_Projects.Rows[e.RowIndex].Cells["EndDate"].Value.ToString();
+                    MembersDetails(projectId, projectName, startDate, endDate);
                 }
             }
         }
@@ -176,6 +180,15 @@ namespace EmployeeManagementSystem.Forms.Project
             if (comfirmResult == DialogResult.Yes)
             {
                 _projectService.DeleteProject(projectId);
+                LoadProjects();
+            }
+        }
+
+        private void MembersDetails(string projectId, string projectName, string startDate, string endDate)
+        {
+            AddEmployeeToProject membersDetails = new AddEmployeeToProject(projectId, projectName, startDate, endDate);
+            if (membersDetails.ShowDialog() == DialogResult.OK)
+            {
                 LoadProjects();
             }
         }

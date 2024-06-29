@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using EmployeeManagementSystem.Interfaces;
 using EmployeeManagementSystem.Models;
 
@@ -23,11 +24,11 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public (List<Project> Projects, int totalDepartments, int TotalPages) GetProjects(int page, int pageSize)
+        public (List<Project> Projects, int totalProjects, int TotalPages) GetProjects(int page, int pageSize)
         {
             try
             {
-                using (var context = new DatabaseDataContext()) 
+                using (var context = new DatabaseDataContext())
                 // this to make sure that data is newest
                 // because it use cache
                 {
@@ -73,7 +74,7 @@ namespace EmployeeManagementSystem.Services
                 throw new Exception(ex.Message);
             }
         }
-        
+
         public void AddProject(Project project)
         {
             try
@@ -96,6 +97,76 @@ namespace EmployeeManagementSystem.Services
             oldProject.StartDate = project.StartDate;
             oldProject.EndDate = project.EndDate;
             context.SubmitChanges();
+        }
+
+        public (IQueryable res, int totalEmployees, int totalPages, List<Positon> positions
+            , List<Employee> employees, List<Employee> employeesNotInProject) GetEmployeesInProject(string projectId, int page, int pageSize)
+        {
+            try
+            {
+                var employeesInProject = context.EmployeeProjects
+                    .Where(ep => ep.ProjectID == projectId);
+                int totalEmployees = employeesInProject.Count();
+                int totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
+                var employees = context.Employees;
+                var positions = context.Positons;
+
+                var employeeIdsInProject = context.EmployeeProjects.Where(ep => 
+                    ep.ProjectID == projectId).Select(ep => ep.EmployeeID).ToList();
+                var employeesNotInProject = context.Employees
+                    .Where(e => !employeeIdsInProject.Contains(e.EmployeeID)).ToList();
+
+
+
+                var result = from employee in employeesInProject
+                             join position in positions
+                             on employee.PositionID equals position.PositionID
+                             join employeeInProject in employees
+                             on employee.EmployeeID equals employeeInProject.EmployeeID
+                             select new
+                             {
+                                 EmployeeId = employee.EmployeeID,
+                                 FirstName = employeeInProject.FirstName,
+                                 LastName = employeeInProject.LastName,
+                                 Position = position.PositionName
+                             };
+                result = result.Skip((page-1) * pageSize).Take(pageSize);
+
+                return (result, totalEmployees, totalPages, positions.ToList(), employees.ToList(), employeesNotInProject);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return (null, 0, 0, null, null, null);
+            }
+        }
+
+        public void AddEmployeeToProject(EmployeeProject employeeProject) 
+        {
+            try
+            {
+                context.EmployeeProjects.InsertOnSubmit(employeeProject);
+                context.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public void DeleteEmployeeFromProject(string employeeId, string projectId)
+        {
+            try
+            {
+                var employeeProject = context.EmployeeProjects
+                    .FirstOrDefault(ep => ep.ProjectID == projectId && ep.EmployeeID == employeeId);
+                context.EmployeeProjects.DeleteOnSubmit(employeeProject);
+                context.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }
