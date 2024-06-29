@@ -19,8 +19,10 @@ namespace EmployeeManagementSystem.Forms.Project
         private int currentPage = 1;
         private int pageSize = 2;
         private string projectNameKey = null;
-        private string startDateKey = null;
-        private string endDateKey = null;
+        private DateTime? startFromDateKey = null;
+        private DateTime? startToDateKey = null;
+        private DateTime? endFromDateKey = null;
+        private DateTime? endToDateKey = null;
         public Project()
         {
             InitializeComponent();
@@ -30,7 +32,8 @@ namespace EmployeeManagementSystem.Forms.Project
 
         public void LoadProjects()
         {
-            var results = _projectService.GetProjects(currentPage, pageSize, projectNameKey, startDateKey, endDateKey);
+            var results = _projectService.GetProjects(currentPage, pageSize, projectNameKey
+                , startFromDateKey, startToDateKey, endFromDateKey, endToDateKey);
             var projects = results.Projects;
             var totalPages = results.TotalPages;
 
@@ -199,10 +202,34 @@ namespace EmployeeManagementSystem.Forms.Project
         private void searchBtn_Click(object sender, EventArgs e)
         {
             projectNameKey = projectNameTextBox.Text;
-            startDateKey = startDateTextBox.Text;
-            endDateKey = endDateTextBox.Text;
+            startFromDateKey = startDateFrom.Value;
+            startToDateKey = startDateTo.Value;
+            endFromDateKey = endDateFrom.Value;
+            endToDateKey = endDateTo.Value;
             currentPage = 1;
             LoadProjects();
+        }
+
+        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            //ValidateDateTimePickers
+            if(startDateFrom.Value <= startDateTo.Value
+                     && endDateFrom.Value <= endDateTo.Value
+                     && startDateTo.Value <= endDateFrom.Value)
+            {
+                errorLabel.Visible = false;
+                searchBtn.Enabled = true;
+            }else
+            {
+                errorLabel.Visible = true;
+                searchBtn.Enabled = false;
+            }
+        }
+
+
+        private void projectNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            searchBtn.Enabled = projectNameTextBox.Text == "" ? false : true;
         }
     }
 }

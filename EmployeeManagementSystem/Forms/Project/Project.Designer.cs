@@ -47,10 +47,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.projectNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.startDateTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.endDateTextBox = new System.Windows.Forms.TextBox();
             this.searchBtn = new System.Windows.Forms.Button();
+            this.startDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.endDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.startDateTo = new System.Windows.Forms.DateTimePicker();
+            this.endDateTo = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Tbl_Projects)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.SuspendLayout();
@@ -71,11 +76,11 @@
             this.BtnEdit,
             this.BtnDelete,
             this.BtnMembersDetails});
-            this.Tbl_Projects.Location = new System.Drawing.Point(-1, 133);
+            this.Tbl_Projects.Location = new System.Drawing.Point(-1, 213);
             this.Tbl_Projects.Name = "Tbl_Projects";
             this.Tbl_Projects.RowHeadersWidth = 51;
             this.Tbl_Projects.RowTemplate.Height = 24;
-            this.Tbl_Projects.Size = new System.Drawing.Size(1004, 411);
+            this.Tbl_Projects.Size = new System.Drawing.Size(1004, 331);
             this.Tbl_Projects.TabIndex = 0;
             this.Tbl_Projects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Projects_CellContentClick);
             // 
@@ -212,7 +217,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Location = new System.Drawing.Point(91, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 16);
             this.label2.TabIndex = 4;
@@ -221,67 +226,126 @@
             // projectNameTextBox
             // 
             this.projectNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.projectNameTextBox.Location = new System.Drawing.Point(107, 81);
+            this.projectNameTextBox.Location = new System.Drawing.Point(186, 154);
             this.projectNameTextBox.Name = "projectNameTextBox";
-            this.projectNameTextBox.Size = new System.Drawing.Size(208, 22);
+            this.projectNameTextBox.Size = new System.Drawing.Size(288, 22);
             this.projectNameTextBox.TabIndex = 5;
+            this.projectNameTextBox.TextChanged += new System.EventHandler(this.projectNameTextBox_TextChanged);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(321, 84);
+            this.label3.Location = new System.Drawing.Point(80, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 16);
+            this.label3.Size = new System.Drawing.Size(100, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Start Date";
-            // 
-            // startDateTextBox
-            // 
-            this.startDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.startDateTextBox.Location = new System.Drawing.Point(393, 81);
-            this.startDateTextBox.Name = "startDateTextBox";
-            this.startDateTextBox.Size = new System.Drawing.Size(208, 22);
-            this.startDateTextBox.TabIndex = 5;
+            this.label3.Text = "Start Date From";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(607, 84);
+            this.label4.Location = new System.Drawing.Point(83, 117);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 16);
+            this.label4.Size = new System.Drawing.Size(97, 16);
             this.label4.TabIndex = 4;
-            this.label4.Text = "End Date";
-            // 
-            // endDateTextBox
-            // 
-            this.endDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.endDateTextBox.Location = new System.Drawing.Point(676, 81);
-            this.endDateTextBox.Name = "endDateTextBox";
-            this.endDateTextBox.Size = new System.Drawing.Size(208, 22);
-            this.endDateTextBox.TabIndex = 5;
+            this.label4.Text = "End Date From";
             // 
             // searchBtn
             // 
             this.searchBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.searchBtn.Location = new System.Drawing.Point(915, 77);
+            this.searchBtn.Enabled = false;
+            this.searchBtn.Location = new System.Drawing.Point(604, 154);
             this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(75, 30);
+            this.searchBtn.Size = new System.Drawing.Size(198, 25);
             this.searchBtn.TabIndex = 6;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // startDateFrom
+            // 
+            this.startDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.startDateFrom.Location = new System.Drawing.Point(186, 73);
+            this.startDateFrom.Name = "startDateFrom";
+            this.startDateFrom.Size = new System.Drawing.Size(288, 22);
+            this.startDateFrom.TabIndex = 7;
+            this.startDateFrom.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            // 
+            // endDateFrom
+            // 
+            this.endDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.endDateFrom.Location = new System.Drawing.Point(186, 114);
+            this.endDateFrom.Name = "endDateFrom";
+            this.endDateFrom.Size = new System.Drawing.Size(287, 22);
+            this.endDateFrom.TabIndex = 8;
+            this.endDateFrom.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            // 
+            // startDateTo
+            // 
+            this.startDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.startDateTo.Location = new System.Drawing.Point(559, 73);
+            this.startDateTo.Name = "startDateTo";
+            this.startDateTo.Size = new System.Drawing.Size(296, 22);
+            this.startDateTo.TabIndex = 7;
+            this.startDateTo.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            // 
+            // endDateTo
+            // 
+            this.endDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.endDateTo.Location = new System.Drawing.Point(559, 114);
+            this.endDateTo.Name = "endDateTo";
+            this.endDateTo.Size = new System.Drawing.Size(295, 22);
+            this.endDateTo.TabIndex = 8;
+            this.endDateTo.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(529, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "To";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(529, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 16);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "To";
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(183, 41);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(228, 16);
+            this.errorLabel.TabIndex = 10;
+            this.errorLabel.Text = "(*) Choose reasonable time to search";
+            this.errorLabel.Visible = false;
             // 
             // Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 628);
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.endDateTo);
+            this.Controls.Add(this.endDateFrom);
+            this.Controls.Add(this.startDateTo);
+            this.Controls.Add(this.startDateFrom);
             this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.endDateTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.startDateTextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.projectNameTextBox);
             this.Controls.Add(this.label2);
@@ -320,9 +384,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox projectNameTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox startDateTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox endDateTextBox;
         private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.DateTimePicker startDateFrom;
+        private System.Windows.Forms.DateTimePicker endDateFrom;
+        private System.Windows.Forms.DateTimePicker startDateTo;
+        private System.Windows.Forms.DateTimePicker endDateTo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
