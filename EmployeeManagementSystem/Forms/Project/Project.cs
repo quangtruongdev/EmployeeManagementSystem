@@ -31,7 +31,7 @@ namespace EmployeeManagementSystem.Forms.Project
             var totalPages = results.TotalPages;
 
             Tbl_Projects.Columns.Clear();
-            Tbl_Projects.AutoGenerateColumns = false;
+            Tbl_Projects.AutoGenerateColumns = false; // turn off auto generate columns
 
             var projectId = new DataGridViewTextBoxColumn
             {
@@ -101,6 +101,17 @@ namespace EmployeeManagementSystem.Forms.Project
             };
             Tbl_Projects.Columns.Add(deleteButton);
 
+            var membersDetailsButton = new DataGridViewButtonColumn
+            {
+                HeaderText = "",
+                Name = "BtnMembersDetails",
+                Text = "MembersDetails",
+                UseColumnTextForButtonValue = true,
+                Width = 100,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            };
+            Tbl_Projects.Columns.Add(membersDetailsButton);
+
             Tbl_Projects.DataSource = projects;
 
             PageOnPage.Text = $"Page {currentPage}/{totalPages}";
@@ -119,6 +130,54 @@ namespace EmployeeManagementSystem.Forms.Project
         {
                 currentPage++;
                 LoadProjects();
+        }
+
+        private void Btn_AddProject_Click(object sender, EventArgs e)
+        {
+            AddProject addProject = new AddProject();
+            if(addProject.ShowDialog() == DialogResult.OK)
+            {
+                LoadProjects();
+            }
+        }
+
+        private void Tbl_Projects_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                var projectId = Tbl_Projects.Rows[e.RowIndex].Cells["ProjectID"].Value.ToString();
+                if (e.ColumnIndex == Tbl_Projects.Columns["BtnEdit"].Index)
+                {
+                    EditProject(projectId);
+                }
+                else if (e.ColumnIndex == Tbl_Projects.Columns["BtnDelete"].Index)
+                {
+                    DeleteProject(projectId);
+                }
+                else if (e.ColumnIndex == Tbl_Projects.Columns["BtnMembersDetails"].Index)
+                {
+                    //MembersDetails(projectId);
+                }
+            }
+        }
+
+        private void EditProject(string projectId)
+        {
+            AddProject addProject = new AddProject(projectId);
+            if (addProject.ShowDialog() == DialogResult.OK)
+            {
+                LoadProjects();
+            }
+        }
+
+        private void DeleteProject(string projectId)
+        {
+            var comfirmResult = MessageBox.Show("Are you sure you want to delete this project?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (comfirmResult == DialogResult.Yes)
+            {
+                _projectService.DeleteProject(projectId);
+                LoadProjects();
+            }
         }
     }
 }

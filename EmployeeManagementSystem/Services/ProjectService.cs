@@ -27,15 +27,20 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
-                var totalProjects = context.Projects.Count();
-                var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
+                using (var context = new DatabaseDataContext()) 
+                // this to make sure that data is newest
+                // because it use cache
+                {
+                    var totalProjects = context.Projects.Count();
+                    var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
 
-                var Projects = context.Projects
-                                    .Skip((page - 1) * pageSize)
-                                    .Take(pageSize)
-                                    .ToList();
+                    var Projects = context.Projects
+                                        .Skip((page - 1) * pageSize)
+                                        .Take(pageSize)
+                                        .ToList();
 
-                return (Projects, totalProjects, totalPages);
+                    return (Projects, totalProjects, totalPages);
+                }
             }
             catch (Exception ex)
             {
@@ -53,6 +58,44 @@ namespace EmployeeManagementSystem.Services
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void DeleteProject(string id)
+        {
+            try
+            {
+                Project project = context.Projects.FirstOrDefault(p => p.ProjectID == id);
+                context.Projects.DeleteOnSubmit(project);
+                context.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        
+        public void AddProject(Project project)
+        {
+            try
+            {
+                project.ProjectID = Guid.NewGuid().ToString();
+                context.Projects.InsertOnSubmit(project);
+                context.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void UpdateProject(Project project)
+        {
+            var oldProject = context.Projects.FirstOrDefault(p => p.ProjectID == project.ProjectID);
+            oldProject.ProjectName = project.ProjectName;
+            oldProject.Description = project.Description;
+            oldProject.StartDate = project.StartDate;
+            oldProject.EndDate = project.EndDate;
+            context.SubmitChanges();
         }
     }
 }

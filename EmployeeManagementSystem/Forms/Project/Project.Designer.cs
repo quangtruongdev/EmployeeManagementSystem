@@ -43,6 +43,7 @@
             this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BtnMembersDetails = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Tbl_Projects)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.SuspendLayout();
@@ -61,13 +62,15 @@
             this.StartDate,
             this.EndDate,
             this.BtnEdit,
-            this.BtnDelete});
+            this.BtnDelete,
+            this.BtnMembersDetails});
             this.Tbl_Projects.Location = new System.Drawing.Point(-1, 103);
             this.Tbl_Projects.Name = "Tbl_Projects";
             this.Tbl_Projects.RowHeadersWidth = 51;
             this.Tbl_Projects.RowTemplate.Height = 24;
             this.Tbl_Projects.Size = new System.Drawing.Size(1004, 441);
             this.Tbl_Projects.TabIndex = 0;
+            this.Tbl_Projects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Projects_CellContentClick);
             // 
             // label1
             // 
@@ -89,8 +92,9 @@
             this.Btn_AddProject.Name = "Btn_AddProject";
             this.Btn_AddProject.Size = new System.Drawing.Size(200, 45);
             this.Btn_AddProject.TabIndex = 2;
-            this.Btn_AddProject.Text = "Add Department";
+            this.Btn_AddProject.Text = "Add Project";
             this.Btn_AddProject.UseVisualStyleBackColor = true;
+            this.Btn_AddProject.Click += new System.EventHandler(this.Btn_AddProject_Click);
             // 
             // PagingContainer
             // 
@@ -183,6 +187,12 @@
             this.BtnDelete.MinimumWidth = 6;
             this.BtnDelete.Name = "BtnDelete";
             // 
+            // BtnMembersDetails
+            // 
+            this.BtnMembersDetails.HeaderText = "";
+            this.BtnMembersDetails.MinimumWidth = 6;
+            this.BtnMembersDetails.Name = "BtnMembersDetails";
+            // 
             // Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -219,5 +229,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
         private System.Windows.Forms.DataGridViewButtonColumn BtnEdit;
         private System.Windows.Forms.DataGridViewButtonColumn BtnDelete;
+        private System.Windows.Forms.DataGridViewButtonColumn BtnMembersDetails;
     }
 }
