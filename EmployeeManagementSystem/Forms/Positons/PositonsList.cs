@@ -53,7 +53,7 @@ namespace EmployeeManagementSystem.Forms.Positons
 
             var editButton = new DataGridViewButtonColumn
             {
-                HeaderText = "Edit",
+                HeaderText = "Actios",
                 Name = "Btn_Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true,
@@ -63,7 +63,7 @@ namespace EmployeeManagementSystem.Forms.Positons
 
             var deleteButton = new DataGridViewButtonColumn
             {
-                HeaderText = "Delete",
+                HeaderText = "",
                 Name = "Btn_Delete",
                 Text = "Delete",
                 UseColumnTextForButtonValue = true,
