@@ -80,6 +80,18 @@
     <Compile Include="Forms\Department\Department.Designer.cs">
       <DependentUpon>Department.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Leave\LeaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveForm.Designer.cs">
+      <DependentUpon>LeaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveLists.Designer.cs">
+      <DependentUpon>LeaveLists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +119,7 @@
     <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\IDashboard.cs" />
     <Compile Include="Interfaces\IDepartment.cs" />
+    <Compile Include="Interfaces\ILeaveService.cs" />
     <Compile Include="Interfaces\IPositions.cs" />
     <Compile Include="Models\Database.designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +131,7 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DashboardService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\LeaveService.cs" />
     <Compile Include="Services\PositionsService.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\PrivateForms.cs" />
@@ -144,6 +158,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Department\Department.resx">
       <DependentUpon>Department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leave\LeaveForm.resx">
+      <DependentUpon>LeaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leave\LeaveLists.resx">
+      <DependentUpon>LeaveLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

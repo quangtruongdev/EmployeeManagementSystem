@@ -29,33 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SummaryForm));
+            this.SummaryContainer = new System.Windows.Forms.Panel();
             this.ProjectsContainer = new System.Windows.Forms.Panel();
             this.Txt_TotalProjects = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CubesIcon = new System.Windows.Forms.PictureBox();
-            this.SummaryContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.ClientsContainer = new System.Windows.Forms.Panel();
             this.Txt_TotalClients = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DolarIcon = new System.Windows.Forms.PictureBox();
             this.TasksContainer = new System.Windows.Forms.Panel();
             this.Txt_TotalTaks = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.GemIcon = new System.Windows.Forms.PictureBox();
             this.EmployeesContainer = new System.Windows.Forms.Panel();
             this.Txt_TotalEmployees = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.UserIcon = new System.Windows.Forms.PictureBox();
+            this.SummaryContainer.SuspendLayout();
             this.ProjectsContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CubesIcon)).BeginInit();
-            this.SummaryContainer.SuspendLayout();
             this.ClientsContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DolarIcon)).BeginInit();
             this.TasksContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GemIcon)).BeginInit();
             this.EmployeesContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
             this.SuspendLayout();
+            // 
+            // SummaryContainer
+            // 
+            this.SummaryContainer.Controls.Add(this.EmployeesContainer);
+            this.SummaryContainer.Controls.Add(this.TasksContainer);
+            this.SummaryContainer.Controls.Add(this.ClientsContainer);
+            this.SummaryContainer.Controls.Add(this.ProjectsContainer);
+            this.SummaryContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SummaryContainer.Location = new System.Drawing.Point(0, 0);
+            this.SummaryContainer.Name = "SummaryContainer";
+            this.SummaryContainer.Size = new System.Drawing.Size(850, 120);
+            this.SummaryContainer.TabIndex = 2;
             // 
             // ProjectsContainer
             // 
@@ -65,7 +77,7 @@
             this.ProjectsContainer.Location = new System.Drawing.Point(3, 3);
             this.ProjectsContainer.Name = "ProjectsContainer";
             this.ProjectsContainer.Size = new System.Drawing.Size(200, 100);
-            this.ProjectsContainer.TabIndex = 0;
+            this.ProjectsContainer.TabIndex = 1;
             // 
             // Txt_TotalProjects
             // 
@@ -97,27 +109,15 @@
             this.CubesIcon.TabIndex = 0;
             this.CubesIcon.TabStop = false;
             // 
-            // SummaryContainer
-            // 
-            this.SummaryContainer.Controls.Add(this.ProjectsContainer);
-            this.SummaryContainer.Controls.Add(this.ClientsContainer);
-            this.SummaryContainer.Controls.Add(this.TasksContainer);
-            this.SummaryContainer.Controls.Add(this.EmployeesContainer);
-            this.SummaryContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SummaryContainer.Location = new System.Drawing.Point(0, 0);
-            this.SummaryContainer.Name = "SummaryContainer";
-            this.SummaryContainer.Size = new System.Drawing.Size(850, 120);
-            this.SummaryContainer.TabIndex = 1;
-            // 
             // ClientsContainer
             // 
             this.ClientsContainer.Controls.Add(this.Txt_TotalClients);
             this.ClientsContainer.Controls.Add(this.label10);
-            this.ClientsContainer.Controls.Add(this.pictureBox1);
+            this.ClientsContainer.Controls.Add(this.DolarIcon);
             this.ClientsContainer.Location = new System.Drawing.Point(209, 3);
             this.ClientsContainer.Name = "ClientsContainer";
             this.ClientsContainer.Size = new System.Drawing.Size(200, 100);
-            this.ClientsContainer.TabIndex = 3;
+            this.ClientsContainer.TabIndex = 4;
             // 
             // Txt_TotalClients
             // 
@@ -139,25 +139,25 @@
             this.label10.TabIndex = 1;
             this.label10.Text = "Clients";
             // 
-            // pictureBox1
+            // DolarIcon
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.DolarIcon.Image = ((System.Drawing.Image)(resources.GetObject("DolarIcon.Image")));
+            this.DolarIcon.Location = new System.Drawing.Point(10, 25);
+            this.DolarIcon.Name = "DolarIcon";
+            this.DolarIcon.Size = new System.Drawing.Size(50, 50);
+            this.DolarIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DolarIcon.TabIndex = 0;
+            this.DolarIcon.TabStop = false;
             // 
             // TasksContainer
             // 
             this.TasksContainer.Controls.Add(this.Txt_TotalTaks);
             this.TasksContainer.Controls.Add(this.label11);
-            this.TasksContainer.Controls.Add(this.pictureBox2);
+            this.TasksContainer.Controls.Add(this.GemIcon);
             this.TasksContainer.Location = new System.Drawing.Point(415, 3);
             this.TasksContainer.Name = "TasksContainer";
             this.TasksContainer.Size = new System.Drawing.Size(200, 100);
-            this.TasksContainer.TabIndex = 4;
+            this.TasksContainer.TabIndex = 5;
             // 
             // Txt_TotalTaks
             // 
@@ -181,25 +181,25 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Tasks";
             // 
-            // pictureBox2
+            // GemIcon
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 25);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.GemIcon.Image = ((System.Drawing.Image)(resources.GetObject("GemIcon.Image")));
+            this.GemIcon.Location = new System.Drawing.Point(10, 25);
+            this.GemIcon.Name = "GemIcon";
+            this.GemIcon.Size = new System.Drawing.Size(50, 50);
+            this.GemIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.GemIcon.TabIndex = 0;
+            this.GemIcon.TabStop = false;
             // 
             // EmployeesContainer
             // 
             this.EmployeesContainer.Controls.Add(this.Txt_TotalEmployees);
             this.EmployeesContainer.Controls.Add(this.label12);
-            this.EmployeesContainer.Controls.Add(this.pictureBox3);
+            this.EmployeesContainer.Controls.Add(this.UserIcon);
             this.EmployeesContainer.Location = new System.Drawing.Point(621, 3);
             this.EmployeesContainer.Name = "EmployeesContainer";
             this.EmployeesContainer.Size = new System.Drawing.Size(200, 100);
-            this.EmployeesContainer.TabIndex = 5;
+            this.EmployeesContainer.TabIndex = 6;
             // 
             // Txt_TotalEmployees
             // 
@@ -221,15 +221,15 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Employees";
             // 
-            // pictureBox3
+            // UserIcon
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(10, 25);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.UserIcon.Image = ((System.Drawing.Image)(resources.GetObject("UserIcon.Image")));
+            this.UserIcon.Location = new System.Drawing.Point(10, 25);
+            this.UserIcon.Name = "UserIcon";
+            this.UserIcon.Size = new System.Drawing.Size(50, 50);
+            this.UserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UserIcon.TabIndex = 0;
+            this.UserIcon.TabStop = false;
             // 
             // SummaryForm
             // 
@@ -240,41 +240,40 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SummaryForm";
             this.Text = "SummaryForm";
+            this.SummaryContainer.ResumeLayout(false);
             this.ProjectsContainer.ResumeLayout(false);
             this.ProjectsContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CubesIcon)).EndInit();
-            this.SummaryContainer.ResumeLayout(false);
             this.ClientsContainer.ResumeLayout(false);
             this.ClientsContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DolarIcon)).EndInit();
             this.TasksContainer.ResumeLayout(false);
             this.TasksContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GemIcon)).EndInit();
             this.EmployeesContainer.ResumeLayout(false);
             this.EmployeesContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Panel SummaryContainer;
         private System.Windows.Forms.Panel ProjectsContainer;
-        private System.Windows.Forms.PictureBox CubesIcon;
         private System.Windows.Forms.Label Txt_TotalProjects;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel SummaryContainer;
-        private System.Windows.Forms.Panel ClientsContainer;
-        private System.Windows.Forms.Label Txt_TotalClients;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel TasksContainer;
-        private System.Windows.Forms.Label Txt_TotalTaks;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox CubesIcon;
         private System.Windows.Forms.Panel EmployeesContainer;
         private System.Windows.Forms.Label Txt_TotalEmployees;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox UserIcon;
+        private System.Windows.Forms.Panel TasksContainer;
+        private System.Windows.Forms.Label Txt_TotalTaks;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox GemIcon;
+        private System.Windows.Forms.Panel ClientsContainer;
+        private System.Windows.Forms.Label Txt_TotalClients;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox DolarIcon;
     }
 }

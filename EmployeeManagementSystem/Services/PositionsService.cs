@@ -9,11 +9,6 @@ namespace EmployeeManagementSystem.Services
     {
         private readonly DatabaseDataContext _context = new DatabaseDataContext();
 
-        //public PositionsService()
-        //{
-        //    _context = new DatabaseDataContext();
-        //}
-
         public void AddPosition(Positon position)
         {
             try
