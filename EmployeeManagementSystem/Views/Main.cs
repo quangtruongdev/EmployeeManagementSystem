@@ -1,4 +1,5 @@
 ﻿using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
 using EmployeeManagementSystem.Interfaces;
@@ -175,6 +176,27 @@ namespace EmployeeManagementSystem.Views
         {
             PositonsList positonsList = new PositonsList();
             Shared.ShowMainContent(positonsList, MainContent);
+        }
+
+        public void Btn_AllEmployees_Click(object sender, EventArgs e)
+        {
+            MainContent.Controls.Clear();
+            EmployeeLists employee = new EmployeeLists();
+            employee.TopLevel = false;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
+        }
+
+        private void Btn_AddEmployee_Click(object sender, EventArgs e)
+        {
+            MainContent.Controls.Clear();
+            EmployeeForm employee = new EmployeeForm();
+            employee.TopLevel = false;
+            employee.FormBorderStyle = FormBorderStyle.None;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
         }
     }
 }

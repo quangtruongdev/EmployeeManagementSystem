@@ -7,7 +7,7 @@ namespace EmployeeManagementSystem.Services
 {
     public class AuthService : IAuth
     {
-        private DatabaseDataContext db = new DatabaseDataContext();
+        private DataClasses1DataContext db = new DataClasses1DataContext();
         public UserAccount Login(UserAccount user)
         {
             try
