@@ -118,35 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Btn_AddDepartment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAE9JREFUWEftlDEKACAMxPobP+67fIsU6iIiOuihJJCpUDKdAbxOCmXkUAYBBBDw
-        b4CvW3s+s4SjW+/WYsoDVmnPZRBAAAEE+LodWTiAS5hViN8y0a/ji/4AAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAALaSURBVGhD7Zm5qhRBFIbHQE1NXHAJ1EcwcPcVBDfcQNQH
+        EFxQBJdMfQHBSA0EEQM3jN0StzcwMVUjxX39vmIOXIa5MnOruqbnMj982FXOrdOnu+rUqdOdiSZqp5bA
+        IbgOr+ED/OjyHl6B/3cQFkPrtAXuw0/4OyD+9h5shpFrNTyEuLlf8BiOwlpYBHO7eL0OjsET8Lfxdw9g
+        FYxE++ATeCOf4QIshEGlYxfhCzjGR9gDVXUW4mnehGUwUy2HWxDjnYEqOg8a/NO9ngMldAR+QxVnnE4a
+        0uAOOwprJ4Qzu+1oQi7sWBMn7WhIp0AbrpmVdpRWRCfXRJNyqsaaMaQXlfuEAxthVtjRsAweRkJtbrKj
+        lHwyDmqIrSVDszbvplYBmXa4C7uBDbNP5Mp9RpumN15n6zD4ZB6lVl09BW0fSK1MmeQ5mGlHbR0HbV9N
+        rUyZxTqYuVNtbQBtv0itTJmKO1jN9REy1df2u9TK1HdwsHmpVVfzQdvfUitTbXDEXT5bbZhab1IrU7HY
+        PRTV1kbQtmE4W20Iv1dSK1MWExzM42ltPQNtb0utTDlPI0UpkioMqEhRtL3AjhKy2uGTMZGrpUugTVP6
+        YloPDvoVaqfxa+woqUjlfUKlzun95Ni3QVt37Cgtj51uTBrwONqUToM2rEwutaMJWXfSiAUCCwWltQui
+        +LDVjiZlqSac8c2UmGaO4ZsIJ/zXik3jCmfENWORbaYyeMSamIqhdy80LutOsWYsShiah9ln/K0h1kjo
+        GI7lzfc6U6WMagCIaBaGzQBMLTwUuZmaNYvX9p0Ac6epN22JyYXtGxiZM8qSjdWOYT4reDy4Ab3J6HTO
+        NFZ57Ceni4WCa/ASDKHesJvbW3gOl8Gb+t+xwDcwcmdKyfDe+4Z1Zj+MnaZzpkpoLq1Z5YyfMGa9M1U2
+        zdLSGWvBE2fapn4BwA+0Y6ntEG/mnB3jLKdZtc/ZE03U6XT+ATiuEwn83A5bAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="DepartmentID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="Btn_AddLeave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABPSURBVFhH7ZQxCgAgDMT6Gz/uu3yLFOoiIjrooSSQqVAy
+        nQG8Tgpl5FAGAQQQ8G+Ar1t7PrOEo1vv1mLKA1Zpz2UQQAABBPi6HVk4gEuYVYjfMtGv44v+AAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <metadata name="ImgUrl.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="DepartmentName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="EmployeeName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Btn_Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="LeaveType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Btn_Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="LeaveFrom.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="DepartmentID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="LeaveEnd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="DepartmentName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="NoOfDays.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Btn_Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Btn_Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Reason.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Col_Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Col_Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

@@ -38,7 +38,7 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
-                //department.DepartmentID = Guid.NewGuid().ToString();
+                department.DepartmentID = Guid.NewGuid().ToString();
                 db.Departments.InsertOnSubmit(department);
                 db.SubmitChanges();
             }
@@ -74,6 +74,39 @@ namespace EmployeeManagementSystem.Services
             //{
             //    throw new Exception(ex.Message);
             //}
+        }
+
+        //public List<Department> SearchDepartment(string search)
+        //{
+        //    try
+        //    {
+        //        return db.Departments.Where(d => d.DepartmentName.Contains(search)).ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
+
+        // Paging
+        public (List<Department> Departments, int totalDepartments, int TotalPages) GetDepartments(int page, int pageSize)
+        {
+            try
+            {
+                var totalDepartments = db.Departments.Count();
+                var totalPages = (int)Math.Ceiling((double)totalDepartments / pageSize);
+
+                var Departments = db.Departments
+                                    .Skip((page - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToList();
+
+                return (Departments, totalDepartments, totalPages);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
