@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Forms.Department
 {
-    public partial class Department : Form
+    public partial class DepartmentLists : Form
     {
         private readonly IDepartment _departmentService;
         private int currentPage = 1;
         private int pageSize = 2;
-        public Department()
+        public DepartmentLists()
         {
             InitializeComponent();
             _departmentService = new DepartmentService();
@@ -18,7 +18,7 @@ namespace EmployeeManagementSystem.Forms.Department
 
         private void Btn_AddDepartment_Click(object sender, System.EventArgs e)
         {
-            AddDepartment addDepartment = new AddDepartment();
+            DepartmentForm addDepartment = new DepartmentForm();
             if (addDepartment.ShowDialog() == DialogResult.OK)
             {
                 LoadDepartments();
@@ -101,7 +101,7 @@ namespace EmployeeManagementSystem.Forms.Department
 
         private void EditDepartment(string departmentId)
         {
-            AddDepartment addDepartment = new AddDepartment(departmentId);
+            DepartmentForm addDepartment = new DepartmentForm(departmentId);
             if (addDepartment.ShowDialog() == DialogResult.OK)
             {
                 LoadDepartments();

@@ -83,9 +83,11 @@ namespace EmployeeManagementSystem.Forms.Register
             {
                 if (ValidateForm())
                 {
-                    Username = username,
-                    PasswordHash = password
-                };
+                    var user = new UserAccount
+                    {
+                        Username = username,
+                        PasswordHash = password,
+                    };
 
                     _authService.Register(user);
                     MessageBox.Show("Registration successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

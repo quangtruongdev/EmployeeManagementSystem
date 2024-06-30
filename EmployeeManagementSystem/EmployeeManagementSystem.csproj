@@ -68,17 +68,17 @@
     <Compile Include="Forms\Demo\Demo.Designer.cs">
       <DependentUpon>Demo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Department\AddDepartment.cs">
+    <Compile Include="Forms\Department\DepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department\AddDepartment.Designer.cs">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
+    <Compile Include="Forms\Department\DepartmentForm.Designer.cs">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Department\Department.cs">
+    <Compile Include="Forms\Department\DepartmentLists.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department\Department.Designer.cs">
-      <DependentUpon>Department.cs</DependentUpon>
+    <Compile Include="Forms\Department\DepartmentLists.Designer.cs">
+      <DependentUpon>DepartmentLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Leave\LeaveForm.cs">
       <SubType>Form</SubType>
@@ -175,11 +175,11 @@
     <EmbeddedResource Include="Forms\Demo\Demo.resx">
       <DependentUpon>Demo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department\AddDepartment.resx">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department\DepartmentForm.resx">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department\Department.resx">
-      <DependentUpon>Department.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department\DepartmentLists.resx">
+      <DependentUpon>DepartmentLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Leave\LeaveForm.resx">
       <DependentUpon>LeaveForm.cs</DependentUpon>

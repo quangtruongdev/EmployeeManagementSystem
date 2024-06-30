@@ -137,7 +137,7 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_Departments_Click(object sender, EventArgs e)
         {
-            Department department = new Department();
+            DepartmentLists department = new DepartmentLists();
             Shared.ShowMainContent(department, MainContent);
         }
 
