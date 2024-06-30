@@ -191,6 +191,7 @@
             this.Btn_AddEmployee.TabIndex = 2;
             this.Btn_AddEmployee.Text = "Add Employee";
             this.Btn_AddEmployee.UseVisualStyleBackColor = true;
+            this.Btn_AddEmployee.Click += new System.EventHandler(this.Btn_AddEmployee_Click);
             // 
             // Btn_AllEmployees
             // 
@@ -201,6 +202,7 @@
             this.Btn_AllEmployees.TabIndex = 1;
             this.Btn_AllEmployees.Text = "All Employees";
             this.Btn_AllEmployees.UseVisualStyleBackColor = true;
+            this.Btn_AllEmployees.Click += new System.EventHandler(this.Btn_AllEmployees_Click);
             // 
             // Btn_Employees
             // 
