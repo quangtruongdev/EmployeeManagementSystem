@@ -3,8 +3,6 @@ using EmployeeManagementSystem.Forms.Department;
 using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
-using EmployeeManagementSystem.Interfaces;
-using EmployeeManagementSystem.Services;
 using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
@@ -13,7 +11,6 @@ namespace EmployeeManagementSystem.Views
 {
     public partial class Main : Form
     {
-        private IAuth _authService;
         private bool projectsCollapsed = true;
         private bool employeesCollapsed = true;
         private bool sidebarCollapsed = true;
@@ -23,7 +20,6 @@ namespace EmployeeManagementSystem.Views
         {
             InitializeComponent();
             InitializeTimers();
-            _authService = new AuthService();
             this.Load += Main_Load;
         }
 
@@ -141,8 +137,14 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_Positions_Click(object sender, EventArgs e)
         {
-            PositonsList positonsList = new PositonsList();
+            PositionsList positonsList = new PositionsList();
             Shared.ShowMainContent(positonsList, MainContent);
+        }
+
+        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
+        {
+            LeaveLists leaveLists = new LeaveLists();
+            Shared.ShowMainContent(leaveLists, MainContent);
         }
 
         private void Btn_Logout_Click(object sender, EventArgs e)
@@ -177,12 +179,6 @@ namespace EmployeeManagementSystem.Views
         {
             DashboardForm dashboard = new DashboardForm();
             Shared.ShowMainContent(dashboard, MainContent);
-        }
-
-        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
-        {
-            LeaveLists leaveLists = new LeaveLists();
-            Shared.ShowMainContent(leaveLists, MainContent);
         }
     }
 }

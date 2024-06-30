@@ -5,11 +5,11 @@ namespace EmployeeManagementSystem.Interfaces
 {
     public interface IPositions
     {
-        List<Positon> GetPositions();
-        Positon GetPositionById(string id);
-        void AddPosition(Positon position);
-        void UpdatePosition(Positon position);
+        List<Position> GetPositions();
+        Position GetPositionById(string id);
+        void AddPosition(Position position);
+        void UpdatePosition(Position position);
         void DeletePosition(string id);
-        (List<Positon> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize);
+        (List<Position> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize);
     }
 }

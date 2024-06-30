@@ -22,7 +22,7 @@ namespace EmployeeManagementSystem.Forms.Register
             ValidateForm();
         }
 
-        private void ValidateForm()
+        private bool ValidateForm()
         {
             bool isFormValid = true;
 
@@ -71,6 +71,7 @@ namespace EmployeeManagementSystem.Forms.Register
 
             // Enable or Disable Register Button
             Btn_Register.Enabled = isFormValid;
+            return isFormValid;
         }
 
         private void Btn_Register_Click(object sender, System.EventArgs e)
@@ -80,17 +81,21 @@ namespace EmployeeManagementSystem.Forms.Register
 
             try
             {
-                UserAccount user = new UserAccount
+                if (ValidateForm())
                 {
-                    Username = username,
-                    Password = password
-                };
+                    UserAccount user = new UserAccount
+                    {
+                        Username = username,
+                        PasswordHash = password
+                    };
 
-                _authService.Register(user);
-                MessageBox.Show("Registration successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Login.LoginForm login = new Login.LoginForm();
-                login.Show();
-                this.Hide();
+                    _authService.Register(user);
+                    MessageBox.Show("Registration successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Login.LoginForm login = new Login.LoginForm();
+                    login.Show();
+                    this.Hide();
+                }
             }
             catch (System.Exception ex)
             {
@@ -103,6 +108,11 @@ namespace EmployeeManagementSystem.Forms.Register
             Login.LoginForm login = new Login.LoginForm();
             login.Show();
             this.Hide();
+        }
+
+        private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

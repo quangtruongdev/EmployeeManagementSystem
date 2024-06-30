@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Forms.Positons
 {
-    public partial class PositonsList : Form
+    public partial class PositionsList : Form
     {
         private readonly IPositions _positionsService;
         private int currentPage = 1;
         private int pageSize = 2;
-        public PositonsList()
+        public PositionsList()
         {
             InitializeComponent();
             _positionsService = new PositionsService();

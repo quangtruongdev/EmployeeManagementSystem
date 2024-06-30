@@ -12,7 +12,7 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
-                var existingUser = db.UserAccounts.SingleOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+                var existingUser = db.UserAccounts.SingleOrDefault(u => u.Username == user.Username && u.PasswordHash == user.PasswordHash);
                 if (existingUser == null)
                 {
                     throw new Exception("Invalid username or password");
