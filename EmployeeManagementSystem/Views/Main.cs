@@ -1,4 +1,5 @@
-﻿using EmployeeManagementSystem.Forms.Dashboard;
+﻿using EmployeeManagementSystem.Forms;
+using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
 using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Leave;
