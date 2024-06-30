@@ -8,7 +8,7 @@ namespace EmployeeManagementSystem.Services
 {
     public class DepartmentService : IDepartment
     {
-        private DataClasses1DataContext db = new DataClasses1DataContext();
+        private DatabaseDataContext db = new DatabaseDataContext();
 
         public List<Department> GetDepartments()
         {

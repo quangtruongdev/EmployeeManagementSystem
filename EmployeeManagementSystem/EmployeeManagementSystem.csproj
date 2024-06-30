@@ -105,6 +105,7 @@
       <DependentUpon>Salary.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IDepartment.cs" />
+    <Compile Include="Interfaces\IEmployees.cs" />
     <Compile Include="Interfaces\ISalary.cs" />
     <Compile Include="Forms\Leave\LeaveLists.cs">
       <SubType>Form</SubType>
@@ -153,10 +154,10 @@
     <Compile Include="Interfaces\IDepartment.cs" />
     <Compile Include="Interfaces\ILeaveService.cs" />
     <Compile Include="Interfaces\IPositions.cs" />
-    <Compile Include="Models\DataClasses1.designer.cs">
+    <Compile Include="Models\Database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+      <DependentUpon>Database.dbml</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DashboardService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\EmployeesService.cs" />
     <Compile Include="Services\SalaryService.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Services\LeaveService.cs" />
@@ -243,13 +245,13 @@
     <EmbeddedResource Include="Views\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Models\DataClasses1.dbml">
+    <None Include="Models\Database.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <LastGenOutput>Database.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Models\DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    <None Include="Models\Database.dbml.layout">
+      <DependentUpon>Database.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

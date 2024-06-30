@@ -1,5 +1,6 @@
 using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
@@ -166,25 +167,26 @@ namespace EmployeeManagementSystem.Views
             employee.Dock = DockStyle.Fill;
             MainContent.Controls.Add(employee);
             employee.Show();
-            private void Btn_LeaveManagement_Click(object sender, EventArgs e)
-            {
-                LeaveLists leaveLists = new LeaveLists();
-                Shared.ShowMainContent(leaveLists, MainContent);
-            }
-
-            private void Btn_Logout_Click(object sender, EventArgs e)
-            {
-                SessionManager.ClearSession(); // Xóa thông tin phiên người dùng
-
-                // Hiển thị form đăng nhập
-                LoginForm login = new LoginForm();
-                login.FormClosed += LoginForm_FormClosed; // Đăng ký sự kiện FormClosed để theo dõi khi form đăng nhập đóng lại
-                login.Show();
-
-                // Ẩn form chính
-                this.Hide();
-            }
         }
+        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
+        {
+            LeaveLists leaveLists = new LeaveLists();
+            Shared.ShowMainContent(leaveLists, MainContent);
+        }
+
+        private void Btn_Logout_Click(object sender, EventArgs e)
+        {
+            SessionManager.ClearSession(); // Xóa thông tin phiên người dùng
+
+            // Hiển thị form đăng nhập
+            LoginForm login = new LoginForm();
+            login.FormClosed += LoginForm_FormClosed; // Đăng ký sự kiện FormClosed để theo dõi khi form đăng nhập đóng lại
+            login.Show();
+
+            // Ẩn form chính
+            this.Hide();
+        }
+
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {

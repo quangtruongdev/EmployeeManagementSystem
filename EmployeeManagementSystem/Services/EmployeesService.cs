@@ -9,13 +9,13 @@ namespace EmployeeManagementSystem.Services
 {
     internal class EmployeesService : IEmployees
     {
-        private DataClasses1DataContext db = new DataClasses1DataContext();
+        private DatabaseDataContext db = new DatabaseDataContext();
 
         public List<Employee> GetEmployees()
         {
             try
             {
-                using (var db = new DataClasses1DataContext())
+                using (var db = new DatabaseDataContext())
                 {
                     return db.Employees.ToList();
                 }
@@ -61,7 +61,7 @@ namespace EmployeeManagementSystem.Services
                 oldEmployee.LastName = employee.LastName;
                 oldEmployee.Gender = employee.Gender;
                 oldEmployee.DateOfBirth = employee.DateOfBirth;
-                oldEmployee.HireDate = employee.HireDate;
+                //oldEmployee.HireDate = employee.HireDate;
                 oldEmployee.DepartmentID = employee.DepartmentID;
                 oldEmployee.PhoneNumber = employee.PhoneNumber;
                 oldEmployee.Email = employee.Email;
@@ -91,7 +91,7 @@ namespace EmployeeManagementSystem.Services
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployees(string search, int page, int pageSize)
         {
-            using (var db = new DataClasses1DataContext())
+            using (var db = new DatabaseDataContext())
             {
                 try
                 {
@@ -124,7 +124,7 @@ namespace EmployeeManagementSystem.Services
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDate(DateTime search, int page, int pageSize)
         {
-            using (var db = new DataClasses1DataContext())
+            using (var db = new DatabaseDataContext())
             {
                 try
                 {
@@ -133,8 +133,9 @@ namespace EmployeeManagementSystem.Services
                     if (search != null)
                     {
                         query = query.Where(o =>
-                            o.DateOfBirth == search ||
-                            o.HireDate == search
+                            o.DateOfBirth == search
+                        //||
+                        //o.HireDate == search
                         );
                     }
                     var totalEmployees = query.Count();
@@ -153,7 +154,7 @@ namespace EmployeeManagementSystem.Services
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDepartment(string search, int page, int pageSize)
         {
-            using (var db = new DataClasses1DataContext())
+            using (var db = new DatabaseDataContext())
             {
                 try
                 {

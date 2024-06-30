@@ -72,7 +72,7 @@ namespace EmployeeManagementSystem.Forms.Employees
             }
 
             dtp_dateOfBirth.Value = employee.DateOfBirth.Value;
-            dtp_hireDate.Value = employee.HireDate.Value;
+            //dtp_hireDate.Value = employee.HireDate.Value;
             txt_phoneNumber.Text = employee.PhoneNumber;
             txt_email.Text = employee.Email;
             txt_address.Text = employee.Address;
@@ -105,7 +105,7 @@ namespace EmployeeManagementSystem.Forms.Employees
                 LastName = txt_lastName.Text,
                 Gender = gender,
                 DateOfBirth = dtp_dateOfBirth.Value,
-                HireDate = dtp_hireDate.Value,
+                //HireDate = dtp_hireDate.Value,
                 PhoneNumber = txt_phoneNumber.Text,
                 Email = txt_email.Text,
                 Address = txt_address.Text,
@@ -154,7 +154,7 @@ namespace EmployeeManagementSystem.Forms.Employees
                 LastName = txt_lastName.Text,
                 Gender = gender,
                 DateOfBirth = dtp_dateOfBirth.Value,
-                HireDate = dtp_hireDate.Value,
+                //HireDate = dtp_hireDate.Value,
                 PhoneNumber = txt_phoneNumber.Text,
                 Email = txt_email.Text,
                 Address = txt_address.Text,
