@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem.Forms.Department
 {
-    partial class AddDepartment
+    partial class DepartmentForm
     {
         /// <summary>
         /// Required designer variable.

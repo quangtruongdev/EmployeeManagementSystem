@@ -9,17 +9,12 @@ namespace EmployeeManagementSystem.Services
     {
         private readonly DataClasses1DataContext _context = new DataClasses1DataContext();
 
-        //public PositionsService()
-        //{
-        //    _context = new DatabaseDataContext();
-        //}
-
-        public void AddPosition(Positon position)
+        public void AddPosition(Position position)
         {
             try
             {
                 position.PositionID = System.Guid.NewGuid().ToString();
-                _context.Positons.InsertOnSubmit(position);
+                _context.Positions.InsertOnSubmit(position);
                 _context.SubmitChanges();
             }
             catch (System.Exception ex)
@@ -32,8 +27,8 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
-                Positon position = _context.Positons.FirstOrDefault(p => p.PositionID == id);
-                _context.Positons.DeleteOnSubmit(position);
+                Position position = _context.Positions.FirstOrDefault(p => p.PositionID == id);
+                _context.Positions.DeleteOnSubmit(position);
                 _context.SubmitChanges();
             }
             catch (System.Exception ex)
@@ -42,11 +37,11 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public List<Positon> GetPositions()
+        public List<Position> GetPositions()
         {
             try
             {
-                return _context.Positons.ToList();
+                return _context.Positions.ToList();
             }
             catch (System.Exception ex)
             {
@@ -54,11 +49,11 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public Positon GetPositionById(string id)
+        public Position GetPositionById(string id)
         {
             try
             {
-                return _context.Positons.FirstOrDefault(p => p.PositionID == id);
+                return _context.Positions.FirstOrDefault(p => p.PositionID == id);
             }
             catch (System.Exception ex)
             {
@@ -66,11 +61,11 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public void UpdatePosition(Positon position)
+        public void UpdatePosition(Position position)
         {
             try
             {
-                Positon oldPosition = _context.Positons.FirstOrDefault(p => p.PositionID == position.PositionID);
+                Position oldPosition = _context.Positions.FirstOrDefault(p => p.PositionID == position.PositionID);
                 oldPosition.PositionName = position.PositionName;
                 _context.SubmitChanges();
             }
@@ -80,14 +75,14 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public (List<Positon> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize)
+        public (List<Position> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize)
         {
             try
             {
-                int totalPositions = _context.Positons.Count();
+                int totalPositions = _context.Positions.Count();
                 int totalPages = (int)System.Math.Ceiling((double)totalPositions / pageSize);
 
-                List<Positon> positions = _context.Positons
+                List<Position> positions = _context.Positions
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
