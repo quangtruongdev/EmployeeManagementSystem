@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem.Forms.Login
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UsernameContainer = new System.Windows.Forms.Panel();
             this.UsernameError = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.RememberMe = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Link_Register = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UsernameContainer.SuspendLayout();
             this.PasswordContainer.SuspendLayout();
@@ -77,6 +77,7 @@
             // 
             this.UsernameError.AutoSize = true;
             this.UsernameError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UsernameError.ForeColor = System.Drawing.Color.Red;
             this.UsernameError.Location = new System.Drawing.Point(0, 40);
             this.UsernameError.Name = "UsernameError";
             this.UsernameError.Size = new System.Drawing.Size(0, 16);
@@ -116,6 +117,7 @@
             // 
             this.PasswordError.AutoSize = true;
             this.PasswordError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PasswordError.ForeColor = System.Drawing.Color.Red;
             this.PasswordError.Location = new System.Drawing.Point(0, 38);
             this.PasswordError.Name = "PasswordError";
             this.PasswordError.Size = new System.Drawing.Size(0, 16);
@@ -212,24 +214,25 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Need an account?";
             // 
-            // label6
+            // Link_Register
             // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label6.Location = new System.Drawing.Point(569, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 18);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "SignUp";
+            this.Link_Register.AutoSize = true;
+            this.Link_Register.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Link_Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Link_Register.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.Link_Register.Location = new System.Drawing.Point(569, 58);
+            this.Link_Register.Name = "Link_Register";
+            this.Link_Register.Size = new System.Drawing.Size(56, 18);
+            this.Link_Register.TabIndex = 8;
+            this.Link_Register.Text = "SignUp";
+            this.Link_Register.Click += new System.EventHandler(this.Link_Register_Click);
             // 
-            // Login
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Link_Register);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
@@ -240,7 +243,7 @@
             this.Controls.Add(this.pictureBox1);
             this.MaximumSize = new System.Drawing.Size(818, 497);
             this.MinimumSize = new System.Drawing.Size(818, 497);
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -273,6 +276,6 @@
         private System.Windows.Forms.CheckBox RememberMe;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Link_Register;
     }
 }

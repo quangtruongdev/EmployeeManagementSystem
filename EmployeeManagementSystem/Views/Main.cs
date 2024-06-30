@@ -1,5 +1,5 @@
-﻿using EmployeeManagementSystem.Forms.Department;
-using EmployeeManagementSystem.Forms.Project;
+using EmployeeManagementSystem.Forms.Dashboard;
+using EmployeeManagementSystem.Forms.Department;
 using System;
 using System.Windows.Forms;
 
@@ -16,6 +16,7 @@ namespace EmployeeManagementSystem.Views
         {
             InitializeComponent();
             InitializeTimers();
+            this.Load += Main_Load;
         }
 
         private void InitializeTimers()
@@ -112,12 +113,8 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_Dashboard_Click(object sender, EventArgs e)
         {
-            // Handle dashboard button click
-        }
-
-        private void Btn_Logout_Click(object sender, EventArgs e)
-        {
-            // Handle logout button click
+            DashboardForm dashboard = new DashboardForm();
+            Shared.ShowMainContent(dashboard, MainContent);
         }
 
         private void EnsureSidebarOpen()
@@ -136,16 +133,6 @@ namespace EmployeeManagementSystem.Views
             MainContent.Controls.Clear();
             MainContent.Controls.Add(department);
             department.Show();
-        }
-
-        private void Btn_AllProjects_Click(object sender, EventArgs e)
-        {
-            Project project = new Project();
-            project.TopLevel = false;
-            project.Dock = DockStyle.Fill;
-            MainContent.Controls.Clear();
-            MainContent.Controls.Add(project);
-            project.Show();
         }
     }
 }

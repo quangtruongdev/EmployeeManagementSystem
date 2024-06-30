@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace EmployeeManagementSystem.Forms.Department
+﻿namespace EmployeeManagementSystem.Forms.Positons
 {
-    partial class Department
+    partial class PositionsList
     {
         /// <summary>
         /// Required designer variable.
@@ -30,49 +28,47 @@ namespace EmployeeManagementSystem.Forms.Department
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Department));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Btn_AddDepartment = new System.Windows.Forms.Button();
+            this.Btn_AddPositon = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PagingContainer = new System.Windows.Forms.Panel();
             this.PageOnPage = new System.Windows.Forms.Label();
             this.Btn_Next = new System.Windows.Forms.Button();
             this.Btn_Pre = new System.Windows.Forms.Button();
-            this.Tbl_Departments = new System.Windows.Forms.DataGridView();
-            this.DepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tbl_Positions = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PositonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btn_Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Btn_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PagingContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Tbl_Departments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tbl_Positions)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Btn_AddDepartment);
+            this.panel1.Controls.Add(this.Btn_AddPositon);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 4;
             // 
-            // Btn_AddDepartment
+            // Btn_AddPositon
             // 
-            this.Btn_AddDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_AddDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_AddDepartment.Image = ((System.Drawing.Image)(resources.GetObject("Btn_AddDepartment.Image")));
-            this.Btn_AddDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_AddDepartment.Location = new System.Drawing.Point(588, 5);
-            this.Btn_AddDepartment.Name = "Btn_AddDepartment";
-            this.Btn_AddDepartment.Size = new System.Drawing.Size(200, 45);
-            this.Btn_AddDepartment.TabIndex = 1;
-            this.Btn_AddDepartment.Text = "Add Department";
-            this.Btn_AddDepartment.UseVisualStyleBackColor = true;
-            this.Btn_AddDepartment.Click += new System.EventHandler(this.Btn_AddDepartment_Click);
+            this.Btn_AddPositon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_AddPositon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_AddPositon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_AddPositon.Location = new System.Drawing.Point(588, 5);
+            this.Btn_AddPositon.Name = "Btn_AddPositon";
+            this.Btn_AddPositon.Size = new System.Drawing.Size(200, 45);
+            this.Btn_AddPositon.TabIndex = 1;
+            this.Btn_AddPositon.Text = "Add Position";
+            this.Btn_AddPositon.UseVisualStyleBackColor = true;
+            this.Btn_AddPositon.Click += new System.EventHandler(this.Btn_AddPosition_Click);
             // 
             // label1
             // 
@@ -80,9 +76,9 @@ namespace EmployeeManagementSystem.Forms.Department
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 29);
+            this.label1.Size = new System.Drawing.Size(106, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Department";
+            this.label1.Text = "Positons";
             // 
             // panel2
             // 
@@ -91,7 +87,7 @@ namespace EmployeeManagementSystem.Forms.Department
             this.panel2.Location = new System.Drawing.Point(0, 350);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 100);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 5;
             // 
             // PagingContainer
             // 
@@ -137,45 +133,43 @@ namespace EmployeeManagementSystem.Forms.Department
             this.Btn_Pre.UseVisualStyleBackColor = true;
             this.Btn_Pre.Click += new System.EventHandler(this.Btn_Pre_Click);
             // 
-            // Tbl_Departments
+            // Tbl_Positions
             // 
-            this.Tbl_Departments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tbl_Departments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DepartmentID,
-            this.DepartmentName,
+            this.Tbl_Positions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tbl_Positions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.PositonName,
             this.Btn_Edit,
             this.Btn_Delete});
-            this.Tbl_Departments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tbl_Departments.Location = new System.Drawing.Point(0, 60);
-            this.Tbl_Departments.Name = "Tbl_Departments";
-            this.Tbl_Departments.RowHeadersWidth = 51;
-            this.Tbl_Departments.RowTemplate.Height = 24;
-            this.Tbl_Departments.Size = new System.Drawing.Size(800, 290);
-            this.Tbl_Departments.TabIndex = 3;
-            this.Tbl_Departments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Departments_CellContentClick);
+            this.Tbl_Positions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tbl_Positions.Location = new System.Drawing.Point(0, 60);
+            this.Tbl_Positions.Name = "Tbl_Positions";
+            this.Tbl_Positions.RowHeadersWidth = 51;
+            this.Tbl_Positions.RowTemplate.Height = 24;
+            this.Tbl_Positions.Size = new System.Drawing.Size(800, 290);
+            this.Tbl_Positions.TabIndex = 6;
+            this.Tbl_Positions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Positions_CellContentClick);
             // 
-            // DepartmentID
+            // STT
             // 
-            this.DepartmentID.DataPropertyName = "DepartmentID";
-            this.DepartmentID.HeaderText = "#";
-            this.DepartmentID.MinimumWidth = 6;
-            this.DepartmentID.Name = "DepartmentID";
-            this.DepartmentID.Width = 50;
+            this.STT.HeaderText = "#";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
             // 
-            // DepartmentName
+            // PositonName
             // 
-            this.DepartmentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DepartmentName.DataPropertyName = "DepartmentName";
-            this.DepartmentName.HeaderText = "Department Name";
-            this.DepartmentName.MinimumWidth = 6;
-            this.DepartmentName.Name = "DepartmentName";
+            this.PositonName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PositonName.DataPropertyName = "PositonName";
+            this.PositonName.HeaderText = "Positon Name";
+            this.PositonName.MinimumWidth = 6;
+            this.PositonName.Name = "PositonName";
             // 
             // Btn_Edit
             // 
             this.Btn_Edit.HeaderText = "Actions";
             this.Btn_Edit.MinimumWidth = 6;
             this.Btn_Edit.Name = "Btn_Edit";
-            this.Btn_Edit.Text = "Edit";
             this.Btn_Edit.Width = 50;
             // 
             // Btn_Delete
@@ -183,28 +177,25 @@ namespace EmployeeManagementSystem.Forms.Department
             this.Btn_Delete.HeaderText = "";
             this.Btn_Delete.MinimumWidth = 6;
             this.Btn_Delete.Name = "Btn_Delete";
-            this.Btn_Delete.Text = "Delete";
             this.Btn_Delete.Width = 50;
             // 
-            // Department
+            // PositonsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Tbl_Departments);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.Tbl_Positions);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Department";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Department";
+            this.Name = "PositonsList";
+            this.Text = "PositonsList";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.PagingContainer.ResumeLayout(false);
             this.PagingContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Tbl_Departments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tbl_Positions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,17 +203,17 @@ namespace EmployeeManagementSystem.Forms.Department
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Btn_AddPositon;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Btn_AddDepartment;
         private System.Windows.Forms.Panel panel2;
-        private DataGridView Tbl_Departments;
-        private DataGridViewTextBoxColumn DepartmentID;
-        private DataGridViewTextBoxColumn DepartmentName;
-        private DataGridViewButtonColumn Btn_Edit;
-        private DataGridViewButtonColumn Btn_Delete;
-        private Panel PagingContainer;
-        private Button Btn_Pre;
-        private Button Btn_Next;
-        private Label PageOnPage;
+        private System.Windows.Forms.Panel PagingContainer;
+        private System.Windows.Forms.Label PageOnPage;
+        private System.Windows.Forms.Button Btn_Next;
+        private System.Windows.Forms.Button Btn_Pre;
+        private System.Windows.Forms.DataGridView Tbl_Positions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositonName;
+        private System.Windows.Forms.DataGridViewButtonColumn Btn_Edit;
+        private System.Windows.Forms.DataGridViewButtonColumn Btn_Delete;
     }
 }
