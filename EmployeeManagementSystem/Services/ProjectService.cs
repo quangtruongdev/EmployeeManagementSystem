@@ -26,8 +26,7 @@ namespace EmployeeManagementSystem.Services
 
         public (List<Project> Projects, int totalProjects, int TotalPages) 
             GetProjects(int page, int pageSize, string projectNameKey = null
-            , DateTime? startFromDateKey = null, DateTime? startToDateKey = null,
-            DateTime? endFromDateKey = null, DateTime? endToDateKey = null )
+            , DateTime? startDateKey = null, DateTime? endDateKey = null )
         {
             try
             {
@@ -37,12 +36,9 @@ namespace EmployeeManagementSystem.Services
                     var projects = context.Projects.AsQueryable();
                     projects = (string.IsNullOrEmpty(projectNameKey)) ? projects 
                         : projects.Where(p => p.ProjectName.Contains(projectNameKey));
-                    projects = (!startFromDateKey.HasValue) ? projects
-                        : projects.Where(p => p.StartDate >= startFromDateKey 
-                        && p.StartDate <= startToDateKey);
-                    projects = (!endFromDateKey.HasValue) ? projects
-                        : projects.Where(p => p.EndDate >= endFromDateKey
-                        && p.EndDate <= endToDateKey);
+                    projects = (startDateKey == null) ? projects
+                        : projects.Where(p => p.StartDate >= startDateKey
+                            && p.EndDate <= endDateKey);
 
                     var totalProjects = projects.Count();
                     var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
