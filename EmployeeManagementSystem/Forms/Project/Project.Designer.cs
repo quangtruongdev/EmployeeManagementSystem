@@ -52,6 +52,8 @@
             this.startDateFrom = new System.Windows.Forms.DateTimePicker();
             this.endDateFrom = new System.Windows.Forms.DateTimePicker();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.pageSizeComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Tbl_Projects)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.SuspendLayout();
@@ -289,11 +291,39 @@
             this.errorLabel.Text = "(*) Choose reasonable time to search";
             this.errorLabel.Visible = false;
             // 
+            // pageSizeComboBox
+            // 
+            this.pageSizeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageSizeComboBox.FormattingEnabled = true;
+            this.pageSizeComboBox.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25"});
+            this.pageSizeComboBox.Location = new System.Drawing.Point(941, 579);
+            this.pageSizeComboBox.Name = "pageSizeComboBox";
+            this.pageSizeComboBox.Size = new System.Drawing.Size(49, 24);
+            this.pageSizeComboBox.TabIndex = 11;
+            this.pageSizeComboBox.SelectedValueChanged += new System.EventHandler(this.pageSizeComboBox_SelectedValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(866, 582);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Page Size";
+            // 
             // Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 628);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pageSizeComboBox);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.endDateFrom);
             this.Controls.Add(this.startDateFrom);
@@ -342,5 +372,7 @@
         private System.Windows.Forms.DateTimePicker startDateFrom;
         private System.Windows.Forms.DateTimePicker endDateFrom;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.ComboBox pageSizeComboBox;
+        private System.Windows.Forms.Label label5;
     }
 }

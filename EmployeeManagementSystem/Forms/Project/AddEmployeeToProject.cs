@@ -162,8 +162,13 @@ namespace EmployeeManagementSystem.Forms.Project
             if(e.ColumnIndex == membersDataGridView.Columns["DeleteBtn"].Index)
             {
                 var employeeId = membersDataGridView.Rows[e.RowIndex].Cells["EmployeeId"].Value.ToString();
-                _projectService.DeleteEmployeeFromProject(employeeId, _projectId);
-                LoadMembers();
+                var result = MessageBox.Show("Are you sure you want to delete this employee from the project?"
+                    , "Delete Employee", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    _projectService.DeleteEmployeeFromProject(employeeId, _projectId);
+                    LoadMembers();
+                }
             }
         }
 
@@ -177,6 +182,12 @@ namespace EmployeeManagementSystem.Forms.Project
         private void ComboBox_TextChanged(object sender, EventArgs e)
         {
             if (membersComboBox.Text == "" || positionsComboBox.Text == "") addMemberBtn.Enabled = false;
+        }
+
+        private void pageSizeComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            pageSize = Convert.ToInt32(pageSizeComboBox.SelectedItem);
+            LoadMembers();
         }
     }
 }

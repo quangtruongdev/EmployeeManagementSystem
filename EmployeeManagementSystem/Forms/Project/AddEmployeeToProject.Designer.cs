@@ -47,6 +47,8 @@
             this.PageOnPage = new System.Windows.Forms.Label();
             this.Btn_Next = new System.Windows.Forms.Button();
             this.Btn_Pre = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pageSizeComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +117,8 @@
             // 
             this.membersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.membersComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.membersComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.membersComboBox.FormattingEnabled = true;
             this.membersComboBox.Location = new System.Drawing.Point(552, 91);
             this.membersComboBox.MaximumSize = new System.Drawing.Size(895, 0);
@@ -179,6 +183,8 @@
             // 
             this.positionsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.positionsComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.positionsComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.positionsComboBox.FormattingEnabled = true;
             this.positionsComboBox.Location = new System.Drawing.Point(552, 135);
             this.positionsComboBox.MaximumSize = new System.Drawing.Size(895, 0);
@@ -248,11 +254,39 @@
             this.Btn_Pre.UseVisualStyleBackColor = true;
             this.Btn_Pre.Click += new System.EventHandler(this.Btn_Pre_Click);
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(679, 535);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 16);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Page Size";
+            // 
+            // pageSizeComboBox
+            // 
+            this.pageSizeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageSizeComboBox.FormattingEnabled = true;
+            this.pageSizeComboBox.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25"});
+            this.pageSizeComboBox.Location = new System.Drawing.Point(754, 532);
+            this.pageSizeComboBox.Name = "pageSizeComboBox";
+            this.pageSizeComboBox.Size = new System.Drawing.Size(49, 24);
+            this.pageSizeComboBox.TabIndex = 13;
+            this.pageSizeComboBox.SelectedValueChanged += new System.EventHandler(this.pageSizeComboBox_SelectedValueChanged);
+            // 
             // AddEmployeeToProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 588);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pageSizeComboBox);
             this.Controls.Add(this.PagingContainer);
             this.Controls.Add(this.addMemberBtn);
             this.Controls.Add(this.positionsComboBox);
@@ -295,5 +329,7 @@
         private System.Windows.Forms.Label PageOnPage;
         private System.Windows.Forms.Button Btn_Next;
         private System.Windows.Forms.Button Btn_Pre;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox pageSizeComboBox;
     }
 }

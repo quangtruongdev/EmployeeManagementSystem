@@ -26,8 +26,8 @@ namespace EmployeeManagementSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KC4B8TP;Initial Catalog=employeeManager;Persist Security Info" +
-            "=True;User ID=sa;Password=123456;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-FO7GFQ3G;Initial Catalog=employeeManager;Persist Security Info" +
+            "=True;User ID=sa;Password=123456;TrustServerCertificate=True")]
         public string employeeManagerConnectionString {
             get {
                 return ((string)(this["employeeManagerConnectionString"]));

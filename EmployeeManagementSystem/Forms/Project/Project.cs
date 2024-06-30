@@ -219,5 +219,11 @@ namespace EmployeeManagementSystem.Forms.Project
                 searchBtn.Enabled = false;
             }
         }
+
+        private void pageSizeComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            pageSize = Convert.ToInt32(pageSizeComboBox.SelectedItem);
+            LoadProjects();
+        }
     }
 }
