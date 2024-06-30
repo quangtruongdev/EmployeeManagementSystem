@@ -1,63 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="employeeManager" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.UserAccounts" Member="UserAccounts">
-    <Type Name="UserAccount">
-      <Column Name="UserID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Role" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Employee_UserAccount" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Employees" Member="Employees">
-    <Type Name="Employee">
-      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Gender" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HireDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DepartmentID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="Char(13)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Association Name="Employee_UserAccount" Member="UserAccounts" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="UserAccount" />
-      <Association Name="Employee_Salary" Member="Salaries" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Salary" />
-      <Association Name="Employee_EmployeeProject" Member="EmployeeProjects" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeProject" />
-      <Association Name="Department_Employee" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Positons" Member="Positons">
-    <Type Name="Positon">
-      <Column Name="PositionID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PositionName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Association Name="Positon_EmployeeProject" Member="EmployeeProjects" ThisKey="PositionID" OtherKey="PositionID" Type="EmployeeProject" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Projects" Member="Projects">
-    <Type Name="Project">
-      <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Project_EmployeeProject" Member="EmployeeProjects" ThisKey="ProjectID" OtherKey="ProjectID" Type="EmployeeProject" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Salaries" Member="Salaries">
-    <Type Name="Salary">
-      <Column Name="SalaryID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="SalaryAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="EffectiveDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Employee_Salary" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Departments" Member="Departments">
     <Type Name="Department">
       <Column Name="DepartmentID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Department_Departments_Project" Member="Departments_Projects" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Departments_Project" />
       <Association Name="Department_Employee" Member="Employees" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Employee" />
+      <Association Name="Department_Position" Member="Positions" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Position" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAccounts" Member="UserAccounts">
+    <Type Name="UserAccount">
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="RoleID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="UserAccount_Employee" Member="Employees" ThisKey="UserID" OtherKey="UserID" Type="Employee" />
+      <Association Name="Role_UserAccount" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Departments_Projects" Member="Departments_Projects">
+    <Type Name="Departments_Project">
+      <Column Name="DepartmentID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Department_Departments_Project" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
+      <Association Name="Project_Departments_Project" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee_Hierarchy" Member="Employee_Hierarchies">
+    <Type Name="Employee_Hierarchy">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ManagerID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Employee_Employee_Hierarchy" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_Employee_Hierarchy1" Member="Employee1" ThisKey="ManagerID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.EmployeeProjects" Member="EmployeeProjects">
@@ -66,8 +40,82 @@
       <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PositionID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Employee_EmployeeProject" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Positon_EmployeeProject" Member="Positon" ThisKey="PositionID" OtherKey="PositionID" Type="Positon" IsForeignKey="true" />
+      <Association Name="Position_EmployeeProject" Member="Position" ThisKey="PositionID" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
       <Association Name="Project_EmployeeProject" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AvartarUrl" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DepartmentID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PositionID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_Employee_Hierarchy" Member="Employee_Hierarchies" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee_Hierarchy" />
+      <Association Name="Employee_Employee_Hierarchy1" Member="Employee_Hierarchies1" ThisKey="EmployeeID" OtherKey="ManagerID" Type="Employee_Hierarchy" />
+      <Association Name="Employee_EmployeeProject" Member="EmployeeProjects" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeProject" />
+      <Association Name="Employee_LeaveManagement" Member="LeaveManagements" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="LeaveManagement" />
+      <Association Name="Employee_Salary" Member="Salaries" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Salary" />
+      <Association Name="Department_Employee" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
+      <Association Name="UserAccount_Employee" Member="UserAccount" ThisKey="UserID" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" />
+      <Association Name="Position_Employee" Member="Position" ThisKey="PositionID" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LeaveManagement" Member="LeaveManagements">
+    <Type Name="LeaveManagement">
+      <Column Name="LeaveID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeaveType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_LeaveManagement" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Positions" Member="Positions">
+    <Type Name="Position">
+      <Column Name="PositionID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Position_EmployeeProject" Member="EmployeeProjects" ThisKey="PositionID" OtherKey="PositionID" Type="EmployeeProject" />
+      <Association Name="Position_Employee" Member="Employees" ThisKey="PositionID" OtherKey="PositionID" Type="Employee" />
+      <Association Name="Department_Position" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Projects" Member="Projects">
+    <Type Name="Project">
+      <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TeamLeader" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Project_Departments_Project" Member="Departments_Projects" ThisKey="ProjectID" OtherKey="ProjectID" Type="Departments_Project" />
+      <Association Name="Project_EmployeeProject" Member="EmployeeProjects" ThisKey="ProjectID" OtherKey="ProjectID" Type="EmployeeProject" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Role_UserAccount" Member="UserAccounts" ThisKey="RoleID" OtherKey="RoleID" Type="UserAccount" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Salaries" Member="Salaries">
+    <Type Name="Salary">
+      <Column Name="SalaryID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalaryAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_Salary" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

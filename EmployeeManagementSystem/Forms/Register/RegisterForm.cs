@@ -83,7 +83,7 @@ namespace EmployeeManagementSystem.Forms.Register
                 UserAccount user = new UserAccount
                 {
                     Username = username,
-                    Password = password
+                    PasswordHash = password
                 };
 
                 _authService.Register(user);

@@ -41,15 +41,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt_address = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.cbb_gender = new System.Windows.Forms.ComboBox();
             this.cbb_departmentID = new System.Windows.Forms.ComboBox();
             this.dtp_dateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.dtp_hireDate = new System.Windows.Forms.DateTimePicker();
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
             this.nameForm = new System.Windows.Forms.Label();
+            this.cbb_positionID = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +65,7 @@
             // 
             // txt_firstName
             // 
-            this.txt_firstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_firstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_firstName.Location = new System.Drawing.Point(252, 217);
             this.txt_firstName.MaximumSize = new System.Drawing.Size(400, 38);
@@ -87,7 +87,7 @@
             // 
             // txt_lastName
             // 
-            this.txt_lastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_lastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_lastName.Location = new System.Drawing.Point(252, 261);
             this.txt_lastName.MaximumSize = new System.Drawing.Size(400, 38);
@@ -123,7 +123,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(613, 219);
+            this.label5.Location = new System.Drawing.Point(616, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 8;
@@ -134,7 +134,7 @@
             // 
             this.txt_phoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_phoneNumber.Location = new System.Drawing.Point(761, 217);
+            this.txt_phoneNumber.Location = new System.Drawing.Point(764, 215);
             this.txt_phoneNumber.Multiline = true;
             this.txt_phoneNumber.Name = "txt_phoneNumber";
             this.txt_phoneNumber.Size = new System.Drawing.Size(321, 38);
@@ -145,7 +145,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(613, 263);
+            this.label6.Location = new System.Drawing.Point(616, 261);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 20);
             this.label6.TabIndex = 10;
@@ -156,7 +156,7 @@
             // 
             this.txt_email.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(761, 261);
+            this.txt_email.Location = new System.Drawing.Point(764, 259);
             this.txt_email.Multiline = true;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(321, 38);
@@ -167,7 +167,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(613, 307);
+            this.label7.Location = new System.Drawing.Point(616, 305);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 20);
             this.label7.TabIndex = 12;
@@ -178,7 +178,7 @@
             // 
             this.txt_address.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_address.Location = new System.Drawing.Point(761, 305);
+            this.txt_address.Location = new System.Drawing.Point(764, 303);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(321, 38);
@@ -189,27 +189,16 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(613, 351);
+            this.label8.Location = new System.Drawing.Point(616, 354);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 20);
             this.label8.TabIndex = 14;
             this.label8.Text = "Department";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(137, 395);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 20);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "HireDate";
-            // 
             // cbb_gender
             // 
-            this.cbb_gender.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbb_gender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbb_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_gender.FormattingEnabled = true;
             this.cbb_gender.Items.AddRange(new object[] {
@@ -228,7 +217,7 @@
             this.cbb_departmentID.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cbb_departmentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_departmentID.FormattingEnabled = true;
-            this.cbb_departmentID.Location = new System.Drawing.Point(761, 349);
+            this.cbb_departmentID.Location = new System.Drawing.Point(764, 352);
             this.cbb_departmentID.MaximumSize = new System.Drawing.Size(400, 0);
             this.cbb_departmentID.Name = "cbb_departmentID";
             this.cbb_departmentID.Size = new System.Drawing.Size(321, 26);
@@ -236,21 +225,12 @@
             // 
             // dtp_dateOfBirth
             // 
-            this.dtp_dateOfBirth.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_dateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_dateOfBirth.Location = new System.Drawing.Point(254, 358);
             this.dtp_dateOfBirth.MaximumSize = new System.Drawing.Size(400, 22);
             this.dtp_dateOfBirth.Name = "dtp_dateOfBirth";
             this.dtp_dateOfBirth.Size = new System.Drawing.Size(319, 22);
             this.dtp_dateOfBirth.TabIndex = 20;
-            // 
-            // dtp_hireDate
-            // 
-            this.dtp_hireDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_hireDate.Location = new System.Drawing.Point(254, 400);
-            this.dtp_hireDate.MaximumSize = new System.Drawing.Size(400, 22);
-            this.dtp_hireDate.Name = "dtp_hireDate";
-            this.dtp_hireDate.Size = new System.Drawing.Size(319, 22);
-            this.dtp_hireDate.TabIndex = 21;
             // 
             // btn_Add
             // 
@@ -300,20 +280,43 @@
             this.nameForm.Text = "label10";
             this.nameForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbb_positionID
+            // 
+            this.cbb_positionID.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cbb_positionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_positionID.FormattingEnabled = true;
+            this.cbb_positionID.Location = new System.Drawing.Point(764, 396);
+            this.cbb_positionID.MaximumSize = new System.Drawing.Size(400, 0);
+            this.cbb_positionID.Name = "cbb_positionID";
+            this.cbb_positionID.Size = new System.Drawing.Size(321, 26);
+            this.cbb_positionID.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(616, 402);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 20);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Position";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 677);
+            this.Controls.Add(this.cbb_positionID);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.nameForm);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Add);
-            this.Controls.Add(this.dtp_hireDate);
             this.Controls.Add(this.dtp_dateOfBirth);
             this.Controls.Add(this.cbb_departmentID);
             this.Controls.Add(this.cbb_gender);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_address);
             this.Controls.Add(this.label7);
@@ -349,14 +352,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbb_gender;
         private System.Windows.Forms.ComboBox cbb_departmentID;
         private System.Windows.Forms.DateTimePicker dtp_dateOfBirth;
-        private System.Windows.Forms.DateTimePicker dtp_hireDate;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Label nameForm;
+        private System.Windows.Forms.ComboBox cbb_positionID;
+        private System.Windows.Forms.Label label9;
     }
 }
