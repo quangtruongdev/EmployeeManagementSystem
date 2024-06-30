@@ -111,7 +111,7 @@ namespace EmployeeManagementSystem.Services
             context.SubmitChanges();
         }
 
-        public (IQueryable res, int totalEmployees, int totalPages, List<Positon> positions
+        public (IQueryable res, int totalEmployees, int totalPages, List<Position> positions
             , List<Employee> employees, List<Employee> employeesNotInProject) GetEmployeesInProject(string projectId, int page, int pageSize)
         {
             try
@@ -121,7 +121,7 @@ namespace EmployeeManagementSystem.Services
                 int totalEmployees = employeesInProject.Count();
                 int totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
                 var employees = context.Employees;
-                var positions = context.Positons;
+                var positions = context.Positions;
 
                 var employeeIdsInProject = context.EmployeeProjects.Where(ep => 
                     ep.ProjectID == projectId).Select(ep => ep.EmployeeID).ToList();

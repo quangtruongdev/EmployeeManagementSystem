@@ -1,5 +1,11 @@
-using EmployeeManagementSystem.Forms.Dashboard;
+﻿using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Employees;
+using EmployeeManagementSystem.Forms.Leave;
+using EmployeeManagementSystem.Forms.Login;
+using EmployeeManagementSystem.Forms.Positons;
+using EmployeeManagementSystem.Forms.Project;
+using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -125,14 +131,95 @@ namespace EmployeeManagementSystem.Views
             }
         }
 
-        private void Btn_Department_Click(object sender, EventArgs e)
+        private void Btn_AllProjects_Click(object sender, EventArgs e)
         {
-            Department department = new Department();
-            department.TopLevel = false;
-            department.Dock = DockStyle.Fill;
+            Project projectLists = new Project();
+            Shared.ShowMainContent(projectLists, MainContent);
+        }
+
+        private void Btn_AddProject_Click(object sender, EventArgs e)
+        {
+            AddProject addProject = new AddProject();
+            Shared.ShowMainContent(addProject, MainContent);
+        }
+
+        private void Btn_Departments_Click(object sender, EventArgs e)
+        {
+            DepartmentLists department = new DepartmentLists();
+            Shared.ShowMainContent(department, MainContent);
+        }
+
+        private void Btn_Positions_Click(object sender, EventArgs e)
+        {
+            PositionsList positonsList = new PositionsList();
+            Shared.ShowMainContent(positonsList, MainContent);
+        }
+
+        private void Btn_Payroll_Click(object sender, EventArgs e)
+        {
+            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
+            Shared.ShowMainContent(salary, MainContent);
+        }
+
+        public void Btn_AllEmployees_Click(object sender, EventArgs e)
+        {
             MainContent.Controls.Clear();
-            MainContent.Controls.Add(department);
-            department.Show();
+            EmployeeLists employee = new EmployeeLists();
+            employee.TopLevel = false;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
+        }
+
+        private void Btn_AddEmployee_Click(object sender, EventArgs e)
+        {
+            MainContent.Controls.Clear();
+            EmployeeForm employee = new EmployeeForm();
+            employee.TopLevel = false;
+            employee.FormBorderStyle = FormBorderStyle.None;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
+        }
+        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
+        {
+            LeaveLists leaveLists = new LeaveLists();
+            Shared.ShowMainContent(leaveLists, MainContent);
+        }
+
+        private void Btn_Logout_Click(object sender, EventArgs e)
+        {
+            SessionManager.ClearSession(); // Xóa thông tin phiên người dùng
+
+            // Hiển thị form đăng nhập
+            LoginForm login = new LoginForm();
+            login.FormClosed += LoginForm_FormClosed; // Đăng ký sự kiện FormClosed để theo dõi khi form đăng nhập đóng lại
+            login.Show();
+
+            // Ẩn form chính
+            this.Hide();
+        }
+
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Xử lý khi form đăng nhập đóng lại
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit(); // Đóng chương trình
+            }
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // set dashboard as default view
+        private void Main_Load(object sender, EventArgs e)
+        {
+            DashboardForm dashboard = new DashboardForm();
+            Shared.ShowMainContent(dashboard, MainContent);
         }
     }
 }
