@@ -32,6 +32,6 @@ namespace EmployeeManagementSystem.Properties {
             get {
                 return ((string)(this["employeeManagerConnectionString"]));
             }
-        }
+        }       
     }
 }

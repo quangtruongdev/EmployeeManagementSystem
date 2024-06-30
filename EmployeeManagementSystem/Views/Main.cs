@@ -1,4 +1,4 @@
-﻿using EmployeeManagementSystem.Forms.Dashboard;
+using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
 using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
@@ -127,6 +127,12 @@ namespace EmployeeManagementSystem.Views
             {
                 SidebarTransition.Start();
             }
+        }
+
+        private void Btn_Payroll_Click(object sender, EventArgs e)
+        {
+            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
+            Shared.ShowMainContent(salary, MainContent);
         }
 
         private void Btn_Departments_Click(object sender, EventArgs e)

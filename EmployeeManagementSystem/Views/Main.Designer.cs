@@ -279,6 +279,7 @@
             this.Btn_Payroll.TabIndex = 0;
             this.Btn_Payroll.Text = "Payroll";
             this.Btn_Payroll.UseVisualStyleBackColor = true;
+            this.Btn_Payroll.Click += new System.EventHandler(this.Btn_Payroll_Click);
             // 
             // LeaveManagementContainer
             // 

@@ -86,6 +86,26 @@
     <Compile Include="Forms\Leave\LeaveForm.Designer.cs">
       <DependentUpon>LeaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.Designer.cs">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\EditSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\EditSalary.Designer.cs">
+      <DependentUpon>EditSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\Salary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\Salary.Designer.cs">
+      <DependentUpon>Salary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IDepartment.cs" />
+    <Compile Include="Interfaces\ISalary.cs" />
     <Compile Include="Forms\Leave\LeaveLists.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +151,8 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DashboardService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Utils\Logger.cs" />
     <Compile Include="Services\LeaveService.cs" />
     <Compile Include="Services\PositionsService.cs" />
     <Compile Include="Utils\Logger.cs" />
@@ -176,6 +198,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\CreateSalary.resx">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\EditSalary.resx">
+      <DependentUpon>EditSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\Salary.resx">
+      <DependentUpon>Salary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
