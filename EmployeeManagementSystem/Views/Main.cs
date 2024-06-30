@@ -129,11 +129,6 @@ namespace EmployeeManagementSystem.Views
             }
         }
 
-        private void Btn_Payroll_Click(object sender, EventArgs e)
-        {
-            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
-            Shared.ShowMainContent(salary, MainContent);
-        }
 
         private void Btn_Departments_Click(object sender, EventArgs e)
         {
@@ -145,6 +140,12 @@ namespace EmployeeManagementSystem.Views
         {
             PositionsList positonsList = new PositionsList();
             Shared.ShowMainContent(positonsList, MainContent);
+        }
+
+        private void Btn_Payroll_Click(object sender, EventArgs e)
+        {
+            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
+            Shared.ShowMainContent(salary, MainContent);
         }
 
         private void Btn_LeaveManagement_Click(object sender, EventArgs e)

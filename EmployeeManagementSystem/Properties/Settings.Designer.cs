@@ -27,21 +27,10 @@ namespace EmployeeManagementSystem.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KC4B8TP;Initial Catalog=employeeManager;Persist Security Info" +
-            "=True;User ID=sa;TrustServerCertificate=True")]
+            "=True;User ID=sa;Password=123456;Encrypt=True;TrustServerCertificate=True")]
         public string employeeManagerConnectionString {
             get {
                 return ((string)(this["employeeManagerConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-KC4B8TP;Initial Catalog=employeeManager;Persist Security Info" +
-            "=True;User ID=sa;Password=123456;Encrypt=True;TrustServerCertificate=True")]
-        public string employeeManagerConnectionString1 {
-            get {
-                return ((string)(this["employeeManagerConnectionString1"]));
             }
         }
     }
