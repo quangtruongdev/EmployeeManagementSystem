@@ -98,17 +98,17 @@
     <Compile Include="Forms\Login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Positons\PositionForm.cs">
+    <Compile Include="Forms\Positions\PositionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Positons\PositionForm.Designer.cs">
+    <Compile Include="Forms\Positions\PositionForm.Designer.cs">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Positons\PositonsList.cs">
+    <Compile Include="Forms\Positions\PositionsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Positons\PositonsList.Designer.cs">
-      <DependentUpon>PositonsList.cs</DependentUpon>
+    <Compile Include="Forms\Positions\PositionsList.Designer.cs">
+      <DependentUpon>PositionsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Register\RegisterForm.cs">
       <SubType>Form</SubType>
@@ -168,11 +168,11 @@
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Positons\PositionForm.resx">
+    <EmbeddedResource Include="Forms\Positions\PositionForm.resx">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Positons\PositonsList.resx">
-      <DependentUpon>PositonsList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Positions\PositionsList.resx">
+      <DependentUpon>PositionsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem.Forms.Positons
 {
-    partial class PositonsList
+    partial class PositionsList
     {
         /// <summary>
         /// Required designer variable.

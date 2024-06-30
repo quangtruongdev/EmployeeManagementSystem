@@ -30,7 +30,7 @@ namespace EmployeeManagementSystem.Forms.Positons
         {
             var positionName = Txt_PositionName.Text.Trim();
             ValidateForm();
-            var position = new Positon
+            var position = new Position
             {
                 PositionName = positionName
             };
