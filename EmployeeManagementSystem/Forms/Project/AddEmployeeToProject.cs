@@ -118,7 +118,7 @@ namespace EmployeeManagementSystem.Forms.Project
             membersComboBox.SelectedIndex = -1;
         }
 
-        private void LoadPositionsComboBox(List<Positon> positions)
+        private void LoadPositionsComboBox(List<Position> positions)
         {
             positionsComboBox.DataSource = positions;
             positionsComboBox.DisplayMember = "PositionName";
