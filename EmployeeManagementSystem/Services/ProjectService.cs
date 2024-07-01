@@ -20,6 +20,7 @@ namespace EmployeeManagementSystem.Services
             }
             catch (Exception e)
             {
+                Utils.Shared.ShowToastr("Error", "Error while get project from Database");
                 return null;
             }
         }
@@ -53,6 +54,7 @@ namespace EmployeeManagementSystem.Services
             }
             catch (Exception ex)
             {
+                Utils.Shared.ShowToastr("Error", "Error while get project from Database");
                 throw new Exception(ex.Message);
             }
         }
@@ -65,6 +67,7 @@ namespace EmployeeManagementSystem.Services
             }
             catch (Exception ex)
             {
+                Utils.Shared.ShowToastr("Error", "Error while get project from Database");
                 throw new Exception(ex.Message);
             }
         }
@@ -76,9 +79,11 @@ namespace EmployeeManagementSystem.Services
                 Project project = context.Projects.FirstOrDefault(p => p.ProjectID == id);
                 context.Projects.DeleteOnSubmit(project);
                 context.SubmitChanges();
+                Utils.Shared.ShowToastr("Success", "Project deleted successfully");
             }
             catch (Exception ex)
             {
+                Utils.Shared.ShowToastr("Error", "Error while delete project from Database");
                 throw new Exception(ex.Message);
             }
         }
@@ -90,21 +95,31 @@ namespace EmployeeManagementSystem.Services
                 project.ProjectID = Guid.NewGuid().ToString();
                 context.Projects.InsertOnSubmit(project);
                 context.SubmitChanges();
+                Utils.Shared.ShowToastr("Success", "Project added successfully");
             }
             catch (Exception e)
             {
+                Utils.Shared.ShowToastr("Error", "Error while add project to Database");
                 Console.WriteLine(e.Message);
             }
         }
 
         public void UpdateProject(Project project)
         {
-            var oldProject = context.Projects.FirstOrDefault(p => p.ProjectID == project.ProjectID);
-            oldProject.ProjectName = project.ProjectName;
-            oldProject.Description = project.Description;
-            oldProject.StartDate = project.StartDate;
-            oldProject.EndDate = project.EndDate;
-            context.SubmitChanges();
+            try
+            {
+                Utils.Shared.ShowToastr("Success", "Project updated successfully");
+                var oldProject = context.Projects.FirstOrDefault(p => p.ProjectID == project.ProjectID);
+                oldProject.ProjectName = project.ProjectName;
+                oldProject.Description = project.Description;
+                oldProject.StartDate = project.StartDate;
+                oldProject.EndDate = project.EndDate;
+                context.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Utils.Shared.ShowToastr("Error", "Error while update project to Database");
+            }
         }
 
         public (IQueryable res, int totalEmployees, int totalPages, List<Position> positions
@@ -155,9 +170,11 @@ namespace EmployeeManagementSystem.Services
             {
                 context.EmployeeProjects.InsertOnSubmit(employeeProject);
                 context.SubmitChanges();
+                Utils.Shared.ShowToastr("Success", "Employee added to project successfully");
             }
             catch (Exception e)
             {
+                Utils.Shared.ShowToastr("Error", "Error while add employee to project");
                 MessageBox.Show(e.Message);
             }
         }
@@ -170,9 +187,11 @@ namespace EmployeeManagementSystem.Services
                     .FirstOrDefault(ep => ep.ProjectID == projectId && ep.EmployeeID == employeeId);
                 context.EmployeeProjects.DeleteOnSubmit(employeeProject);
                 context.SubmitChanges();
+                Utils.Shared.ShowToastr("Success", "Employee deleted from project successfully");
             }
             catch (Exception e)
             {
+                Utils.Shared.ShowToastr("Error", "Error while delete employee from project");
                 MessageBox.Show(e.Message);
             }
         }

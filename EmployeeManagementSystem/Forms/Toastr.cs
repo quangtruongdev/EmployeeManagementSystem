@@ -22,22 +22,27 @@ namespace EmployeeManagementSystem.Forms
             switch (type)
             {
                 case "Success":
-                    this.BackColor = Color.FromArgb(57, 155, 53);
+                    toastrBorder.BackColor = Color.FromArgb(57, 155, 53);
                     picIcon.Image = Properties.Resources.success;
                     break;
                 case "Error":
-                    this.BackColor = Color.FromArgb(227, 50, 45);
+                    toastrBorder.BackColor = Color.FromArgb(227, 50, 45);
                     picIcon.Image = Properties.Resources.error;
                     break;
                 case "Warning":
-                    this.BackColor = Color.FromArgb(18, 136, 191);
+                    toastrBorder.BackColor = Color.FromArgb(18, 136, 191);
                     picIcon.Image = Properties.Resources.warning;
                     break;
                 case "Info":
-                    this.BackColor = Color.FromArgb(18, 136, 191);
+                    toastrBorder.BackColor = Color.FromArgb(18, 136, 191);
                     picIcon.Image = Properties.Resources.info;
                     break;
             }
+
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.ShowInTaskbar = false;
+            this.BringToFront();
         }
 
         private void Toastr_Load(object sender, EventArgs e)
@@ -52,7 +57,13 @@ namespace EmployeeManagementSystem.Forms
             if(toastY <= 760)
             {
                 toastrTimer.Stop();
-                toastrHide.Start();
+                var hideDelay = new Timer { Interval = 2000 }; // Adjust this value to control how long the toast is visible
+                hideDelay.Tick += (s, args) =>
+                {
+                    hideDelay.Stop();
+                    toastrHide.Start();
+                };
+                hideDelay.Start();
             }
         }
 

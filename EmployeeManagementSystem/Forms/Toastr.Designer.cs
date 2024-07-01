@@ -79,7 +79,7 @@
             // toastrTimer
             // 
             this.toastrTimer.Enabled = true;
-            this.toastrTimer.Interval = 10;
+            this.toastrTimer.Interval = 20;
             this.toastrTimer.Tick += new System.EventHandler(this.toastrTimer_Tick);
             // 
             // toastrHide
@@ -99,7 +99,7 @@
             this.Controls.Add(this.picIcon);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Toastr";
             this.Text = "Toastr";
             this.Load += new System.EventHandler(this.Toastr_Load);
