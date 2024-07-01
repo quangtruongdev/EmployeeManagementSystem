@@ -61,15 +61,20 @@ namespace EmployeeManagementSystem.Forms.Salary
 
         private void btn_update_Click(object sender, System.EventArgs e)
         {
-            string salary = txt_salary.Text;
 
-            double? salaryAmout = TryParseNullableDouble(salary);
+            double? salaryAmout = TryParseNullableDouble(txt_salary.Text);
 
             string email = txt_email.Text;
 
             if (salaryAmout == null)
             {
                 MessageBox.Show("Invalid salary amount");
+                return;
+            }
+
+            if (!decimal.TryParse(txt_salary.Text, out decimal salary))
+            {
+                MessageBox.Show("Lương không hợp lệ, vui lòng nhập một số hợp lệ.");
                 return;
             }
 
