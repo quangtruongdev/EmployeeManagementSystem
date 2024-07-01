@@ -145,6 +145,7 @@
             this.Btn_AddProject.TabIndex = 2;
             this.Btn_AddProject.Text = "Add Project";
             this.Btn_AddProject.UseVisualStyleBackColor = true;
+            this.Btn_AddProject.Click += new System.EventHandler(this.Btn_AddProject_Click);
             // 
             // Btn_AllProjects
             // 
@@ -155,6 +156,7 @@
             this.Btn_AllProjects.TabIndex = 1;
             this.Btn_AllProjects.Text = "All Projects";
             this.Btn_AllProjects.UseVisualStyleBackColor = true;
+            this.Btn_AllProjects.Click += new System.EventHandler(this.Btn_AllProjects_Click);
             // 
             // Btn_Projects
             // 
