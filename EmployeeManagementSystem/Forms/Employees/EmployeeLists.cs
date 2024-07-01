@@ -7,6 +7,7 @@ namespace EmployeeManagementSystem.Forms.Employees
 {
     public partial class EmployeeLists : Form
     {
+
         private readonly IPositions _positiontService;
         private readonly IDepartment _departmentService;
         private readonly IEmployees _employeesService;
