@@ -1,10 +1,11 @@
+﻿using EmployeeManagementSystem.Forms;
 using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
-using EmployeeManagementSystem.Interfaces;
-using EmployeeManagementSystem.Services;
+using EmployeeManagementSystem.Forms.Project;
 using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
@@ -13,7 +14,6 @@ namespace EmployeeManagementSystem.Views
 {
     public partial class Main : Form
     {
-        private IAuth _authService;
         private bool projectsCollapsed = true;
         private bool employeesCollapsed = true;
         private bool sidebarCollapsed = true;
@@ -23,7 +23,6 @@ namespace EmployeeManagementSystem.Views
         {
             InitializeComponent();
             InitializeTimers();
-            _authService = new AuthService();
             this.Load += Main_Load;
         }
 
@@ -133,22 +132,61 @@ namespace EmployeeManagementSystem.Views
             }
         }
 
+        private void Btn_AllProjects_Click(object sender, EventArgs e)
+        {
+            Project projectLists = new Project();
+            Shared.ShowMainContent(projectLists, MainContent);
+        }
+
+        private void Btn_AddProject_Click(object sender, EventArgs e)
+        {
+            AddProject addProject = new AddProject();
+            addProject.FormBorderStyle = FormBorderStyle.None;
+            Shared.ShowMainContent(addProject, MainContent);
+        }
+
+        private void Btn_Departments_Click(object sender, EventArgs e)
+        {
+            DepartmentLists department = new DepartmentLists();
+            Shared.ShowMainContent(department, MainContent);
+        }
+
+        private void Btn_Positions_Click(object sender, EventArgs e)
+        {
+            PositionsList positonsList = new PositionsList();
+            Shared.ShowMainContent(positonsList, MainContent);
+        }
+
         private void Btn_Payroll_Click(object sender, EventArgs e)
         {
             EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
             Shared.ShowMainContent(salary, MainContent);
         }
 
-        private void Btn_Departments_Click(object sender, EventArgs e)
+        public void Btn_AllEmployees_Click(object sender, EventArgs e)
         {
-            Department department = new Department();
-            Shared.ShowMainContent(department, MainContent);
+            MainContent.Controls.Clear();
+            EmployeeLists employee = new EmployeeLists();
+            employee.TopLevel = false;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
         }
 
-        private void Btn_Positions_Click(object sender, EventArgs e)
+        private void Btn_AddEmployee_Click(object sender, EventArgs e)
         {
-            PositonsList positonsList = new PositonsList();
-            Shared.ShowMainContent(positonsList, MainContent);
+            MainContent.Controls.Clear();
+            EmployeeForm employee = new EmployeeForm();
+            employee.TopLevel = false;
+            employee.FormBorderStyle = FormBorderStyle.None;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
+        }
+        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
+        {
+            LeaveLists leaveLists = new LeaveLists();
+            Shared.ShowMainContent(leaveLists, MainContent);
         }
 
         private void Btn_Logout_Click(object sender, EventArgs e)
@@ -163,6 +201,7 @@ namespace EmployeeManagementSystem.Views
             // Ẩn form chính
             this.Hide();
         }
+
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -183,12 +222,6 @@ namespace EmployeeManagementSystem.Views
         {
             DashboardForm dashboard = new DashboardForm();
             Shared.ShowMainContent(dashboard, MainContent);
-        }
-
-        private void Btn_LeaveManagement_Click(object sender, EventArgs e)
-        {
-            LeaveLists leaveLists = new LeaveLists();
-            Shared.ShowMainContent(leaveLists, MainContent);
         }
     }
 }

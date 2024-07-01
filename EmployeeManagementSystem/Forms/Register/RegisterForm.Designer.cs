@@ -229,6 +229,7 @@
             // Link_Login
             // 
             this.Link_Login.AutoSize = true;
+            this.Link_Login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Link_Login.Dock = System.Windows.Forms.DockStyle.Right;
             this.Link_Login.ForeColor = System.Drawing.Color.RoyalBlue;
             this.Link_Login.Location = new System.Drawing.Point(135, 0);
@@ -263,6 +264,7 @@
             this.Controls.Add(this.PictureContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.PictureContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

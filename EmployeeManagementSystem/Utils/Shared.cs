@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using EmployeeManagementSystem.Forms;
+using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Utils
 {
@@ -11,6 +12,12 @@ namespace EmployeeManagementSystem.Utils
             panel.Controls.Clear();
             panel.Controls.Add(form);
             form.Show();
+        }
+
+        public static void ShowToastr(string type, string message)
+        {
+            Toastr toastr = new Toastr(type, message);
+            toastr.Show();
         }
     }
 }
