@@ -92,7 +92,7 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
-
+                
                 var query = db.Employees.AsQueryable();
 
                 if (!string.IsNullOrEmpty(search))
@@ -119,7 +119,6 @@ namespace EmployeeManagementSystem.Services
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDate(DateTime search, int page, int pageSize)
@@ -127,8 +126,6 @@ namespace EmployeeManagementSystem.Services
 
             try
             {
-
-
                 var query = db.Employees.AsQueryable();
                 if (search != null)
                 {
