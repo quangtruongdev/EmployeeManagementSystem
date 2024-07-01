@@ -8,7 +8,7 @@ namespace EmployeeManagementSystem.Services
 {
     public class DepartmentService : IDepartment
     {
-        private DataClasses1DataContext db = new DataClasses1DataContext();
+        private DatabaseDataContext db = new DatabaseDataContext();
 
         public List<Department> GetDepartments()
         {
@@ -64,16 +64,16 @@ namespace EmployeeManagementSystem.Services
 
         public void DeleteDepartment(string id)
         {
-            try
-            {
-                Department department = db.Departments.FirstOrDefault(d => d.DepartmentID == id);
-                db.Departments.DeleteOnSubmit(department);
-                db.SubmitChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //try
+            //{
+            //    Department department = db.Departments.FirstOrDefault(d => d.DepartmentID == id);
+            //    db.Departments.DeleteOnSubmit(department);
+            //    db.SubmitChanges();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
         }
 
         //public List<Department> SearchDepartment(string search)

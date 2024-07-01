@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -47,23 +50,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Dashboard\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Summary\SummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Summary\SummaryForm.Designer.cs">
+      <DependentUpon>SummaryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Demo\Demo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Demo\Demo.Designer.cs">
       <DependentUpon>Demo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Department\AddDepartment.cs">
+    <Compile Include="Forms\Department\DepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department\AddDepartment.Designer.cs">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
+    <Compile Include="Forms\Department\DepartmentForm.Designer.cs">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Department\Department.cs">
+    <Compile Include="Forms\Department\DepartmentLists.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department\Department.Designer.cs">
-      <DependentUpon>Department.cs</DependentUpon>
+    <Compile Include="Forms\Department\DepartmentLists.Designer.cs">
+      <DependentUpon>DepartmentLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveForm.Designer.cs">
+      <DependentUpon>LeaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.Designer.cs">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\EditSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\EditSalary.Designer.cs">
+      <DependentUpon>EditSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\Salary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\Salary.Designer.cs">
+      <DependentUpon>Salary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IDepartment.cs" />
+    <Compile Include="Interfaces\IEmployees.cs" />
+    <Compile Include="Interfaces\ISalary.cs" />
+    <Compile Include="Forms\Leave\LeaveLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveLists.Designer.cs">
+      <DependentUpon>LeaveLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employees\EmployeeForm.cs">
       <SubType>Form</SubType>
@@ -83,17 +131,17 @@
     <Compile Include="Forms\Login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Positons\PositionForm.cs">
+    <Compile Include="Forms\Positions\PositionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Positons\PositionForm.Designer.cs">
+    <Compile Include="Forms\Positions\PositionForm.Designer.cs">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Positons\PositonsList.cs">
+    <Compile Include="Forms\Positions\PositionsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Positons\PositonsList.Designer.cs">
-      <DependentUpon>PositonsList.cs</DependentUpon>
+    <Compile Include="Forms\Positions\PositionsList.Designer.cs">
+      <DependentUpon>PositionsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Register\RegisterForm.cs">
       <SubType>Form</SubType>
@@ -102,13 +150,14 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAuth.cs" />
+    <Compile Include="Interfaces\IDashboard.cs" />
     <Compile Include="Interfaces\IDepartment.cs" />
-    <Compile Include="Interfaces\IEmployees.cs" />
+    <Compile Include="Interfaces\ILeaveService.cs" />
     <Compile Include="Interfaces\IPositions.cs" />
-    <Compile Include="Models\DataClasses1.designer.cs">
+    <Compile Include="Models\Database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+      <DependentUpon>Database.dbml</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,11 +167,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\AuthService.cs" />
-    <Compile Include="Services\EmployeesService.cs" />
+    <Compile Include="Services\DashboardService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\EmployeesService.cs" />
+    <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Services\LeaveService.cs" />
     <Compile Include="Services\PositionsService.cs" />
     <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\PrivateForms.cs" />
     <Compile Include="Utils\Session.cs" />
+    <Compile Include="Utils\SessionManager.cs" />
     <Compile Include="Utils\Shared.cs" />
     <Compile Include="Views\Main.cs">
       <SubType>Form</SubType>
@@ -130,14 +185,26 @@
     <Compile Include="Views\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Dashboard\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Summary\SummaryForm.resx">
+      <DependentUpon>SummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Demo\Demo.resx">
       <DependentUpon>Demo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department\AddDepartment.resx">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department\DepartmentForm.resx">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department\Department.resx">
-      <DependentUpon>Department.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department\DepartmentLists.resx">
+      <DependentUpon>DepartmentLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leave\LeaveForm.resx">
+      <DependentUpon>LeaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leave\LeaveLists.resx">
+      <DependentUpon>LeaveLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
@@ -148,14 +215,23 @@
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Positons\PositionForm.resx">
+    <EmbeddedResource Include="Forms\Positions\PositionForm.resx">
       <DependentUpon>PositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Positons\PositonsList.resx">
-      <DependentUpon>PositonsList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Positions\PositionsList.resx">
+      <DependentUpon>PositionsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\CreateSalary.resx">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\EditSalary.resx">
+      <DependentUpon>EditSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\Salary.resx">
+      <DependentUpon>Salary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,14 +245,15 @@
     <EmbeddedResource Include="Views\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Models\DataClasses1.dbml">
+    <None Include="Models\Database.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <LastGenOutput>Database.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Models\DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    <None Include="Models\Database.dbml.layout">
+      <DependentUpon>Database.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

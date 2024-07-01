@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Forms.Positons
 {
-    public partial class PositonsList : Form
+    public partial class PositionsList : Form
     {
         private readonly IPositions _positionsService;
         private int currentPage = 1;
         private int pageSize = 2;
-        public PositonsList()
+        public PositionsList()
         {
             InitializeComponent();
             _positionsService = new PositionsService();
@@ -53,7 +53,7 @@ namespace EmployeeManagementSystem.Forms.Positons
 
             var editButton = new DataGridViewButtonColumn
             {
-                HeaderText = "Edit",
+                HeaderText = "Actios",
                 Name = "Btn_Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true,
@@ -63,7 +63,7 @@ namespace EmployeeManagementSystem.Forms.Positons
 
             var deleteButton = new DataGridViewButtonColumn
             {
-                HeaderText = "Delete",
+                HeaderText = "",
                 Name = "Btn_Delete",
                 Text = "Delete",
                 UseColumnTextForButtonValue = true,

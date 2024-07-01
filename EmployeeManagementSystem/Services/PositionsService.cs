@@ -7,12 +7,7 @@ namespace EmployeeManagementSystem.Services
 {
     public class PositionsService : IPositions
     {
-        private readonly DataClasses1DataContext _context = new DataClasses1DataContext();
-
-        //public PositionsService()
-        //{
-        //    _context = new DatabaseDataContext();
-        //}
+        private readonly DatabaseDataContext _context = new DatabaseDataContext();
 
         public void AddPosition(Position position)
         {
