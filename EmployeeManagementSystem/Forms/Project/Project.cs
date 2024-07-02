@@ -22,6 +22,7 @@ namespace EmployeeManagementSystem.Forms.Project
         private DateTime? _startDateKey = null;
         private DateTime? _endDateKey = null;
 
+        private const string IndexColumnName = "Index";
         private const string ProjectIdColumnName = "ProjectID";
         private const string ProjectNameColumnName = "ProjectName";
         private const string DescriptionColumnName = "Description";
@@ -49,6 +50,7 @@ namespace EmployeeManagementSystem.Forms.Project
         {
             return new DataGridViewColumn[]
             {
+                CreateTextBoxColumn(IndexColumnName, "No."),
                 CreateTextBoxColumn(ProjectIdColumnName, "Project Id"),
                 CreateTextBoxColumn(ProjectNameColumnName, "Project Name"),
                 CreateTextBoxColumn(DescriptionColumnName, "Project Description"),
@@ -86,8 +88,23 @@ namespace EmployeeManagementSystem.Forms.Project
 
         private void LoadProjects()
         {
+            //var results = _projectService.GetProjects(_currentPage, _pageSize, _projectNameKey, _startDateKey, _endDateKey);
+            //Tbl_Projects.DataSource = results.Projects;
+
             var results = _projectService.GetProjects(_currentPage, _pageSize, _projectNameKey, _startDateKey, _endDateKey);
-            Tbl_Projects.DataSource = results.Projects;
+
+            var projectsWithIndex = results.Projects.Select((project, index) => new
+            {
+                Index = (_currentPage - 1) * _pageSize + index + 1,
+                project.ProjectID,
+                project.ProjectName,
+                project.Description,
+                project.StartDate,
+                project.EndDate
+            }).ToList();
+
+            Tbl_Projects.DataSource = projectsWithIndex;
+
             PageOnPage.Text = $"Page {_currentPage}/{results.TotalPages}";
 
             Btn_Pre.Enabled = _currentPage > 1;
