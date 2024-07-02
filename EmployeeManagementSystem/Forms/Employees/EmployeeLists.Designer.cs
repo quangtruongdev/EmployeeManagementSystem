@@ -47,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 25);
             this.label1.TabIndex = 0;
@@ -140,7 +140,7 @@
             "Text",
             "Date",
             "Department"});
-            this.cbb_Item.Location = new System.Drawing.Point(127, 16);
+            this.cbb_Item.Location = new System.Drawing.Point(127, 23);
             this.cbb_Item.Name = "cbb_Item";
             this.cbb_Item.Size = new System.Drawing.Size(191, 24);
             this.cbb_Item.TabIndex = 5;

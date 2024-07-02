@@ -107,6 +107,12 @@
     <Compile Include="Forms\Leave\LeaveForm.Designer.cs">
       <DependentUpon>LeaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Leave\LeaveTypeLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveTypeLists.Designer.cs">
+      <DependentUpon>LeaveTypeLists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Salary\CreateSalary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,10 +131,10 @@
     <Compile Include="Forms\Salary\Salary.Designer.cs">
       <DependentUpon>Salary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Toastr.cs">
+    <Compile Include="Forms\Toastr\Toastr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Toastr.Designer.cs">
+    <Compile Include="Forms\Toastr\Toastr.Designer.cs">
       <DependentUpon>Toastr.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IDepartment.cs" />
@@ -259,6 +265,9 @@
     <EmbeddedResource Include="Forms\Employees\EmployeeLists.resx">
       <DependentUpon>EmployeeLists.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leave\LeaveTypeLists.resx">
+      <DependentUpon>LeaveTypeLists.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,7 +298,7 @@
     <EmbeddedResource Include="Forms\Project\Project.resx">
       <DependentUpon>Project.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Toastr.resx">
+    <EmbeddedResource Include="Forms\Toastr\Toastr.resx">
       <DependentUpon>Toastr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

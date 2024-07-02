@@ -11,6 +11,7 @@ namespace EmployeeManagementSystem.Forms.Employees
         private readonly IEmployees _employeesService;
         private int currentPage = 1;
         private int pageSize = 10;
+
         public EmployeeLists()
         {
             InitializeComponent();
@@ -33,52 +34,40 @@ namespace EmployeeManagementSystem.Forms.Employees
             dtp_Date.Visible = false;
 
             string item = cbb_Item.Text;
+            var results = new EmployeesService().GetEmployees("", currentPage, pageSize);
+
             if (item == "Date")
             {
                 DateTime search = dtp_Date.Value;
-                var results = _employeesService.GetEmployeesDate(search, currentPage, pageSize);
-                var employees = results.Employees;
-                var totalPages = results.TotalPages;
-                dataGridView.Columns.Clear();
-                dataGridView.DataSource = employees;
-
-                PageOnPage.Text = $"{currentPage}/{totalPages}";
-
-                btn_Previous.Enabled = currentPage > 1;
-                btn_Next.Enabled = currentPage < totalPages;
+                results = _employeesService.GetEmployeesDate(search, currentPage, pageSize);
             }
             else if (item == "Department")
             {
                 string search = cbb_DepartmentName.SelectedValue.ToString();
-                var results = _employeesService.GetEmployeesDepartment(search, currentPage, pageSize);
-                var employees = results.Employees;
-                var totalPages = results.TotalPages;
-                dataGridView.Columns.Clear();
-                dataGridView.DataSource = employees;
-
-                PageOnPage.Text = $"{currentPage}/{totalPages}";
-
-                btn_Previous.Enabled = currentPage > 1;
-                btn_Next.Enabled = currentPage < totalPages;
+                results = _employeesService.GetEmployeesDepartment(search, currentPage, pageSize);
             }
             else
             {
                 string search = txt_search.Text;
-                var results = _employeesService.GetEmployees(search, currentPage, pageSize);
-                var employees = results.Employees;
-                var totalPages = results.TotalPages;
-                dataGridView.Columns.Clear();
-                dataGridView.DataSource = employees;
-
-                PageOnPage.Text = $"{currentPage}/{totalPages}";
-
-                btn_Previous.Enabled = currentPage > 1;
-                btn_Next.Enabled = currentPage < totalPages;
+                results = _employeesService.GetEmployees(search, currentPage, pageSize);
             }
 
+            var employees = results.Employees;
+            var totalPages = results.TotalPages;
 
+            dataGridView.Columns.Clear();
+            dataGridView.DataSource = employees;
 
+            PageOnPage.Text = $"{currentPage}/{totalPages}";
 
+            btn_Previous.Enabled = currentPage > 1;
+            btn_Next.Enabled = currentPage < totalPages;
+
+            AddActionButtons();
+        }
+
+        private void AddActionButtons()
+        {
             var editButton = new DataGridViewButtonColumn
             {
                 HeaderText = "Actions",
@@ -100,23 +89,23 @@ namespace EmployeeManagementSystem.Forms.Employees
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             };
             dataGridView.Columns.Add(deleteButton);
-
-
         }
 
         private void EditEmployee(string employeeID)
         {
-            EmployeeForm employeeForm = new EmployeeForm(employeeID);
-            if (employeeForm.ShowDialog() == DialogResult.OK)
+            using (var employeeForm = new EmployeeForm(employeeID))
             {
-                LoadEmployees();
+                if (employeeForm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadEmployees();
+                }
             }
         }
 
         private void DeleteEmployee(string employeeID)
         {
-            var comfirmResult = MessageBox.Show("Are you sure you want to delete this employee?", "Confirm Delete", MessageBoxButtons.YesNo);
-            if (comfirmResult == DialogResult.Yes)
+            var confirmResult = MessageBox.Show("Are you sure you want to delete this employee?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
             {
                 _employeesService.DeleteEmployee(employeeID);
                 LoadEmployees();
@@ -139,7 +128,7 @@ namespace EmployeeManagementSystem.Forms.Employees
             }
         }
 
-        private void btn_Previous_Click(object sender, System.EventArgs e)
+        private void btn_Previous_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
             {
@@ -148,15 +137,14 @@ namespace EmployeeManagementSystem.Forms.Employees
             }
         }
 
-        private void btn_Next_Click(object sender, System.EventArgs e)
+        private void btn_Next_Click(object sender, EventArgs e)
         {
             currentPage++;
             LoadEmployees();
         }
 
-        private void btn_Search_Click(object sender, System.EventArgs e)
+        private void btn_Search_Click(object sender, EventArgs e)
         {
-
             LoadEmployees();
             string item = cbb_Item.Text;
             if (item == "Date")
@@ -180,7 +168,7 @@ namespace EmployeeManagementSystem.Forms.Employees
             else MessageBox.Show("Please select search!");
         }
 
-        private void cbb_Item_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void cbb_Item_SelectedIndexChanged(object sender, EventArgs e)
         {
             string item = cbb_Item.Text;
             if (item == "Date")

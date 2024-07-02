@@ -59,6 +59,9 @@
             this.SidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.NavbarTransition = new System.Windows.Forms.Timer(this.components);
             this.MainContent = new System.Windows.Forms.Panel();
+            this.Btn_AllLeaveRequests = new System.Windows.Forms.Button();
+            this.Btn_LeaveType = new System.Windows.Forms.Button();
+            this.LeaveManagementTransition = new System.Windows.Forms.Timer(this.components);
             this.SidebarContainer.SuspendLayout();
             this.DashboardContainer.SuspendLayout();
             this.ProjectsContainer.SuspendLayout();
@@ -287,8 +290,12 @@
             // 
             // LeaveManagementContainer
             // 
+            this.LeaveManagementContainer.Controls.Add(this.Btn_LeaveType);
+            this.LeaveManagementContainer.Controls.Add(this.Btn_AllLeaveRequests);
             this.LeaveManagementContainer.Controls.Add(this.Btn_LeaveManagement);
             this.LeaveManagementContainer.Location = new System.Drawing.Point(3, 415);
+            this.LeaveManagementContainer.MaximumSize = new System.Drawing.Size(300, 135);
+            this.LeaveManagementContainer.MinimumSize = new System.Drawing.Size(300, 45);
             this.LeaveManagementContainer.Name = "LeaveManagementContainer";
             this.LeaveManagementContainer.Size = new System.Drawing.Size(300, 45);
             this.LeaveManagementContainer.TabIndex = 0;
@@ -296,7 +303,7 @@
             // Btn_LeaveManagement
             // 
             this.Btn_LeaveManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_LeaveManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_LeaveManagement.Dock = System.Windows.Forms.DockStyle.Top;
             this.Btn_LeaveManagement.Image = ((System.Drawing.Image)(resources.GetObject("Btn_LeaveManagement.Image")));
             this.Btn_LeaveManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_LeaveManagement.Location = new System.Drawing.Point(0, 0);
@@ -383,6 +390,33 @@
             this.MainContent.Size = new System.Drawing.Size(924, 564);
             this.MainContent.TabIndex = 2;
             // 
+            // Btn_AllLeaveRequests
+            // 
+            this.Btn_AllLeaveRequests.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_AllLeaveRequests.Location = new System.Drawing.Point(0, 45);
+            this.Btn_AllLeaveRequests.Name = "Btn_AllLeaveRequests";
+            this.Btn_AllLeaveRequests.Size = new System.Drawing.Size(300, 45);
+            this.Btn_AllLeaveRequests.TabIndex = 1;
+            this.Btn_AllLeaveRequests.Text = "All Leave Requests";
+            this.Btn_AllLeaveRequests.UseVisualStyleBackColor = true;
+            this.Btn_AllLeaveRequests.Click += new System.EventHandler(this.Btn_AllLeaveRequests_Click);
+            // 
+            // Btn_LeaveType
+            // 
+            this.Btn_LeaveType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_LeaveType.Location = new System.Drawing.Point(0, 90);
+            this.Btn_LeaveType.Name = "Btn_LeaveType";
+            this.Btn_LeaveType.Size = new System.Drawing.Size(300, 45);
+            this.Btn_LeaveType.TabIndex = 2;
+            this.Btn_LeaveType.Text = "Leave Type";
+            this.Btn_LeaveType.UseVisualStyleBackColor = true;
+            this.Btn_LeaveType.Click += new System.EventHandler(this.Btn_LeaveType_Click);
+            // 
+            // LeaveManagementTransition
+            // 
+            this.LeaveManagementTransition.Interval = 10;
+            this.LeaveManagementTransition.Tick += new System.EventHandler(this.LeaveManagementTransition_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -439,5 +473,8 @@
         private System.Windows.Forms.Button Btn_LeaveManagement;
         private System.Windows.Forms.Panel DepartmentsContainer;
         private System.Windows.Forms.Button Btn_Departments;
+        private System.Windows.Forms.Button Btn_AllLeaveRequests;
+        private System.Windows.Forms.Button Btn_LeaveType;
+        private System.Windows.Forms.Timer LeaveManagementTransition;
     }
 }

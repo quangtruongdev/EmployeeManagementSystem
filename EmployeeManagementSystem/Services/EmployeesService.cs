@@ -15,10 +15,9 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
-                using (var db = new DatabaseDataContext())
-                {
-                    return db.Employees.ToList();
-                }
+
+                return db.Employees.ToList();
+
             }
             catch (Exception ex)
             {
@@ -61,7 +60,6 @@ namespace EmployeeManagementSystem.Services
                 oldEmployee.LastName = employee.LastName;
                 oldEmployee.Gender = employee.Gender;
                 oldEmployee.DateOfBirth = employee.DateOfBirth;
-                //oldEmployee.HireDate = employee.HireDate;
                 oldEmployee.DepartmentID = employee.DepartmentID;
                 oldEmployee.PhoneNumber = employee.PhoneNumber;
                 oldEmployee.Email = employee.Email;
@@ -91,92 +89,86 @@ namespace EmployeeManagementSystem.Services
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployees(string search, int page, int pageSize)
         {
-            using (var db = new DatabaseDataContext())
+
+            try
             {
-                try
+                var query = db.Employees.AsQueryable();
+
+                if (!string.IsNullOrEmpty(search))
                 {
-                    var query = db.Employees.AsQueryable();
-
-                    if (!string.IsNullOrEmpty(search))
-                    {
-                        search = search.ToLower();
-                        query = query.Where(o =>
-                            o.FirstName.ToLower().Contains(search) ||
-                            o.LastName.ToLower().Contains(search) ||
-                            o.PhoneNumber.Contains(search) ||
-                            o.Email.ToLower().Contains(search) ||
-                            o.Address.ToLower().Contains(search)
-                        );
-                    }
-                    var totalEmployees = query.Count();
-                    var totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
-
-                    var Employees = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-                    return (Employees, totalEmployees, totalPages);
+                    search = search.ToLower();
+                    query = query.Where(o =>
+                        o.FirstName.ToLower().Contains(search) ||
+                        o.LastName.ToLower().Contains(search) ||
+                        o.PhoneNumber.Contains(search) ||
+                        o.Email.ToLower().Contains(search) ||
+                        o.Address.ToLower().Contains(search)
+                    );
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                var totalEmployees = query.Count();
+                var totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
+
+                var Employees = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                return (Employees, totalEmployees, totalPages);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDate(DateTime search, int page, int pageSize)
         {
-            using (var db = new DatabaseDataContext())
+
+            try
             {
-                try
+                var query = db.Employees.AsQueryable();
+
+                if (search != null)
                 {
-                    var query = db.Employees.AsQueryable();
-
-                    if (search != null)
-                    {
-                        query = query.Where(o =>
-                            o.DateOfBirth == search
-                        //||
-                        //o.HireDate == search
-                        );
-                    }
-                    var totalEmployees = query.Count();
-                    var totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
-
-                    var Employees = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-                    return (Employees, totalEmployees, totalPages);
+                    query = query.Where(o =>
+                        o.DateOfBirth == search
+                    //||
+                    //o.HireDate == search
+                    );
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                var totalEmployees = query.Count();
+                var totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
+
+                var Employees = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                return (Employees, totalEmployees, totalPages);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
         public (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDepartment(string search, int page, int pageSize)
         {
-            using (var db = new DatabaseDataContext())
+
+            try
             {
-                try
+                var query = db.Employees.AsQueryable();
+
+                if (search != null)
                 {
-                    var query = db.Employees.AsQueryable();
-
-                    if (search != null)
-                    {
-                        query = query.Where(o =>
-                            o.DepartmentID == search
-                        );
-                    }
-                    var totalEmployees = query.Count();
-                    var totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
-
-                    var Employees = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-                    return (Employees, totalEmployees, totalPages);
+                    query = query.Where(o =>
+                        o.DepartmentID == search
+                    );
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                var totalEmployees = query.Count();
+                var totalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
+
+                var Employees = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                return (Employees, totalEmployees, totalPages);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

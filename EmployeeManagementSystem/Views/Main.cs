@@ -1,5 +1,4 @@
-﻿using EmployeeManagementSystem.Forms;
-using EmployeeManagementSystem.Forms.Dashboard;
+﻿using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
 using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Leave;
@@ -18,6 +17,7 @@ namespace EmployeeManagementSystem.Views
         private bool employeesCollapsed = true;
         private bool sidebarCollapsed = true;
         private bool navbarCollapsed = true;
+        private bool leaveManagementCollapsed = true;
 
         public Main()
         {
@@ -85,21 +85,9 @@ namespace EmployeeManagementSystem.Views
             HandleTransition(ProjectsTransition, ProjectsContainer, ref projectsCollapsed, 10, true);
         }
 
-        private void Btn_Projects_Click(object sender, EventArgs e)
-        {
-            ProjectsTransition.Start();
-            EnsureSidebarOpen();
-        }
-
         private void EmployeesTransition_Tick(object sender, EventArgs e)
         {
             HandleTransition(EmployeesTransition, EmployeesContainer, ref employeesCollapsed, 10, true);
-        }
-
-        private void Btn_Employees_Click(object sender, EventArgs e)
-        {
-            EmployeesTransition.Start();
-            EnsureSidebarOpen();
         }
 
         private void SidebarTransition_Tick(object sender, EventArgs e)
@@ -118,10 +106,9 @@ namespace EmployeeManagementSystem.Views
             //NavbarTransition.Start();
         }
 
-        private void Btn_Dashboard_Click(object sender, EventArgs e)
+        private void LeaveManagementTransition_Tick(object sender, EventArgs e)
         {
-            DashboardForm dashboard = new DashboardForm();
-            Shared.ShowMainContent(dashboard, MainContent);
+            HandleTransition(LeaveManagementTransition, LeaveManagementContainer, ref leaveManagementCollapsed, 10, true);
         }
 
         private void EnsureSidebarOpen()
@@ -130,6 +117,23 @@ namespace EmployeeManagementSystem.Views
             {
                 SidebarTransition.Start();
             }
+        }
+
+        #region Dashboard
+        private void Btn_Dashboard_Click(object sender, EventArgs e)
+        {
+            DashboardForm dashboard = new DashboardForm();
+            Shared.ShowMainContent(dashboard, MainContent);
+        }
+        #endregion
+
+
+        #region Project Management
+
+        private void Btn_Projects_Click(object sender, EventArgs e)
+        {
+            ProjectsTransition.Start();
+            EnsureSidebarOpen();
         }
 
         private void Btn_AllProjects_Click(object sender, EventArgs e)
@@ -145,22 +149,14 @@ namespace EmployeeManagementSystem.Views
             Shared.ShowMainContent(addProject, MainContent);
         }
 
-        private void Btn_Departments_Click(object sender, EventArgs e)
-        {
-            DepartmentLists department = new DepartmentLists();
-            Shared.ShowMainContent(department, MainContent);
-        }
+        #endregion
 
-        private void Btn_Positions_Click(object sender, EventArgs e)
-        {
-            PositionsList positonsList = new PositionsList();
-            Shared.ShowMainContent(positonsList, MainContent);
-        }
+        #region Employee Management
 
-        private void Btn_Payroll_Click(object sender, EventArgs e)
+        private void Btn_Employees_Click(object sender, EventArgs e)
         {
-            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
-            Shared.ShowMainContent(salary, MainContent);
+            EmployeesTransition.Start();
+            EnsureSidebarOpen();
         }
 
         public void Btn_AllEmployees_Click(object sender, EventArgs e)
@@ -183,11 +179,50 @@ namespace EmployeeManagementSystem.Views
             MainContent.Controls.Add(employee);
             employee.Show();
         }
+
+        #endregion
+
+        #region Department Management
+        private void Btn_Departments_Click(object sender, EventArgs e)
+        {
+            DepartmentLists department = new DepartmentLists();
+            Shared.ShowMainContent(department, MainContent);
+        }
+        #endregion
+
+        #region Position Management
+        private void Btn_Positions_Click(object sender, EventArgs e)
+        {
+            PositionsList positonsList = new PositionsList();
+            Shared.ShowMainContent(positonsList, MainContent);
+        }
+        #endregion
+
+        private void Btn_Payroll_Click(object sender, EventArgs e)
+        {
+            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
+            Shared.ShowMainContent(salary, MainContent);
+        }
+
+        #region Leave Management
         private void Btn_LeaveManagement_Click(object sender, EventArgs e)
+        {
+            LeaveManagementTransition.Start();
+            EnsureSidebarOpen();
+        }
+
+        private void Btn_AllLeaveRequests_Click(object sender, EventArgs e)
         {
             LeaveLists leaveLists = new LeaveLists();
             Shared.ShowMainContent(leaveLists, MainContent);
         }
+
+        private void Btn_LeaveType_Click(object sender, EventArgs e)
+        {
+            LeaveTypeLists leaveType = new LeaveTypeLists();
+            Shared.ShowMainContent(leaveType, MainContent);
+        }
+        #endregion
 
         private void Btn_Logout_Click(object sender, EventArgs e)
         {
@@ -201,7 +236,6 @@ namespace EmployeeManagementSystem.Views
             // Ẩn form chính
             this.Hide();
         }
-
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {

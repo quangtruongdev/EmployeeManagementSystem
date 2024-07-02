@@ -1,5 +1,6 @@
 ﻿using EmployeeManagementSystem.Interfaces;
 using EmployeeManagementSystem.Services;
+using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -10,39 +11,43 @@ namespace EmployeeManagementSystem.Forms.Employees
         private readonly IDepartment _departmentService;
         private readonly IEmployees _employeesService;
         private readonly string _employeeID;
+
         public EmployeeForm(string employeeID = null)
         {
             InitializeComponent();
             _departmentService = new DepartmentService();
             _employeesService = new EmployeesService();
             _employeeID = employeeID;
-            if (employeeID != null)
+
+            InitializeForm();
+        }
+
+        private void InitializeForm()
+        {
+            LoadDepartment();
+
+            if (_employeeID != null)
             {
-                btn_Add.Visible = false;
-                nameForm.Text = "Edit Employee";
                 LoadEmployeeDetails();
             }
             else
             {
-                btn_Update.Visible = false;
-                btn_Close.Visible = false;
-                nameForm.Text = "Add Employee";
-                LoadDepartment();
-                ClearAddEployee();
+                ClearAddEmployee();
             }
         }
-        private void ClearAddEployee()
+
+        private void ClearAddEmployee()
         {
-            txt_firstName.Text = "";
-            txt_lastName.Text = "";
+            txt_firstName.Clear();
+            txt_lastName.Clear();
             cbb_gender.SelectedIndex = -1;
             dtp_dateOfBirth.Value = DateTime.Now;
-            dtp_hireDate.Value = DateTime.Now;
-            txt_phoneNumber.Text = "";
-            txt_email.Text = "";
-            txt_address.Text = "";
+            txt_phoneNumber.Clear();
+            txt_email.Clear();
+            txt_address.Clear();
             cbb_departmentID.SelectedIndex = -1;
         }
+
         private void LoadDepartment()
         {
             var departments = _departmentService.GetDepartments();
@@ -57,22 +62,8 @@ namespace EmployeeManagementSystem.Forms.Employees
 
             txt_firstName.Text = employee.FirstName;
             txt_lastName.Text = employee.LastName;
-
-            switch (employee.Gender)
-            {
-                case 'M':
-                    cbb_gender.Text = "Male";
-                    break;
-                case 'F':
-                    cbb_gender.Text = "Female";
-                    break;
-                case 'O':
-                    cbb_gender.Text = "Other";
-                    break;
-            }
-
-            dtp_dateOfBirth.Value = employee.DateOfBirth.Value;
-            //dtp_hireDate.Value = employee.HireDate.Value;
+            cbb_gender.Text = GetGenderText(employee.Gender.GetValueOrDefault('O'));
+            dtp_dateOfBirth.Value = employee.DateOfBirth ?? DateTime.Now;
             txt_phoneNumber.Text = employee.PhoneNumber;
             txt_email.Text = employee.Email;
             txt_address.Text = employee.Address;
@@ -81,91 +72,71 @@ namespace EmployeeManagementSystem.Forms.Employees
             cbb_departmentID.SelectedValue = employee.DepartmentID;
         }
 
-        private void btn_Update_Click(object sender, System.EventArgs e)
+        private string GetGenderText(char gender)
         {
-            char gender;
+            switch (gender)
+            {
+                case 'M':
+                    return "Male";
+                case 'F':
+                    return "Female";
+                case 'O':
+                default:
+                    return "Other";
+            }
+        }
+
+        private char GetGenderChar()
+        {
             switch (cbb_gender.Text)
             {
                 case "Male":
-                    gender = 'M';
-                    break;
+                    return 'M';
                 case "Female":
-                    gender = 'F';
-                    break;
+                    return 'F';
                 case "Other":
-                    gender = 'O';
-                    break;
                 default:
-                    gender = 'O';
-                    break;
+                    return 'O';
             }
-            Models.Employee employee = new Models.Employee
+        }
+
+        private Models.Employee CreateEmployee()
+        {
+            return new Models.Employee
             {
+                EmployeeID = _employeeID,
                 FirstName = txt_firstName.Text,
                 LastName = txt_lastName.Text,
-                Gender = gender,
+                Gender = GetGenderChar(),
                 DateOfBirth = dtp_dateOfBirth.Value,
-                //HireDate = dtp_hireDate.Value,
                 PhoneNumber = txt_phoneNumber.Text,
                 Email = txt_email.Text,
                 Address = txt_address.Text,
                 DepartmentID = cbb_departmentID.SelectedValue.ToString()
             };
-            try
-            {
-                employee.EmployeeID = _employeeID;
-                _employeesService.UpdateEmployee(employee);
-                MessageBox.Show("Employee updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
-        private void btn_Close_Click(object sender, System.EventArgs e)
+        private void btn_Submit_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            var employee = CreateEmployee();
 
-        private void btn_Add_Click(object sender, EventArgs e)
-        {
-            char gender;
-            switch (cbb_gender.Text)
-            {
-                case "Male":
-                    gender = 'M';
-                    break;
-                case "Female":
-                    gender = 'F';
-                    break;
-                case "Other":
-                    gender = 'O';
-                    break;
-                default:
-                    gender = 'O';
-                    break;
-            }
-            Models.Employee employee = new Models.Employee
-            {
-                FirstName = txt_firstName.Text,
-                LastName = txt_lastName.Text,
-                Gender = gender,
-                DateOfBirth = dtp_dateOfBirth.Value,
-                //HireDate = dtp_hireDate.Value,
-                PhoneNumber = txt_phoneNumber.Text,
-                Email = txt_email.Text,
-                Address = txt_address.Text,
-                DepartmentID = cbb_departmentID.SelectedValue.ToString()
-            };
             try
             {
-                _employeesService.AddEmployee(employee);
-                MessageBox.Show("Employee added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearAddEployee();
-
+                if (string.IsNullOrEmpty(_employeeID))
+                {
+                    _employeesService.AddEmployee(employee);
+                    //MessageBox.Show("Employee added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Shared.ShowToastr("Success", "Employee added successfully");
+                    ClearAddEmployee();
+                }
+                else
+                {
+                    _employeesService.UpdateEmployee(employee);
+                    //MessageBox.Show("Employee updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Shared.ShowToastr("Success", "Employee updated successfully");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

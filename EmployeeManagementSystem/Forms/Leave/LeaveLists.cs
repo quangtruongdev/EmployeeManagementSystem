@@ -8,5 +8,11 @@ namespace EmployeeManagementSystem.Forms.Leave
         {
             InitializeComponent();
         }
+
+        private void Btn_AddLeave_Click(object sender, System.EventArgs e)
+        {
+            LeaveForm leaveForm = new LeaveForm();
+            leaveForm.ShowDialog();
+        }
     }
 }

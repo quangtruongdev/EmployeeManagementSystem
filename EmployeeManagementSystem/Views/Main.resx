@@ -167,7 +167,7 @@
   <data name="Btn_Departments.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAnBJREFUWEftlsurTVEcx4+8ibxDcQshRl4XYeBRBiZKphgxw8xEJhQTA0P/gokU
+        DgAACw4BQL7hQQAAAnBJREFUWEftlsurTVEcx4+8ibxDcQshRl4XYeBRBiZKphgxw8xEJhQTA0P/gokU
         JXfEQAaSlIkiRe7gSnmlrjw+H53fabWczlrHucdN+dan1l6/x/rtvX5779X4lzUfLjZx/Nc0C87Be3jZ
         xLFz2vqmKXAchmEEzsA0mAzOv4G34Px0GDO5wBF4AR/gEsyGXDPAxd/BKzgFU+GPNQEOwzP4BC48F0py
         GywktsinMxG60j54BKNwFZZAt1oAFv0FnoI340111A64C9/gGqyEXrUMvImv8AD2wm+aBLfhO7jwWhhr
@@ -258,5 +258,8 @@
   </metadata>
   <metadata name="NavbarTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>564, 17</value>
+  </metadata>
+  <metadata name="LeaveManagementTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>736, 17</value>
   </metadata>
 </root>
