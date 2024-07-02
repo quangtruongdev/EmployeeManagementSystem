@@ -1,8 +1,11 @@
-﻿using EmployeeManagementSystem.Forms.Dashboard;
+﻿using EmployeeManagementSystem.Forms;
+using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
+using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
+using EmployeeManagementSystem.Forms.Project;
 using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
@@ -129,9 +132,22 @@ namespace EmployeeManagementSystem.Views
             }
         }
 
+        private void Btn_AllProjects_Click(object sender, EventArgs e)
+        {
+            Project projectLists = new Project();
+            Shared.ShowMainContent(projectLists, MainContent);
+        }
+
+        private void Btn_AddProject_Click(object sender, EventArgs e)
+        {
+            AddProject addProject = new AddProject();
+            addProject.FormBorderStyle = FormBorderStyle.None;
+            Shared.ShowMainContent(addProject, MainContent);
+        }
+
         private void Btn_Departments_Click(object sender, EventArgs e)
         {
-            Department department = new Department();
+            DepartmentLists department = new DepartmentLists();
             Shared.ShowMainContent(department, MainContent);
         }
 
@@ -141,6 +157,32 @@ namespace EmployeeManagementSystem.Views
             Shared.ShowMainContent(positonsList, MainContent);
         }
 
+        private void Btn_Payroll_Click(object sender, EventArgs e)
+        {
+            EmployeeManagementSystem.Forms.Salary.Salary salary = new EmployeeManagementSystem.Forms.Salary.Salary();
+            Shared.ShowMainContent(salary, MainContent);
+        }
+
+        public void Btn_AllEmployees_Click(object sender, EventArgs e)
+        {
+            MainContent.Controls.Clear();
+            EmployeeLists employee = new EmployeeLists();
+            employee.TopLevel = false;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
+        }
+
+        private void Btn_AddEmployee_Click(object sender, EventArgs e)
+        {
+            MainContent.Controls.Clear();
+            EmployeeForm employee = new EmployeeForm();
+            employee.TopLevel = false;
+            employee.FormBorderStyle = FormBorderStyle.None;
+            employee.Dock = DockStyle.Fill;
+            MainContent.Controls.Add(employee);
+            employee.Show();
+        }
         private void Btn_LeaveManagement_Click(object sender, EventArgs e)
         {
             LeaveLists leaveLists = new LeaveLists();
@@ -159,6 +201,7 @@ namespace EmployeeManagementSystem.Views
             // Ẩn form chính
             this.Hide();
         }
+
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {

@@ -2,7 +2,7 @@
 
 namespace EmployeeManagementSystem.Forms.Department
 {
-    partial class Department
+    partial class DepartmentLists
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace EmployeeManagementSystem.Forms.Department
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Department));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentLists));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Btn_AddDepartment = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();

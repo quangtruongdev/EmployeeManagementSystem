@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,8 +39,26 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +68,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\Dashboard\DashboardForm.cs">
@@ -68,17 +89,17 @@
     <Compile Include="Forms\Demo\Demo.Designer.cs">
       <DependentUpon>Demo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Department\AddDepartment.cs">
+    <Compile Include="Forms\Department\DepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department\AddDepartment.Designer.cs">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
+    <Compile Include="Forms\Department\DepartmentForm.Designer.cs">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Department\Department.cs">
+    <Compile Include="Forms\Department\DepartmentLists.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department\Department.Designer.cs">
-      <DependentUpon>Department.cs</DependentUpon>
+    <Compile Include="Forms\Department\DepartmentLists.Designer.cs">
+      <DependentUpon>DepartmentLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Leave\LeaveForm.cs">
       <SubType>Form</SubType>
@@ -86,11 +107,51 @@
     <Compile Include="Forms\Leave\LeaveForm.Designer.cs">
       <DependentUpon>LeaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\CreateSalary.Designer.cs">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\EditSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\EditSalary.Designer.cs">
+      <DependentUpon>EditSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salary\Salary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salary\Salary.Designer.cs">
+      <DependentUpon>Salary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Toastr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Toastr.Designer.cs">
+      <DependentUpon>Toastr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IDepartment.cs" />
+    <Compile Include="Interfaces\IEmployees.cs" />
+    <Compile Include="Interfaces\IProject.cs" />
+    <Compile Include="Interfaces\ISalary.cs" />
     <Compile Include="Forms\Leave\LeaveLists.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Leave\LeaveLists.Designer.cs">
       <DependentUpon>LeaveLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeLists.Designer.cs">
+      <DependentUpon>EmployeeLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login\LoginForm.cs">
       <SubType>Form</SubType>
@@ -116,6 +177,24 @@
     <Compile Include="Forms\Register\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Project\AddEmployeeToProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\AddEmployeeToProject.Designer.cs">
+      <DependentUpon>AddEmployeeToProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project\AddProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\AddProject.Designer.cs">
+      <DependentUpon>AddProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project\Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\Project.Designer.cs">
+      <DependentUpon>Project.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\IDashboard.cs" />
     <Compile Include="Interfaces\IDepartment.cs" />
@@ -128,9 +207,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DashboardService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\EmployeesService.cs" />
+    <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Utils\Logger.cs" />
     <Compile Include="Services\LeaveService.cs" />
     <Compile Include="Services\PositionsService.cs" />
     <Compile Include="Utils\Logger.cs" />
@@ -153,17 +241,23 @@
     <EmbeddedResource Include="Forms\Demo\Demo.resx">
       <DependentUpon>Demo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department\AddDepartment.resx">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department\DepartmentForm.resx">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department\Department.resx">
-      <DependentUpon>Department.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department\DepartmentLists.resx">
+      <DependentUpon>DepartmentLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Leave\LeaveForm.resx">
       <DependentUpon>LeaveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Leave\LeaveLists.resx">
       <DependentUpon>LeaveLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\EmployeeLists.resx">
+      <DependentUpon>EmployeeLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -177,6 +271,27 @@
     <EmbeddedResource Include="Forms\Register\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\CreateSalary.resx">
+      <DependentUpon>CreateSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\EditSalary.resx">
+      <DependentUpon>EditSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salary\Salary.resx">
+      <DependentUpon>Salary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project\AddEmployeeToProject.resx">
+      <DependentUpon>AddEmployeeToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project\AddProject.resx">
+      <DependentUpon>AddProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project\Project.resx">
+      <DependentUpon>Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Toastr.resx">
+      <DependentUpon>Toastr.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -185,6 +300,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -202,11 +318,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -218,6 +329,34 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
+      <Version>1.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility">
+      <Version>8.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
+      <Version>10.0.19041.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

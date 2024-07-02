@@ -83,10 +83,10 @@ namespace EmployeeManagementSystem.Forms.Register
             {
                 if (ValidateForm())
                 {
-                    UserAccount user = new UserAccount
+                    var user = new UserAccount
                     {
                         Username = username,
-                        PasswordHash = password
+                        PasswordHash = password,
                     };
 
                     _authService.Register(user);
