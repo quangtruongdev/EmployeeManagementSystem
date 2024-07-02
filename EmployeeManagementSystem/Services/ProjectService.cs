@@ -13,17 +13,6 @@ namespace EmployeeManagementSystem.Services
     public class ProjectService
     {
         private DatabaseDataContext context = new DatabaseDataContext();
-        public List<Project> GetProjects() {
-            try
-            {
-                return context.Projects.ToList();
-            }
-            catch (Exception e)
-            {
-                Utils.Shared.ShowToastr("Error", "Error while get project from Database");
-                return null;
-            }
-        }
 
         public (List<Project> Projects, int totalProjects, int TotalPages) 
             GetProjects(int page, int pageSize, string projectNameKey = null

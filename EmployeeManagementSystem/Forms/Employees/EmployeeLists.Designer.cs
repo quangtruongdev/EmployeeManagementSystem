@@ -155,6 +155,7 @@
             this.cbb_ID.Name = "cbb_ID";
             this.cbb_ID.Size = new System.Drawing.Size(225, 24);
             this.cbb_ID.TabIndex = 6;
+            this.cbb_ID.Visible = false;
             // 
             // dtp_Date
             // 
@@ -163,6 +164,7 @@
             this.dtp_Date.Name = "dtp_Date";
             this.dtp_Date.Size = new System.Drawing.Size(225, 22);
             this.dtp_Date.TabIndex = 7;
+            this.dtp_Date.Visible = false;
             // 
             // EmployeeLists
             // 

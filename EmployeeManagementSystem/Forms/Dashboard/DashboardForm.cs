@@ -11,6 +11,7 @@ namespace EmployeeManagementSystem.Forms.Dashboard
             InitializeComponent();
             SummaryForm summaryForm = new SummaryForm();
             Shared.ShowMainContent(summaryForm, SummaryContainer);
+            pictureBox.Image = Properties.Resources.dashboard;
         }
     }
 }

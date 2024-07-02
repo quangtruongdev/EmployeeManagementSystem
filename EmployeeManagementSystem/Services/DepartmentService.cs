@@ -8,10 +8,11 @@ namespace EmployeeManagementSystem.Services
 {
     public class DepartmentService : IDepartment
     {
-        private DatabaseDataContext db = new DatabaseDataContext();
+        
 
         public List<Department> GetDepartments()
         {
+            DatabaseDataContext db = new DatabaseDataContext();
             try
             {
                 return db.Departments.ToList();
@@ -24,6 +25,7 @@ namespace EmployeeManagementSystem.Services
 
         public Department GetDepartmentById(string id)
         {
+            DatabaseDataContext db = new DatabaseDataContext();
             try
             {
                 return db.Departments.FirstOrDefault(d => d.DepartmentID == id);
@@ -36,6 +38,7 @@ namespace EmployeeManagementSystem.Services
 
         public void AddDepartment(Department department)
         {
+            DatabaseDataContext db = new DatabaseDataContext();
             try
             {
                 department.DepartmentID = Guid.NewGuid().ToString();
@@ -50,6 +53,7 @@ namespace EmployeeManagementSystem.Services
 
         public void UpdateDepartment(Department department)
         {
+            DatabaseDataContext db = new DatabaseDataContext();
             try
             {
                 Department oldDepartment = db.Departments.FirstOrDefault(d => d.DepartmentID == department.DepartmentID);
@@ -64,16 +68,17 @@ namespace EmployeeManagementSystem.Services
 
         public void DeleteDepartment(string id)
         {
-            //try
-            //{
-            //    Department department = db.Departments.FirstOrDefault(d => d.DepartmentID == id);
-            //    db.Departments.DeleteOnSubmit(department);
-            //    db.SubmitChanges();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception(ex.Message);
-            //}
+            DatabaseDataContext db = new DatabaseDataContext();
+            try
+            {
+                Department department = db.Departments.FirstOrDefault(d => d.DepartmentID == id);
+                db.Departments.DeleteOnSubmit(department);
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         //public List<Department> SearchDepartment(string search)
@@ -91,6 +96,7 @@ namespace EmployeeManagementSystem.Services
         // Paging
         public (List<Department> Departments, int totalDepartments, int TotalPages) GetDepartments(int page, int pageSize)
         {
+            DatabaseDataContext db = new DatabaseDataContext();
             try
             {
                 var totalDepartments = db.Departments.Count();

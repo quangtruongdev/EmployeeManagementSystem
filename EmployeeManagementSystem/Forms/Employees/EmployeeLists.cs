@@ -42,9 +42,6 @@ namespace EmployeeManagementSystem.Forms.Employees
 
         private void LoadEmployees()
         {
-            cbb_ID.Visible = false;
-            dtp_Date.Visible = false;
-
             string item = cbb_Item.Text;
             string textSearch = null;
             DateTime? dateSearch = null;
@@ -56,7 +53,7 @@ namespace EmployeeManagementSystem.Forms.Employees
             }
             else if (item == "Department" || item == "Position")
             {
-                cbbSearch = cbb_ID.SelectedValue.ToString();
+                cbbSearch = cbb_ID.Text;
             }
             else
             {
@@ -96,8 +93,6 @@ namespace EmployeeManagementSystem.Forms.Employees
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             };
             dataGridView.Columns.Add(deleteButton);
-
-
         }
 
         private void EditEmployee(string employeeID)
@@ -128,10 +123,14 @@ namespace EmployeeManagementSystem.Forms.Employees
                 var employeeId = dataGridView.Rows[e.RowIndex].Cells["EmployeeID"].Value.ToString();
                 if (e.ColumnIndex == dataGridView.Columns["btn_Edit"].Index)
                 {
+                    cbb_Item.Text = "Text";
+                    txt_search.Text = "";
                     EditEmployee(employeeId);
                 }
                 else if (e.ColumnIndex == dataGridView.Columns["btn_Delete"].Index)
                 {
+                    cbb_Item.Text = "Text";
+                    txt_search.Text = "";
                     DeleteEmployee(employeeId);
                 }
             }

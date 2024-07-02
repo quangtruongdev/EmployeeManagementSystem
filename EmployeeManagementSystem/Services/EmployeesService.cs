@@ -117,8 +117,8 @@ namespace EmployeeManagementSystem.Services
                                 e.PhoneNumber,
                                 e.Email,
                                 e.Address,
-                                p.PositionID,
-                                d.DepartmentID
+                                p.PositionName,
+                                d.DepartmentName
                             };
 
                 if (!string.IsNullOrEmpty(textSearch))
@@ -141,8 +141,8 @@ namespace EmployeeManagementSystem.Services
                 if (!string.IsNullOrEmpty(cbbSearch))
                 {
                     query = query.Where(o =>
-                        o.DepartmentID == cbbSearch ||
-                        o.PositionID == cbbSearch
+                        o.DepartmentName == cbbSearch ||
+                        o.PositionName == cbbSearch
                     );
                 }
 
