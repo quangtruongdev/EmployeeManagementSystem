@@ -1,6 +1,5 @@
 ﻿using EmployeeManagementSystem.Interfaces;
 using EmployeeManagementSystem.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace EmployeeManagementSystem.Services
@@ -37,11 +36,18 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public List<Position> GetPositions()
+        public IQueryable<dynamic> GetPositions()
         {
             try
             {
-                return _context.Positions.ToList();
+                var query = _context.Positions.Select(p => new
+                {
+                    p.PositionName,
+                    p.PositionID
+
+                });
+
+                return query;
             }
             catch (System.Exception ex)
             {
@@ -75,17 +81,24 @@ namespace EmployeeManagementSystem.Services
             }
         }
 
-        public (List<Position> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize)
+        public (IQueryable<dynamic> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize)
         {
             try
             {
                 int totalPositions = _context.Positions.Count();
                 int totalPages = (int)System.Math.Ceiling((double)totalPositions / pageSize);
 
-                List<Position> positions = _context.Positions
+                var positions = _context.Positions
+                    .Select(p => new
+                    {
+                        p.PositionID,
+                        p.PositionName
+
+                    })
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
-                    .ToList();
+                    .AsQueryable(); // Ensure positions is IQueryable
+
                 return (positions, totalPositions, totalPages);
             }
             catch (System.Exception ex)
