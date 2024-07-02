@@ -24,57 +24,7 @@ namespace EmployeeManagementSystem.Forms.Positons
             var positions = results.Positions;
             var totalPages = results.TotalPages;
 
-            Tbl_Positions.Columns.Clear();
-
-            var stt = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "STT",
-                Name = "STT",
-                ReadOnly = true,
-                Width = 50
-            };
-
-            var positionId = new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "PositionID",
-                HeaderText = "Position Id",
-                Name = "PositionID",
-                ReadOnly = true,
-            };
-
-            var positionName = new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "PositionName",
-                HeaderText = "Position Name",
-                Name = "PositionName",
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            };
-
-            var editButton = new DataGridViewButtonColumn
-            {
-                HeaderText = "Actios",
-                Name = "Btn_Edit",
-                Text = "Edit",
-                UseColumnTextForButtonValue = true,
-                Width = 50,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            };
-
-            var deleteButton = new DataGridViewButtonColumn
-            {
-                HeaderText = "",
-                Name = "Btn_Delete",
-                Text = "Delete",
-                UseColumnTextForButtonValue = true,
-                Width = 50,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            };
-
-            Tbl_Positions.Columns.Add(positionId);
-            Tbl_Positions.Columns.Add(positionName);
-            Tbl_Positions.Columns.Add(editButton);
-            Tbl_Positions.Columns.Add(deleteButton);
+            Tbl_Positions.AutoGenerateColumns = false;
 
             Tbl_Positions.DataSource = positions;
 
@@ -115,10 +65,11 @@ namespace EmployeeManagementSystem.Forms.Positons
         {
             if (e.RowIndex >= 0)
             {
-                var positionId = Tbl_Positions.Rows[e.RowIndex].Cells["PositionID"].Value.ToString();
+                string positionId = Tbl_Positions.Rows[e.RowIndex].Cells[1].Value.ToString();
 
                 if (Tbl_Positions.Columns[e.ColumnIndex].Name == "Btn_Edit")
                 {
+
                     EditPositionForm(positionId);
                 }
                 else if (Tbl_Positions.Columns[e.ColumnIndex].Name == "Btn_Delete")

@@ -26,6 +26,18 @@ namespace EmployeeManagementSystem.Forms.Salary
 
             var email = Salary.Email;
 
+            if (string.IsNullOrEmpty(txt_salary.Text))
+            {
+                MessageBox.Show("Lương không được để trống.");
+                return;
+            }
+
+            if (!decimal.TryParse(txt_salary.Text, out decimal salary))
+            {
+                MessageBox.Show("Lương không hợp lệ, vui lòng nhập một số hợp lệ.");
+                return;
+            }
+
             salaryService.updateSalary(email, txt_salary.Text);
 
             MessageBox.Show("Update successfully");

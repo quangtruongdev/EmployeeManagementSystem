@@ -1,15 +1,16 @@
 ﻿using EmployeeManagementSystem.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EmployeeManagementSystem.Interfaces
 {
     public interface IPositions
     {
-        List<Position> GetPositions();
+        IQueryable<dynamic> GetPositions();
         Position GetPositionById(string id);
         void AddPosition(Position position);
         void UpdatePosition(Position position);
         void DeletePosition(string id);
-        (List<Position> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize);
+        (IQueryable<dynamic> Positions, int totalPositions, int TotalPages) GetPositions(int page, int pageSize);
     }
 }
