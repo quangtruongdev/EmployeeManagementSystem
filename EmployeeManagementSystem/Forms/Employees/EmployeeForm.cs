@@ -92,8 +92,6 @@ namespace EmployeeManagementSystem.Forms.Employees
 
             LoadPosition();
             cbb_positionID.SelectedValue = employee.PositionID;
-
-
         }
 
         private void btn_Update_Click(object sender, System.EventArgs e)
@@ -114,6 +112,12 @@ namespace EmployeeManagementSystem.Forms.Employees
                     gender = 'O';
                     break;
             }
+            if (dtp_dateOfBirth.Value > DateTime.Now)
+            {
+                MessageBox.Show("Date of Birth cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Models.Employee employee = new Models.Employee
             {
                 FirstName = txt_firstName.Text,
@@ -163,6 +167,12 @@ namespace EmployeeManagementSystem.Forms.Employees
                     gender = 'O';
                     break;
             }
+            if (dtp_dateOfBirth.Value > DateTime.Now)
+            {
+                MessageBox.Show("Date of Birth cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Models.Employee employee = new Models.Employee
             {
                 FirstName = txt_firstName.Text,
@@ -186,6 +196,11 @@ namespace EmployeeManagementSystem.Forms.Employees
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
