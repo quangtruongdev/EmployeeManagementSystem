@@ -266,6 +266,7 @@
             this.txt_phoneNumber.Name = "txt_phoneNumber";
             this.txt_phoneNumber.Size = new System.Drawing.Size(325, 38);
             this.txt_phoneNumber.TabIndex = 54;
+            this.txt_phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_phoneNumber_KeyPress);
             // 
             // txt_email
             // 

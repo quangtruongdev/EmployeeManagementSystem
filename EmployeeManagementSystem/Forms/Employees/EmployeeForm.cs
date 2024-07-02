@@ -197,5 +197,15 @@ namespace EmployeeManagementSystem.Forms.Employees
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                MessageBox.Show("Only numbers are allowed.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                e.Handled = true;
+            }
+        }
     }
 }
