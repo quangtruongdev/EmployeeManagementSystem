@@ -77,6 +77,15 @@ namespace EmployeeManagementSystem.Services
             try
             {
                 Project project = context.Projects.FirstOrDefault(p => p.ProjectID == id);
+                if (project == null)
+                {
+                    Utils.Shared.ShowToastr("Error", "Project not found");
+                    return;
+                }
+                var employeeProjects = context.EmployeeProjects
+                    .Where(ep => ep.ProjectID == id);
+
+                context.EmployeeProjects.DeleteAllOnSubmit(employeeProjects);
                 context.Projects.DeleteOnSubmit(project);
                 context.SubmitChanges();
                 Utils.Shared.ShowToastr("Success", "Project deleted successfully");
