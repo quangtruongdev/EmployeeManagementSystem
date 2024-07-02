@@ -44,7 +44,7 @@ namespace EmployeeManagementSystem.Services
                     var totalProjects = projects.Count();
                     var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
 
-                    var Projects = projects
+                    var Projects = projects.OrderBy(p => p.ProjectName)
                                         .Skip((page - 1) * pageSize)
                                         .Take(pageSize)
                                         .ToList();
@@ -162,7 +162,7 @@ namespace EmployeeManagementSystem.Services
                                  LastName = employeeInProject.LastName,
                                  Position = position.PositionName
                              };
-                result = result.Skip((page-1) * pageSize).Take(pageSize);
+                result = result.OrderBy(e => e.LastName).Skip((page-1) * pageSize).Take(pageSize);
 
                 return (result, totalEmployees, totalPages, positions.ToList(), employees.ToList(), employeesNotInProject);
             }
