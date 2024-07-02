@@ -72,7 +72,7 @@ namespace EmployeeManagementSystem.Forms.Login
                 var user = new UserAccount
                 {
                     Username = username,
-                    Password = password
+                    PasswordHash = password
                 };
 
                 if (ValidateForm())
