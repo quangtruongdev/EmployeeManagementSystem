@@ -139,7 +139,7 @@ namespace EmployeeManagementSystem.Forms.Project
 
         private void Btn_AddProject_Click(object sender, EventArgs e)
         {
-            AddProject addProject = new AddProject();
+            AddProject addProject = new AddProject(null, true);
             if(addProject.ShowDialog() == DialogResult.OK)
             {
                 LoadProjects();
@@ -171,7 +171,7 @@ namespace EmployeeManagementSystem.Forms.Project
 
         private void EditProject(string projectId)
         {
-            AddProject addProject = new AddProject(projectId);
+            AddProject addProject = new AddProject(projectId, true);
             if (addProject.ShowDialog() == DialogResult.OK)
             {
                 LoadProjects();
@@ -223,6 +223,7 @@ namespace EmployeeManagementSystem.Forms.Project
         private void pageSizeComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             pageSize = Convert.ToInt32(pageSizeComboBox.SelectedItem);
+            currentPage = 1;
             LoadProjects();
         }
     }

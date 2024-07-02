@@ -187,6 +187,7 @@ namespace EmployeeManagementSystem.Forms.Project
         private void pageSizeComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             pageSize = Convert.ToInt32(pageSizeComboBox.SelectedItem);
+            page = 1;
             LoadMembers();
         }
     }

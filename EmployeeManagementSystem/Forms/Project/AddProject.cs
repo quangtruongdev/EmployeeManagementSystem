@@ -17,12 +17,14 @@ namespace EmployeeManagementSystem.Forms.Project
     {
         private ProjectService _projectService;
         private readonly string _projectId;
+        private readonly bool _closeOnSubmit; // Cờ để xác định nếu form cần đóng sau khi submit
 
-        public AddProject(string projectId = null)
+        public AddProject(string projectId = null, bool closeOnSubmit = false)
         {
             InitializeComponent();
             _projectService = new ProjectService();
             _projectId = projectId;
+            _closeOnSubmit = closeOnSubmit;
 
             if (_projectId != null)
             {
@@ -32,7 +34,7 @@ namespace EmployeeManagementSystem.Forms.Project
             }
             else
             {
-               projectLabel.Text = "Add Project";
+                projectLabel.Text = "Add Project";
             }
         }
 
@@ -47,17 +49,12 @@ namespace EmployeeManagementSystem.Forms.Project
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            string projectName = projectNameTextBox.Text.Trim();
-            string projectDescription = projectDescriptionTextBox.Text.Trim();
-            DateTime startDate = startDateDateTimePicker.Value;
-            DateTime endDate = endDateDateTimePicker.Value;
-
             Models.Project project = new Models.Project
             {
-                ProjectName = projectName,
-                Description = projectDescription,
-                StartDate = startDate,
-                EndDate = endDate
+                ProjectName = projectNameTextBox.Text.Trim(),
+                Description = projectDescriptionTextBox.Text.Trim(),
+                StartDate = startDateDateTimePicker.Value,
+                EndDate = endDateDateTimePicker.Value
             };
 
             if(_projectId != null)
@@ -70,7 +67,24 @@ namespace EmployeeManagementSystem.Forms.Project
                 _projectService.AddProject(project);
             }
             DialogResult = DialogResult.OK;
-            Close();
+
+            if (_closeOnSubmit)
+            {
+                Close();
+            }
+            else
+            {
+                ResetForm();
+            }
+        }
+
+        public void ResetForm()
+        {
+            projectNameTextBox.Text = "";
+            projectDescriptionTextBox.Text = "";
+            startDateDateTimePicker.Value = DateTime.Now;
+            endDateDateTimePicker.Value = DateTime.Now;
+            projectNameErrorLabel.Text = "";
         }
 
         private void projectNameTextBox_TextChanged(object sender, EventArgs e)
