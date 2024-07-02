@@ -40,14 +40,14 @@
             this.Btn_Next = new System.Windows.Forms.Button();
             this.Btn_Prev = new System.Windows.Forms.Button();
             this.Tbl_LeaveListsContainer = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Tbl_LeaveLists = new System.Windows.Forms.DataGridView();
             this.ImgUrl = new System.Windows.Forms.DataGridViewImageColumn();
             this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeaveType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeaveFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeaveEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoOfDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col_Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Col_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -56,7 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.Tbl_LeaveListsContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tbl_LeaveLists)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -168,16 +168,16 @@
             this.Tbl_LeaveListsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tbl_LeaveListsContainer.Controls.Add(this.dataGridView1);
+            this.Tbl_LeaveListsContainer.Controls.Add(this.Tbl_LeaveLists);
             this.Tbl_LeaveListsContainer.Location = new System.Drawing.Point(12, 106);
             this.Tbl_LeaveListsContainer.Name = "Tbl_LeaveListsContainer";
             this.Tbl_LeaveListsContainer.Size = new System.Drawing.Size(776, 286);
             this.Tbl_LeaveListsContainer.TabIndex = 6;
             // 
-            // dataGridView1
+            // Tbl_LeaveLists
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tbl_LeaveLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tbl_LeaveLists.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ImgUrl,
             this.EmployeeName,
             this.LeaveType,
@@ -188,13 +188,13 @@
             this.Reason,
             this.Col_Edit,
             this.Col_Delete});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 286);
-            this.dataGridView1.TabIndex = 5;
+            this.Tbl_LeaveLists.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tbl_LeaveLists.Location = new System.Drawing.Point(0, 0);
+            this.Tbl_LeaveLists.Name = "Tbl_LeaveLists";
+            this.Tbl_LeaveLists.RowHeadersWidth = 51;
+            this.Tbl_LeaveLists.RowTemplate.Height = 24;
+            this.Tbl_LeaveLists.Size = new System.Drawing.Size(776, 286);
+            this.Tbl_LeaveLists.TabIndex = 5;
             // 
             // ImgUrl
             // 
@@ -243,6 +243,8 @@
             this.Status.HeaderText = "Status";
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Status.Width = 125;
             // 
             // Reason
@@ -285,7 +287,7 @@
             this.PagingContainer.ResumeLayout(false);
             this.PagingContainer.PerformLayout();
             this.Tbl_LeaveListsContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tbl_LeaveLists)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,14 +306,14 @@
         private System.Windows.Forms.Button Btn_Prev;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel Tbl_LeaveListsContainer;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Tbl_LeaveLists;
         private System.Windows.Forms.DataGridViewImageColumn ImgUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveType;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoOfDays;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
         private System.Windows.Forms.DataGridViewButtonColumn Col_Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Col_Delete;

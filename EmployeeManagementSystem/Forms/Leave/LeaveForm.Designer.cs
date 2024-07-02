@@ -29,31 +29,32 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ErrorName = new System.Windows.Forms.Label();
             this.Cbx_AllEmployees = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LeaveTypeContainer = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ErrorLeaveType = new System.Windows.Forms.Label();
+            this.Cbx_LeaveType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DT_StartDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ErrorDate = new System.Windows.Forms.Label();
+            this.DT_EndDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ErrorStatus = new System.Windows.Forms.Label();
             this.Cbx_Status = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Reason = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Txt_Note = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Btn_Save = new System.Windows.Forms.Button();
             this.Btn_Close = new System.Windows.Forms.Button();
-            this.ErrorName = new System.Windows.Forms.Label();
-            this.ErrorLeaveType = new System.Windows.Forms.Label();
-            this.ErrorStatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.LeaveTypeContainer.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,6 +73,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(275, 70);
             this.panel1.TabIndex = 0;
+            // 
+            // ErrorName
+            // 
+            this.ErrorName.AutoSize = true;
+            this.ErrorName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ErrorName.ForeColor = System.Drawing.Color.Red;
+            this.ErrorName.Location = new System.Drawing.Point(0, 54);
+            this.ErrorName.Name = "ErrorName";
+            this.ErrorName.Size = new System.Drawing.Size(44, 16);
+            this.ErrorName.TabIndex = 8;
+            this.ErrorName.Text = "label8";
             // 
             // Cbx_AllEmployees
             // 
@@ -97,23 +109,33 @@
             // LeaveTypeContainer
             // 
             this.LeaveTypeContainer.Controls.Add(this.ErrorLeaveType);
-            this.LeaveTypeContainer.Controls.Add(this.comboBox1);
+            this.LeaveTypeContainer.Controls.Add(this.Cbx_LeaveType);
             this.LeaveTypeContainer.Controls.Add(this.label2);
             this.LeaveTypeContainer.Location = new System.Drawing.Point(313, 12);
             this.LeaveTypeContainer.Name = "LeaveTypeContainer";
             this.LeaveTypeContainer.Size = new System.Drawing.Size(275, 70);
             this.LeaveTypeContainer.TabIndex = 1;
             // 
-            // comboBox1
+            // ErrorLeaveType
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 25;
-            this.comboBox1.Location = new System.Drawing.Point(0, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(275, 31);
-            this.comboBox1.TabIndex = 1;
+            this.ErrorLeaveType.AutoSize = true;
+            this.ErrorLeaveType.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ErrorLeaveType.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLeaveType.Location = new System.Drawing.Point(0, 54);
+            this.ErrorLeaveType.Name = "ErrorLeaveType";
+            this.ErrorLeaveType.Size = new System.Drawing.Size(44, 16);
+            this.ErrorLeaveType.TabIndex = 2;
+            this.ErrorLeaveType.Text = "label8";
+            // 
+            // Cbx_LeaveType
+            // 
+            this.Cbx_LeaveType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Cbx_LeaveType.FormattingEnabled = true;
+            this.Cbx_LeaveType.ItemHeight = 16;
+            this.Cbx_LeaveType.Location = new System.Drawing.Point(0, 16);
+            this.Cbx_LeaveType.Name = "Cbx_LeaveType";
+            this.Cbx_LeaveType.Size = new System.Drawing.Size(275, 24);
+            this.Cbx_LeaveType.TabIndex = 1;
             // 
             // label2
             // 
@@ -155,21 +177,32 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(this.ErrorDate);
+            this.panel3.Controls.Add(this.DT_EndDate);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(313, 88);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(275, 70);
             this.panel3.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // ErrorDate
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 16);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(275, 22);
-            this.dateTimePicker1.TabIndex = 9;
+            this.ErrorDate.AutoSize = true;
+            this.ErrorDate.ForeColor = System.Drawing.Color.Red;
+            this.ErrorDate.Location = new System.Drawing.Point(3, 45);
+            this.ErrorDate.Name = "ErrorDate";
+            this.ErrorDate.Size = new System.Drawing.Size(44, 16);
+            this.ErrorDate.TabIndex = 10;
+            this.ErrorDate.Text = "label8";
+            // 
+            // DT_EndDate
+            // 
+            this.DT_EndDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DT_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DT_EndDate.Location = new System.Drawing.Point(0, 16);
+            this.DT_EndDate.Name = "DT_EndDate";
+            this.DT_EndDate.Size = new System.Drawing.Size(275, 22);
+            this.DT_EndDate.TabIndex = 9;
             // 
             // label4
             // 
@@ -190,6 +223,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(275, 70);
             this.panel4.TabIndex = 3;
+            // 
+            // ErrorStatus
+            // 
+            this.ErrorStatus.AutoSize = true;
+            this.ErrorStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ErrorStatus.ForeColor = System.Drawing.Color.Red;
+            this.ErrorStatus.Location = new System.Drawing.Point(0, 54);
+            this.ErrorStatus.Name = "ErrorStatus";
+            this.ErrorStatus.Size = new System.Drawing.Size(44, 16);
+            this.ErrorStatus.TabIndex = 2;
+            this.ErrorStatus.Text = "label8";
             // 
             // Cbx_Status
             // 
@@ -213,21 +257,21 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.Txt_Reason);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(12, 240);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(576, 70);
             this.panel5.TabIndex = 4;
             // 
-            // textBox1
+            // Txt_Reason
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(0, 23);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(576, 47);
-            this.textBox1.TabIndex = 1;
+            this.Txt_Reason.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Txt_Reason.Location = new System.Drawing.Point(0, 23);
+            this.Txt_Reason.Multiline = true;
+            this.Txt_Reason.Name = "Txt_Reason";
+            this.Txt_Reason.Size = new System.Drawing.Size(576, 47);
+            this.Txt_Reason.TabIndex = 1;
             // 
             // label6
             // 
@@ -240,21 +284,21 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.Txt_Note);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Location = new System.Drawing.Point(12, 316);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(576, 70);
             this.panel6.TabIndex = 5;
             // 
-            // textBox2
+            // Txt_Note
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox2.Location = new System.Drawing.Point(0, 19);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(576, 51);
-            this.textBox2.TabIndex = 1;
+            this.Txt_Note.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Txt_Note.Location = new System.Drawing.Point(0, 19);
+            this.Txt_Note.Multiline = true;
+            this.Txt_Note.Name = "Txt_Note";
+            this.Txt_Note.Size = new System.Drawing.Size(576, 51);
+            this.Txt_Note.TabIndex = 1;
             // 
             // label7
             // 
@@ -274,6 +318,7 @@
             this.Btn_Save.TabIndex = 6;
             this.Btn_Save.Text = "Save";
             this.Btn_Save.UseVisualStyleBackColor = true;
+            this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
             // 
             // Btn_Close
             // 
@@ -284,39 +329,6 @@
             this.Btn_Close.Text = "Cancel";
             this.Btn_Close.UseVisualStyleBackColor = true;
             this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
-            // 
-            // ErrorName
-            // 
-            this.ErrorName.AutoSize = true;
-            this.ErrorName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ErrorName.ForeColor = System.Drawing.Color.Red;
-            this.ErrorName.Location = new System.Drawing.Point(0, 54);
-            this.ErrorName.Name = "ErrorName";
-            this.ErrorName.Size = new System.Drawing.Size(44, 16);
-            this.ErrorName.TabIndex = 8;
-            this.ErrorName.Text = "label8";
-            // 
-            // ErrorLeaveType
-            // 
-            this.ErrorLeaveType.AutoSize = true;
-            this.ErrorLeaveType.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ErrorLeaveType.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLeaveType.Location = new System.Drawing.Point(0, 54);
-            this.ErrorLeaveType.Name = "ErrorLeaveType";
-            this.ErrorLeaveType.Size = new System.Drawing.Size(44, 16);
-            this.ErrorLeaveType.TabIndex = 2;
-            this.ErrorLeaveType.Text = "label8";
-            // 
-            // ErrorStatus
-            // 
-            this.ErrorStatus.AutoSize = true;
-            this.ErrorStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ErrorStatus.ForeColor = System.Drawing.Color.Red;
-            this.ErrorStatus.Location = new System.Drawing.Point(0, 54);
-            this.ErrorStatus.Name = "ErrorStatus";
-            this.ErrorStatus.Size = new System.Drawing.Size(44, 16);
-            this.ErrorStatus.TabIndex = 2;
-            this.ErrorStatus.Text = "label8";
             // 
             // LeaveForm
             // 
@@ -362,7 +374,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel LeaveTypeContainer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Cbx_LeaveType;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -373,15 +385,16 @@
         private System.Windows.Forms.DateTimePicker DT_StartDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DT_EndDate;
         private System.Windows.Forms.ComboBox Cbx_Status;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Txt_Reason;
+        private System.Windows.Forms.TextBox Txt_Note;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label ErrorName;
         private System.Windows.Forms.Label ErrorLeaveType;
         private System.Windows.Forms.Label ErrorStatus;
+        private System.Windows.Forms.Label ErrorDate;
     }
 }

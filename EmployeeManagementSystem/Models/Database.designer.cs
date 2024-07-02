@@ -48,6 +48,9 @@ namespace EmployeeManagementSystem.Models
     partial void InsertLeaveManagement(LeaveManagement instance);
     partial void UpdateLeaveManagement(LeaveManagement instance);
     partial void DeleteLeaveManagement(LeaveManagement instance);
+    partial void InsertLeaveType(LeaveType instance);
+    partial void UpdateLeaveType(LeaveType instance);
+    partial void DeleteLeaveType(LeaveType instance);
     partial void InsertPosition(Position instance);
     partial void UpdatePosition(Position instance);
     partial void DeletePosition(Position instance);
@@ -140,6 +143,14 @@ namespace EmployeeManagementSystem.Models
 			get
 			{
 				return this.GetTable<LeaveManagement>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LeaveType> LeaveTypes
+		{
+			get
+			{
+				return this.GetTable<LeaveType>();
 			}
 		}
 		
@@ -1544,7 +1555,7 @@ namespace EmployeeManagementSystem.Models
 		
 		private string _LeaveID;
 		
-		private string _LeaveType;
+		private string _LeaveTypeID;
 		
 		private System.Nullable<System.DateTime> _StartDate;
 		
@@ -1556,14 +1567,16 @@ namespace EmployeeManagementSystem.Models
 		
 		private EntityRef<Employee> _Employee;
 		
+		private EntityRef<LeaveType> _LeaveType;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnLeaveIDChanging(string value);
     partial void OnLeaveIDChanged();
-    partial void OnLeaveTypeChanging(string value);
-    partial void OnLeaveTypeChanged();
+    partial void OnLeaveTypeIDChanging(string value);
+    partial void OnLeaveTypeIDChanged();
     partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
     partial void OnStartDateChanged();
     partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
@@ -1577,6 +1590,7 @@ namespace EmployeeManagementSystem.Models
 		public LeaveManagement()
 		{
 			this._Employee = default(EntityRef<Employee>);
+			this._LeaveType = default(EntityRef<LeaveType>);
 			OnCreated();
 		}
 		
@@ -1600,22 +1614,26 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveType", DbType="NVarChar(255)")]
-		public string LeaveType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveTypeID", DbType="VarChar(50)")]
+		public string LeaveTypeID
 		{
 			get
 			{
-				return this._LeaveType;
+				return this._LeaveTypeID;
 			}
 			set
 			{
-				if ((this._LeaveType != value))
+				if ((this._LeaveTypeID != value))
 				{
-					this.OnLeaveTypeChanging(value);
+					if (this._LeaveType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLeaveTypeIDChanging(value);
 					this.SendPropertyChanging();
-					this._LeaveType = value;
-					this.SendPropertyChanged("LeaveType");
-					this.OnLeaveTypeChanged();
+					this._LeaveTypeID = value;
+					this.SendPropertyChanged("LeaveTypeID");
+					this.OnLeaveTypeIDChanged();
 				}
 			}
 		}
@@ -1738,6 +1756,40 @@ namespace EmployeeManagementSystem.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveType_LeaveManagement", Storage="_LeaveType", ThisKey="LeaveTypeID", OtherKey="LeaveTypeID", IsForeignKey=true)]
+		public LeaveType LeaveType
+		{
+			get
+			{
+				return this._LeaveType.Entity;
+			}
+			set
+			{
+				LeaveType previousValue = this._LeaveType.Entity;
+				if (((previousValue != value) 
+							|| (this._LeaveType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._LeaveType.Entity = null;
+						previousValue.LeaveManagements.Remove(this);
+					}
+					this._LeaveType.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveManagements.Add(this);
+						this._LeaveTypeID = value.LeaveTypeID;
+					}
+					else
+					{
+						this._LeaveTypeID = default(string);
+					}
+					this.SendPropertyChanged("LeaveType");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1756,6 +1808,120 @@ namespace EmployeeManagementSystem.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LeaveTypes")]
+	public partial class LeaveType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LeaveTypeID;
+		
+		private string _LeaveTypeName;
+		
+		private EntitySet<LeaveManagement> _LeaveManagements;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLeaveTypeIDChanging(string value);
+    partial void OnLeaveTypeIDChanged();
+    partial void OnLeaveTypeNameChanging(string value);
+    partial void OnLeaveTypeNameChanged();
+    #endregion
+		
+		public LeaveType()
+		{
+			this._LeaveManagements = new EntitySet<LeaveManagement>(new Action<LeaveManagement>(this.attach_LeaveManagements), new Action<LeaveManagement>(this.detach_LeaveManagements));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveTypeID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string LeaveTypeID
+		{
+			get
+			{
+				return this._LeaveTypeID;
+			}
+			set
+			{
+				if ((this._LeaveTypeID != value))
+				{
+					this.OnLeaveTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._LeaveTypeID = value;
+					this.SendPropertyChanged("LeaveTypeID");
+					this.OnLeaveTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveTypeName", DbType="NVarChar(255)")]
+		public string LeaveTypeName
+		{
+			get
+			{
+				return this._LeaveTypeName;
+			}
+			set
+			{
+				if ((this._LeaveTypeName != value))
+				{
+					this.OnLeaveTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._LeaveTypeName = value;
+					this.SendPropertyChanged("LeaveTypeName");
+					this.OnLeaveTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveType_LeaveManagement", Storage="_LeaveManagements", ThisKey="LeaveTypeID", OtherKey="LeaveTypeID")]
+		public EntitySet<LeaveManagement> LeaveManagements
+		{
+			get
+			{
+				return this._LeaveManagements;
+			}
+			set
+			{
+				this._LeaveManagements.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_LeaveManagements(LeaveManagement entity)
+		{
+			this.SendPropertyChanging();
+			entity.LeaveType = this;
+		}
+		
+		private void detach_LeaveManagements(LeaveManagement entity)
+		{
+			this.SendPropertyChanging();
+			entity.LeaveType = null;
 		}
 	}
 	
