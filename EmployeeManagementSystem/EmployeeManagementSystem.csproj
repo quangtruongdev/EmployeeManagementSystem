@@ -332,6 +332,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Release\" />
     <Folder Include="Controllers\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="UserControls\" />
@@ -366,6 +367,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hrm-strategy2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EmployeeManagementSystem.exe" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

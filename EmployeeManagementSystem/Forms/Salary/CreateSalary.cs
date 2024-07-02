@@ -22,6 +22,8 @@ namespace EmployeeManagementSystem.Forms.Salary
             txt_name.ReadOnly = true;
             txt_pos.ReadOnly = true;
 
+            Reset();
+
             string search = txt_search.Text;
 
             dataGridView1.AutoGenerateColumns = false;
@@ -61,15 +63,20 @@ namespace EmployeeManagementSystem.Forms.Salary
 
         private void btn_update_Click(object sender, System.EventArgs e)
         {
-            string salary = txt_salary.Text;
 
-            double? salaryAmout = TryParseNullableDouble(salary);
+            double? salaryAmout = TryParseNullableDouble(txt_salary.Text);
 
             string email = txt_email.Text;
 
             if (salaryAmout == null)
             {
                 MessageBox.Show("Invalid salary amount");
+                return;
+            }
+
+            if (!decimal.TryParse(txt_salary.Text, out decimal salary))
+            {
+                MessageBox.Show("Lương không hợp lệ, vui lòng nhập một số hợp lệ.");
                 return;
             }
 
@@ -80,6 +87,16 @@ namespace EmployeeManagementSystem.Forms.Salary
             Salary s = Application.OpenForms.OfType<Salary>().FirstOrDefault();
 
             s.LoadData(1);
+            LoadData();
+        }
+
+        public void Reset()
+        {
+            txt_dep.Text = "";
+            txt_email.Text = "";
+            txt_name.Text = "";
+            txt_pos.Text = "";
+            txt_salary.Text = "";
         }
 
         public double? TryParseNullableDouble(string s)

@@ -200,7 +200,9 @@
             this.Controls.Add(this.projectDescriptionTextBox);
             this.Controls.Add(this.projectNameTextBox);
             this.Controls.Add(this.projectLabel);
+            this.MinimumSize = new System.Drawing.Size(524, 640);
             this.Name = "AddProject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProject";
             this.ResumeLayout(false);
             this.PerformLayout();

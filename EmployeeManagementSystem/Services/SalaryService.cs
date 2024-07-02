@@ -209,10 +209,14 @@ namespace EmployeeManagementSystem.Services
                 var employees = db.Employees;
                 var positions = db.Positions;
                 var departments = db.Departments;
+                var salaries = db.Salaries;
 
                 var query = from e in employees
                             join p in positions on e.PositionID equals p.PositionID
                             join dep in departments on e.DepartmentID equals dep.DepartmentID
+                            join s in salaries on e.EmployeeID equals s.EmployeeID into empSalaries
+                            from empSalary in empSalaries.DefaultIfEmpty()
+                            where empSalary == null
                             select new
                             {
                                 e.FirstName,
@@ -221,7 +225,8 @@ namespace EmployeeManagementSystem.Services
                                 e.Email,
                                 dep.DepartmentName
                             };
-                if (search != "")
+
+                if (!string.IsNullOrEmpty(search))
                 {
                     query = query.Where(x => x.FirstName.Contains(search) || x.PositionName.Contains(search) || x.Email.Contains(search));
                 }
@@ -229,6 +234,7 @@ namespace EmployeeManagementSystem.Services
                 query = query.Take(pageSize);
 
                 return query;
+
             }
             catch
             {

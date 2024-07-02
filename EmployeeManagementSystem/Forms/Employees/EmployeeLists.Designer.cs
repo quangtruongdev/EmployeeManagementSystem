@@ -37,7 +37,7 @@
             this.txt_search = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.cbb_Item = new System.Windows.Forms.ComboBox();
-            this.cbb_DepartmentName = new System.Windows.Forms.ComboBox();
+            this.cbb_ID = new System.Windows.Forms.ComboBox();
             this.dtp_Date = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.PagingContainer.SuspendLayout();
@@ -139,21 +139,23 @@
             this.cbb_Item.Items.AddRange(new object[] {
             "Text",
             "Date",
-            "Department"});
-            this.cbb_Item.Location = new System.Drawing.Point(127, 23);
+            "Department",
+            "Position"});
+            this.cbb_Item.Location = new System.Drawing.Point(127, 16);
             this.cbb_Item.Name = "cbb_Item";
             this.cbb_Item.Size = new System.Drawing.Size(191, 24);
             this.cbb_Item.TabIndex = 5;
             this.cbb_Item.SelectedIndexChanged += new System.EventHandler(this.cbb_Item_SelectedIndexChanged);
             // 
-            // cbb_DepartmentName
+            // cbb_ID
             // 
-            this.cbb_DepartmentName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbb_DepartmentName.FormattingEnabled = true;
-            this.cbb_DepartmentName.Location = new System.Drawing.Point(475, 20);
-            this.cbb_DepartmentName.Name = "cbb_DepartmentName";
-            this.cbb_DepartmentName.Size = new System.Drawing.Size(225, 24);
-            this.cbb_DepartmentName.TabIndex = 6;
+            this.cbb_ID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbb_ID.FormattingEnabled = true;
+            this.cbb_ID.Location = new System.Drawing.Point(475, 20);
+            this.cbb_ID.Name = "cbb_ID";
+            this.cbb_ID.Size = new System.Drawing.Size(225, 24);
+            this.cbb_ID.TabIndex = 6;
+            this.cbb_ID.Visible = false;
             // 
             // dtp_Date
             // 
@@ -162,6 +164,7 @@
             this.dtp_Date.Name = "dtp_Date";
             this.dtp_Date.Size = new System.Drawing.Size(225, 22);
             this.dtp_Date.TabIndex = 7;
+            this.dtp_Date.Visible = false;
             // 
             // EmployeeLists
             // 
@@ -169,7 +172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dtp_Date);
-            this.Controls.Add(this.cbb_DepartmentName);
+            this.Controls.Add(this.cbb_ID);
             this.Controls.Add(this.cbb_Item);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txt_search);
@@ -198,7 +201,7 @@
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.ComboBox cbb_Item;
-        private System.Windows.Forms.ComboBox cbb_DepartmentName;
+        private System.Windows.Forms.ComboBox cbb_ID;
         private System.Windows.Forms.DateTimePicker dtp_Date;
     }
 }

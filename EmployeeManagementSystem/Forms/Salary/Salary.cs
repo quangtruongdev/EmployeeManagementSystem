@@ -73,6 +73,7 @@ namespace EmployeeManagementSystem.Forms.Salary
                 if (dataGridView1.Columns[e.ColumnIndex].Name == "col_Action")
                 {
                     // lấy giá trị từ cột thứ 2 (index 2) của hàng được click
+                    txt_search.Text = "";
 
                     string email = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 

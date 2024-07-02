@@ -1,6 +1,5 @@
 ﻿using EmployeeManagementSystem.Interfaces;
 using EmployeeManagementSystem.Services;
-using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -8,46 +7,45 @@ namespace EmployeeManagementSystem.Forms.Employees
 {
     public partial class EmployeeForm : Form
     {
+        private readonly IPositions _positionService;
         private readonly IDepartment _departmentService;
         private readonly IEmployees _employeesService;
         private readonly string _employeeID;
-
         public EmployeeForm(string employeeID = null)
         {
             InitializeComponent();
             _departmentService = new DepartmentService();
             _employeesService = new EmployeesService();
+            _positionService = new PositionsService();
             _employeeID = employeeID;
-
-            InitializeForm();
-        }
-
-        private void InitializeForm()
-        {
-            LoadDepartment();
-
-            if (_employeeID != null)
+            if (employeeID != null)
             {
+                btn_Add.Visible = false;
+                nameForm.Text = "Edit Employee";
                 LoadEmployeeDetails();
             }
             else
             {
-                ClearAddEmployee();
+                btn_Update.Visible = false;
+                btn_Close.Visible = false;
+                nameForm.Text = "Add Employee";
+                LoadDepartment();
+                LoadPosition();
+                ClearAddEployee();
             }
         }
-
-        private void ClearAddEmployee()
+        private void ClearAddEployee()
         {
-            txt_firstName.Clear();
-            txt_lastName.Clear();
+            txt_firstName.Text = "";
+            txt_lastName.Text = "";
             cbb_gender.SelectedIndex = -1;
             dtp_dateOfBirth.Value = DateTime.Now;
-            txt_phoneNumber.Clear();
-            txt_email.Clear();
-            txt_address.Clear();
+            txt_phoneNumber.Text = "";
+            txt_email.Text = "";
+            txt_address.Text = "";
             cbb_departmentID.SelectedIndex = -1;
+            cbb_positionID.SelectedIndex = -1;
         }
-
         private void LoadDepartment()
         {
             var departments = _departmentService.GetDepartments();
@@ -55,6 +53,14 @@ namespace EmployeeManagementSystem.Forms.Employees
             cbb_departmentID.DisplayMember = "DepartmentName";
             cbb_departmentID.ValueMember = "DepartmentID";
         }
+        private void LoadPosition()
+        {
+            var positions = _positionService.GetPositions();
+            cbb_positionID.DataSource = positions;
+            cbb_positionID.DisplayMember = "PositionName";
+            cbb_positionID.ValueMember = "PositionID";
+        }
+
 
         private void LoadEmployeeDetails()
         {
@@ -62,85 +68,171 @@ namespace EmployeeManagementSystem.Forms.Employees
 
             txt_firstName.Text = employee.FirstName;
             txt_lastName.Text = employee.LastName;
-            cbb_gender.Text = GetGenderText(employee.Gender.GetValueOrDefault('O'));
-            dtp_dateOfBirth.Value = employee.DateOfBirth ?? DateTime.Now;
+
+            switch (employee.Gender)
+            {
+                case 'M':
+                    cbb_gender.Text = "Male";
+                    break;
+                case 'F':
+                    cbb_gender.Text = "Female";
+                    break;
+                case 'O':
+                    cbb_gender.Text = "Other";
+                    break;
+            }
+
+            dtp_dateOfBirth.Value = employee.DateOfBirth.Value;
             txt_phoneNumber.Text = employee.PhoneNumber;
             txt_email.Text = employee.Email;
             txt_address.Text = employee.Address;
 
             LoadDepartment();
             cbb_departmentID.SelectedValue = employee.DepartmentID;
+
+            LoadPosition();
+            cbb_positionID.SelectedValue = employee.PositionID;
         }
 
-        private string GetGenderText(char gender)
+        private void btn_Update_Click(object sender, System.EventArgs e)
         {
-            switch (gender)
+            if (string.IsNullOrWhiteSpace(txt_firstName.Text) ||
+                string.IsNullOrWhiteSpace(txt_lastName.Text) ||
+                string.IsNullOrWhiteSpace(cbb_gender.Text) ||
+                string.IsNullOrWhiteSpace(txt_phoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(txt_email.Text) ||
+                string.IsNullOrWhiteSpace(txt_address.Text) ||
+                cbb_departmentID.SelectedValue == null ||
+                cbb_positionID.SelectedValue == null)
             {
-                case 'M':
-                    return "Male";
-                case 'F':
-                    return "Female";
-                case 'O':
-                default:
-                    return "Other";
+                MessageBox.Show("All fields must be filled out.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-        }
 
-        private char GetGenderChar()
-        {
+            char gender;
             switch (cbb_gender.Text)
             {
                 case "Male":
-                    return 'M';
+                    gender = 'M';
+                    break;
                 case "Female":
-                    return 'F';
+                    gender = 'F';
+                    break;
                 case "Other":
+                    gender = 'O';
+                    break;
                 default:
-                    return 'O';
+                    gender = 'O';
+                    break;
             }
-        }
 
-        private Models.Employee CreateEmployee()
-        {
-            return new Models.Employee
+            if (dtp_dateOfBirth.Value > DateTime.Now)
             {
-                EmployeeID = _employeeID,
+                MessageBox.Show("Date of Birth cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Models.Employee employee = new Models.Employee
+            {
                 FirstName = txt_firstName.Text,
                 LastName = txt_lastName.Text,
-                Gender = GetGenderChar(),
+                Gender = gender,
                 DateOfBirth = dtp_dateOfBirth.Value,
                 PhoneNumber = txt_phoneNumber.Text,
                 Email = txt_email.Text,
                 Address = txt_address.Text,
-                DepartmentID = cbb_departmentID.SelectedValue.ToString()
+                DepartmentID = cbb_departmentID.SelectedValue.ToString(),
+                PositionID = cbb_positionID.SelectedValue.ToString(),
             };
-        }
-
-        private void btn_Submit_Click(object sender, EventArgs e)
-        {
-            var employee = CreateEmployee();
-
             try
             {
-                if (string.IsNullOrEmpty(_employeeID))
-                {
-                    _employeesService.AddEmployee(employee);
-                    //MessageBox.Show("Employee added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Shared.ShowToastr("Success", "Employee added successfully");
-                    ClearAddEmployee();
-                }
-                else
-                {
-                    _employeesService.UpdateEmployee(employee);
-                    //MessageBox.Show("Employee updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Shared.ShowToastr("Success", "Employee updated successfully");
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
+                employee.EmployeeID = _employeeID;
+                _employeesService.UpdateEmployee(employee);
+                MessageBox.Show("Employee updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_Close_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_firstName.Text) ||
+                string.IsNullOrWhiteSpace(txt_lastName.Text) ||
+                string.IsNullOrWhiteSpace(cbb_gender.Text) ||
+                string.IsNullOrWhiteSpace(txt_phoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(txt_email.Text) ||
+                string.IsNullOrWhiteSpace(txt_address.Text) ||
+                cbb_departmentID.SelectedValue == null ||
+                cbb_positionID.SelectedValue == null)
+            {
+                MessageBox.Show("All fields must be filled out.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            char gender;
+            switch (cbb_gender.Text)
+            {
+                case "Male":
+                    gender = 'M';
+                    break;
+                case "Female":
+                    gender = 'F';
+                    break;
+                case "Other":
+                    gender = 'O';
+                    break;
+                default:
+                    gender = 'O';
+                    break;
+            }
+
+            if (dtp_dateOfBirth.Value > DateTime.Now)
+            {
+                MessageBox.Show("Date of Birth cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Models.Employee employee = new Models.Employee
+            {
+                FirstName = txt_firstName.Text,
+                LastName = txt_lastName.Text,
+                Gender = gender,
+                DateOfBirth = dtp_dateOfBirth.Value,
+                PhoneNumber = txt_phoneNumber.Text,
+                Email = txt_email.Text,
+                Address = txt_address.Text,
+                DepartmentID = cbb_departmentID.SelectedValue.ToString(),
+                PositionID = cbb_positionID.SelectedValue.ToString(),
+            };
+            try
+            {
+                _employeesService.AddEmployee(employee);
+                MessageBox.Show("Employee added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearAddEployee();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                MessageBox.Show("Only numbers are allowed.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                e.Handled = true;
             }
         }
     }

@@ -144,7 +144,7 @@ namespace EmployeeManagementSystem.Views
 
         private void Btn_AddProject_Click(object sender, EventArgs e)
         {
-            AddProject addProject = new AddProject();
+            AddProject addProject = new AddProject(null, false);
             addProject.FormBorderStyle = FormBorderStyle.None;
             Shared.ShowMainContent(addProject, MainContent);
         }

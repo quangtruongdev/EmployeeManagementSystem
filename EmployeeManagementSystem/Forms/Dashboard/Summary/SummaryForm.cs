@@ -12,6 +12,7 @@ namespace EmployeeManagementSystem.Forms.Dashboard.Summary
             InitializeComponent();
             _dashboardService = new DashboardService();
             this.Load += SummaryForm_Load;
+            timer.Start();
         }
 
         private void SummaryForm_Load(object sender, System.EventArgs e)
@@ -19,6 +20,12 @@ namespace EmployeeManagementSystem.Forms.Dashboard.Summary
             var summary = _dashboardService.GetSummary();
             Txt_TotalProjects.Text = summary.totalProjects.ToString();
             Txt_TotalEmployees.Text = summary.totalEmployees.ToString();
+        }
+
+        private void timer_Tick(object sender, System.EventArgs e)
+        {
+            labelTime.Text = System.DateTime.Now.ToString("HH:mm:ss");
+            dayTime.Text = System.DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
     }
 }

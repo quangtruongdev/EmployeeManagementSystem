@@ -1,6 +1,7 @@
 ﻿using EmployeeManagementSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EmployeeManagementSystem.Interfaces
 {
@@ -11,11 +12,11 @@ namespace EmployeeManagementSystem.Interfaces
         void AddEmployee(Employee employee);
         void DeleteEmployee(string id);
         void UpdateEmployee(Employee employee);
-
-        (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployees(string search, int page, int pageSize);
-
-        (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDate(DateTime search, int page, int pageSize);
-
-        (List<Employee> Employees, int totalEmployees, int TotalPages) GetEmployeesDepartment(string search, int page, int pageSize);
+        (IQueryable Employees, int totalEmployees, int totalPages) GetEmployees(
+            string textSearch = null,
+            DateTime? dateSearch = null,
+            string departmentSearch = null,
+            int page = 1,
+            int pageSize = 10);
     }
 }

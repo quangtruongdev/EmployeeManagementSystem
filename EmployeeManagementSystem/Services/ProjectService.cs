@@ -13,17 +13,6 @@ namespace EmployeeManagementSystem.Services
     public class ProjectService
     {
         private DatabaseDataContext context = new DatabaseDataContext();
-        public List<Project> GetProjects() {
-            try
-            {
-                return context.Projects.ToList();
-            }
-            catch (Exception e)
-            {
-                Utils.Shared.ShowToastr("Error", "Error while get project from Database");
-                return null;
-            }
-        }
 
         public (List<Project> Projects, int totalProjects, int TotalPages) 
             GetProjects(int page, int pageSize, string projectNameKey = null
@@ -44,7 +33,7 @@ namespace EmployeeManagementSystem.Services
                     var totalProjects = projects.Count();
                     var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
 
-                    var Projects = projects
+                    var Projects = projects.OrderBy(p => p.ProjectName)
                                         .Skip((page - 1) * pageSize)
                                         .Take(pageSize)
                                         .ToList();
@@ -77,6 +66,15 @@ namespace EmployeeManagementSystem.Services
             try
             {
                 Project project = context.Projects.FirstOrDefault(p => p.ProjectID == id);
+                if (project == null)
+                {
+                    Utils.Shared.ShowToastr("Error", "Project not found");
+                    return;
+                }
+                var employeeProjects = context.EmployeeProjects
+                    .Where(ep => ep.ProjectID == id);
+
+                context.EmployeeProjects.DeleteAllOnSubmit(employeeProjects);
                 context.Projects.DeleteOnSubmit(project);
                 context.SubmitChanges();
                 Utils.Shared.ShowToastr("Success", "Project deleted successfully");
@@ -153,7 +151,7 @@ namespace EmployeeManagementSystem.Services
                                  LastName = employeeInProject.LastName,
                                  Position = position.PositionName
                              };
-                result = result.Skip((page-1) * pageSize).Take(pageSize);
+                result = result.OrderBy(e => e.LastName).Skip((page-1) * pageSize).Take(pageSize);
 
                 return (result, totalEmployees, totalPages, positions.ToList(), employees.ToList(), employeesNotInProject);
             }

@@ -30,14 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Project));
             this.Tbl_Projects = new System.Windows.Forms.DataGridView();
-            this.ProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnMembersDetails = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_AddProject = new System.Windows.Forms.Button();
             this.PagingContainer = new System.Windows.Forms.Panel();
@@ -65,15 +57,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Tbl_Projects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Tbl_Projects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tbl_Projects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProjectId,
-            this.ProjectName,
-            this.Description,
-            this.StartDate,
-            this.EndDate,
-            this.BtnEdit,
-            this.BtnDelete,
-            this.BtnMembersDetails});
             this.Tbl_Projects.Location = new System.Drawing.Point(-1, 213);
             this.Tbl_Projects.Name = "Tbl_Projects";
             this.Tbl_Projects.RowHeadersWidth = 51;
@@ -81,67 +64,6 @@
             this.Tbl_Projects.Size = new System.Drawing.Size(1004, 331);
             this.Tbl_Projects.TabIndex = 0;
             this.Tbl_Projects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Projects_CellContentClick);
-            // 
-            // ProjectId
-            // 
-            this.ProjectId.DataPropertyName = "ProjectId";
-            this.ProjectId.FillWeight = 70.3877F;
-            this.ProjectId.HeaderText = "Project Id";
-            this.ProjectId.MinimumWidth = 6;
-            this.ProjectId.Name = "ProjectId";
-            // 
-            // ProjectName
-            // 
-            this.ProjectName.DataPropertyName = "ProjectName";
-            this.ProjectName.FillWeight = 70.3877F;
-            this.ProjectName.HeaderText = "Project Name";
-            this.ProjectName.MinimumWidth = 6;
-            this.ProjectName.Name = "ProjectName";
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.FillWeight = 70.3877F;
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            // 
-            // StartDate
-            // 
-            this.StartDate.DataPropertyName = "StartDate";
-            this.StartDate.FillWeight = 70.3877F;
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.MinimumWidth = 6;
-            this.StartDate.Name = "StartDate";
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "EndDate";
-            this.EndDate.FillWeight = 70.3877F;
-            this.EndDate.HeaderText = "End Date";
-            this.EndDate.MinimumWidth = 6;
-            this.EndDate.Name = "EndDate";
-            // 
-            // BtnEdit
-            // 
-            this.BtnEdit.FillWeight = 70.3877F;
-            this.BtnEdit.HeaderText = "";
-            this.BtnEdit.MinimumWidth = 6;
-            this.BtnEdit.Name = "BtnEdit";
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.FillWeight = 70.3877F;
-            this.BtnDelete.HeaderText = "";
-            this.BtnDelete.MinimumWidth = 6;
-            this.BtnDelete.Name = "BtnDelete";
-            // 
-            // BtnMembersDetails
-            // 
-            this.BtnMembersDetails.FillWeight = 70.3877F;
-            this.BtnMembersDetails.HeaderText = "";
-            this.BtnMembersDetails.MinimumWidth = 6;
-            this.BtnMembersDetails.Name = "BtnMembersDetails";
             // 
             // label1
             // 
@@ -356,14 +278,6 @@
         private System.Windows.Forms.Label PageOnPage;
         private System.Windows.Forms.Button Btn_Next;
         private System.Windows.Forms.Button Btn_Pre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnDelete;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnMembersDetails;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox projectNameTextBox;
         private System.Windows.Forms.Label label3;
