@@ -96,6 +96,19 @@ namespace EmployeeManagementSystem.Forms.Employees
 
         private void btn_Update_Click(object sender, System.EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_firstName.Text) ||
+                string.IsNullOrWhiteSpace(txt_lastName.Text) ||
+                string.IsNullOrWhiteSpace(cbb_gender.Text) ||
+                string.IsNullOrWhiteSpace(txt_phoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(txt_email.Text) ||
+                string.IsNullOrWhiteSpace(txt_address.Text) ||
+                cbb_departmentID.SelectedValue == null ||
+                cbb_positionID.SelectedValue == null)
+            {
+                MessageBox.Show("All fields must be filled out.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             char gender;
             switch (cbb_gender.Text)
             {
@@ -112,6 +125,7 @@ namespace EmployeeManagementSystem.Forms.Employees
                     gender = 'O';
                     break;
             }
+
             if (dtp_dateOfBirth.Value > DateTime.Now)
             {
                 MessageBox.Show("Date of Birth cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -151,6 +165,19 @@ namespace EmployeeManagementSystem.Forms.Employees
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_firstName.Text) ||
+                string.IsNullOrWhiteSpace(txt_lastName.Text) ||
+                string.IsNullOrWhiteSpace(cbb_gender.Text) ||
+                string.IsNullOrWhiteSpace(txt_phoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(txt_email.Text) ||
+                string.IsNullOrWhiteSpace(txt_address.Text) ||
+                cbb_departmentID.SelectedValue == null ||
+                cbb_positionID.SelectedValue == null)
+            {
+                MessageBox.Show("All fields must be filled out.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             char gender;
             switch (cbb_gender.Text)
             {
@@ -167,6 +194,7 @@ namespace EmployeeManagementSystem.Forms.Employees
                     gender = 'O';
                     break;
             }
+
             if (dtp_dateOfBirth.Value > DateTime.Now)
             {
                 MessageBox.Show("Date of Birth cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
