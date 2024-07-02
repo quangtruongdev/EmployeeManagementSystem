@@ -1,9 +1,11 @@
+﻿using EmployeeManagementSystem.Forms;
 using EmployeeManagementSystem.Forms.Dashboard;
 using EmployeeManagementSystem.Forms.Department;
 using EmployeeManagementSystem.Forms.Employees;
 using EmployeeManagementSystem.Forms.Leave;
 using EmployeeManagementSystem.Forms.Login;
 using EmployeeManagementSystem.Forms.Positons;
+using EmployeeManagementSystem.Forms.Project;
 using EmployeeManagementSystem.Utils;
 using System;
 using System.Windows.Forms;
@@ -130,6 +132,18 @@ namespace EmployeeManagementSystem.Views
             }
         }
 
+        private void Btn_AllProjects_Click(object sender, EventArgs e)
+        {
+            Project projectLists = new Project();
+            Shared.ShowMainContent(projectLists, MainContent);
+        }
+
+        private void Btn_AddProject_Click(object sender, EventArgs e)
+        {
+            AddProject addProject = new AddProject(null, false);
+            addProject.FormBorderStyle = FormBorderStyle.None;
+            Shared.ShowMainContent(addProject, MainContent);
+        }
 
         private void Btn_Departments_Click(object sender, EventArgs e)
         {
