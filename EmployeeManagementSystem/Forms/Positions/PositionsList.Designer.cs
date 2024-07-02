@@ -37,7 +37,6 @@
             this.Btn_Next = new System.Windows.Forms.Button();
             this.Btn_Pre = new System.Windows.Forms.Button();
             this.Tbl_Positions = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PositonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btn_Edit = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -138,7 +137,6 @@
             // 
             this.Tbl_Positions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Tbl_Positions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
             this.col_id,
             this.PositonName,
             this.Btn_Edit,
@@ -151,13 +149,6 @@
             this.Tbl_Positions.Size = new System.Drawing.Size(1147, 426);
             this.Tbl_Positions.TabIndex = 6;
             this.Tbl_Positions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Positions_CellContentClick);
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "#";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.Width = 50;
             // 
             // col_id
             // 
@@ -225,7 +216,6 @@
         private System.Windows.Forms.Button Btn_Next;
         private System.Windows.Forms.Button Btn_Pre;
         private System.Windows.Forms.DataGridView Tbl_Positions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn PositonName;
         private System.Windows.Forms.DataGridViewButtonColumn Btn_Edit;

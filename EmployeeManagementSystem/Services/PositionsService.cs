@@ -42,6 +42,7 @@ namespace EmployeeManagementSystem.Services
             {
                 var query = _context.Positions.Select(p => new
                 {
+                    p.PositionID,
                     p.PositionName
                 });
 
