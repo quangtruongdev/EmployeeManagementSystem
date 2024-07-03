@@ -14,7 +14,6 @@ namespace EmployeeManagementSystem.Services
             DatabaseDataContext db = new DatabaseDataContext();
             try
             {
-
                 return db.Employees.ToList();
 
             }

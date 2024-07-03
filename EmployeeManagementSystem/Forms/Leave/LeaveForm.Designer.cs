@@ -81,9 +81,8 @@
             this.ErrorName.ForeColor = System.Drawing.Color.Red;
             this.ErrorName.Location = new System.Drawing.Point(0, 54);
             this.ErrorName.Name = "ErrorName";
-            this.ErrorName.Size = new System.Drawing.Size(44, 16);
+            this.ErrorName.Size = new System.Drawing.Size(0, 16);
             this.ErrorName.TabIndex = 8;
-            this.ErrorName.Text = "label8";
             // 
             // Cbx_AllEmployees
             // 
@@ -123,9 +122,8 @@
             this.ErrorLeaveType.ForeColor = System.Drawing.Color.Red;
             this.ErrorLeaveType.Location = new System.Drawing.Point(0, 54);
             this.ErrorLeaveType.Name = "ErrorLeaveType";
-            this.ErrorLeaveType.Size = new System.Drawing.Size(44, 16);
+            this.ErrorLeaveType.Size = new System.Drawing.Size(0, 16);
             this.ErrorLeaveType.TabIndex = 2;
-            this.ErrorLeaveType.Text = "label8";
             // 
             // Cbx_LeaveType
             // 
@@ -191,9 +189,8 @@
             this.ErrorDate.ForeColor = System.Drawing.Color.Red;
             this.ErrorDate.Location = new System.Drawing.Point(3, 45);
             this.ErrorDate.Name = "ErrorDate";
-            this.ErrorDate.Size = new System.Drawing.Size(44, 16);
+            this.ErrorDate.Size = new System.Drawing.Size(0, 16);
             this.ErrorDate.TabIndex = 10;
-            this.ErrorDate.Text = "label8";
             // 
             // DT_EndDate
             // 
@@ -231,9 +228,8 @@
             this.ErrorStatus.ForeColor = System.Drawing.Color.Red;
             this.ErrorStatus.Location = new System.Drawing.Point(0, 54);
             this.ErrorStatus.Name = "ErrorStatus";
-            this.ErrorStatus.Size = new System.Drawing.Size(44, 16);
+            this.ErrorStatus.Size = new System.Drawing.Size(0, 16);
             this.ErrorStatus.TabIndex = 2;
-            this.ErrorStatus.Text = "label8";
             // 
             // Cbx_Status
             // 

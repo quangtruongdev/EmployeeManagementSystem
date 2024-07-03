@@ -33,27 +33,24 @@
             this.Tbl_HeadContainer = new System.Windows.Forms.Panel();
             this.Btn_AddLeave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Txt_Search = new System.Windows.Forms.TextBox();
             this.PagingContainer = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.PageOnPage = new System.Windows.Forms.Label();
             this.Btn_Next = new System.Windows.Forms.Button();
             this.Btn_Prev = new System.Windows.Forms.Button();
             this.Tbl_LeaveListsContainer = new System.Windows.Forms.Panel();
             this.Tbl_LeaveLists = new System.Windows.Forms.DataGridView();
-            this.ImgUrl = new System.Windows.Forms.DataGridViewImageColumn();
             this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeaveType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeaveFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeaveEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoOfDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col_Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Col_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Btn_Search = new System.Windows.Forms.Button();
             this.Tbl_HeadContainer.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PagingContainer.SuspendLayout();
             this.Tbl_LeaveListsContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tbl_LeaveLists)).BeginInit();
@@ -93,39 +90,29 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.Btn_Search);
+            this.panel1.Controls.Add(this.Txt_Search);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 50);
+            this.panel1.Size = new System.Drawing.Size(400, 50);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // Txt_Search
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txt_Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(47, 7);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 36);
-            this.textBox1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.Txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Txt_Search.Location = new System.Drawing.Point(5, 7);
+            this.Txt_Search.Multiline = true;
+            this.Txt_Search.Name = "Txt_Search";
+            this.Txt_Search.Size = new System.Drawing.Size(300, 35);
+            this.Txt_Search.TabIndex = 1;
             // 
             // PagingContainer
             // 
             this.PagingContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PagingContainer.Controls.Add(this.label2);
+            this.PagingContainer.Controls.Add(this.PageOnPage);
             this.PagingContainer.Controls.Add(this.Btn_Next);
             this.PagingContainer.Controls.Add(this.Btn_Prev);
             this.PagingContainer.Location = new System.Drawing.Point(558, 398);
@@ -133,15 +120,16 @@
             this.PagingContainer.Size = new System.Drawing.Size(230, 40);
             this.PagingContainer.TabIndex = 5;
             // 
-            // label2
+            // PageOnPage
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(81, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Page 1/1";
+            this.PageOnPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PageOnPage.AutoSize = true;
+            this.PageOnPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageOnPage.Location = new System.Drawing.Point(81, 10);
+            this.PageOnPage.Name = "PageOnPage";
+            this.PageOnPage.Size = new System.Drawing.Size(66, 18);
+            this.PageOnPage.TabIndex = 2;
+            this.PageOnPage.Text = "Page 1/1";
             // 
             // Btn_Next
             // 
@@ -152,6 +140,7 @@
             this.Btn_Next.TabIndex = 1;
             this.Btn_Next.Text = "Next";
             this.Btn_Next.UseVisualStyleBackColor = true;
+            this.Btn_Next.Click += new System.EventHandler(this.Btn_Next_Click);
             // 
             // Btn_Prev
             // 
@@ -162,6 +151,7 @@
             this.Btn_Prev.TabIndex = 0;
             this.Btn_Prev.Text = "Previous";
             this.Btn_Prev.UseVisualStyleBackColor = true;
+            this.Btn_Prev.Click += new System.EventHandler(this.Btn_Prev_Click);
             // 
             // Tbl_LeaveListsContainer
             // 
@@ -178,12 +168,10 @@
             // 
             this.Tbl_LeaveLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Tbl_LeaveLists.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ImgUrl,
             this.EmployeeName,
             this.LeaveType,
             this.LeaveFrom,
             this.LeaveEnd,
-            this.NoOfDays,
             this.Status,
             this.Reason,
             this.Col_Edit,
@@ -195,13 +183,7 @@
             this.Tbl_LeaveLists.RowTemplate.Height = 24;
             this.Tbl_LeaveLists.Size = new System.Drawing.Size(776, 286);
             this.Tbl_LeaveLists.TabIndex = 5;
-            // 
-            // ImgUrl
-            // 
-            this.ImgUrl.HeaderText = "Image";
-            this.ImgUrl.MinimumWidth = 6;
-            this.ImgUrl.Name = "ImgUrl";
-            this.ImgUrl.Width = 60;
+            this.Tbl_LeaveLists.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_LeaveLists_CellContentClick);
             // 
             // EmployeeName
             // 
@@ -231,28 +213,19 @@
             this.LeaveEnd.Name = "LeaveEnd";
             this.LeaveEnd.Width = 125;
             // 
-            // NoOfDays
-            // 
-            this.NoOfDays.HeaderText = "No Of Days ";
-            this.NoOfDays.MinimumWidth = 6;
-            this.NoOfDays.Name = "NoOfDays";
-            this.NoOfDays.Width = 125;
-            // 
             // Status
             // 
             this.Status.HeaderText = "Status";
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Status.Width = 125;
             // 
             // Reason
             // 
+            this.Reason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Reason.HeaderText = "Reason";
             this.Reason.MinimumWidth = 6;
             this.Reason.Name = "Reason";
-            this.Reason.Width = 125;
             // 
             // Col_Edit
             // 
@@ -267,6 +240,17 @@
             this.Col_Delete.MinimumWidth = 6;
             this.Col_Delete.Name = "Col_Delete";
             this.Col_Delete.Width = 50;
+            // 
+            // Btn_Search
+            // 
+            this.Btn_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Search.Location = new System.Drawing.Point(311, 8);
+            this.Btn_Search.Name = "Btn_Search";
+            this.Btn_Search.Size = new System.Drawing.Size(75, 35);
+            this.Btn_Search.TabIndex = 2;
+            this.Btn_Search.Text = "Search";
+            this.Btn_Search.UseVisualStyleBackColor = true;
+            this.Btn_Search.Click += new System.EventHandler(this.Btn_Search_Click);
             // 
             // LeaveLists
             // 
@@ -283,7 +267,6 @@
             this.Tbl_HeadContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PagingContainer.ResumeLayout(false);
             this.PagingContainer.PerformLayout();
             this.Tbl_LeaveListsContainer.ResumeLayout(false);
@@ -298,24 +281,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel Tbl_HeadContainer;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Search;
         private System.Windows.Forms.Button Btn_AddLeave;
         private System.Windows.Forms.Panel PagingContainer;
         private System.Windows.Forms.Button Btn_Next;
         private System.Windows.Forms.Button Btn_Prev;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label PageOnPage;
         private System.Windows.Forms.Panel Tbl_LeaveListsContainer;
         private System.Windows.Forms.DataGridView Tbl_LeaveLists;
-        private System.Windows.Forms.DataGridViewImageColumn ImgUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveType;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NoOfDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
         private System.Windows.Forms.DataGridViewButtonColumn Col_Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Col_Delete;
+        private System.Windows.Forms.Button Btn_Search;
     }
 }

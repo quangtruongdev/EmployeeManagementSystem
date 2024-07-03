@@ -157,6 +157,7 @@
             this.PasswordInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.PasswordInput.Location = new System.Drawing.Point(0, 16);
             this.PasswordInput.Name = "PasswordInput";
+            this.PasswordInput.PasswordChar = '*';
             this.PasswordInput.Size = new System.Drawing.Size(300, 22);
             this.PasswordInput.TabIndex = 1;
             // 
@@ -194,6 +195,7 @@
             this.ConfirmPasswordInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.ConfirmPasswordInput.Location = new System.Drawing.Point(0, 16);
             this.ConfirmPasswordInput.Name = "ConfirmPasswordInput";
+            this.ConfirmPasswordInput.PasswordChar = '*';
             this.ConfirmPasswordInput.Size = new System.Drawing.Size(300, 22);
             this.ConfirmPasswordInput.TabIndex = 1;
             // 

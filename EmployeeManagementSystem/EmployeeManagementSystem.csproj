@@ -107,6 +107,12 @@
     <Compile Include="Forms\Leave\LeaveForm.Designer.cs">
       <DependentUpon>LeaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Leave\LeaveTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leave\LeaveTypeForm.Designer.cs">
+      <DependentUpon>LeaveTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Leave\LeaveTypeLists.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\EmployeeLists.resx">
       <DependentUpon>EmployeeLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leave\LeaveTypeForm.resx">
+      <DependentUpon>LeaveTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Leave\LeaveTypeLists.resx">
       <DependentUpon>LeaveTypeLists.cs</DependentUpon>
