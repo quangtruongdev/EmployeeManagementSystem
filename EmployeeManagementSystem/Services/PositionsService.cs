@@ -84,6 +84,8 @@ namespace EmployeeManagementSystem.Services
         {
             try
             {
+                var totalPositions = _context.Positions.Count();
+                var totalPages = (int)System.Math.Ceiling((double)totalPositions / pageSize); // Ensure total pages is an integer (no decimals
                 var positions = _context.Positions
                     .Select(p => new
                     {
