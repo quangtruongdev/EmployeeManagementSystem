@@ -80,6 +80,9 @@ namespace EmployeeManagementSystem.Services
             try
             {
                 Employee employee = db.Employees.FirstOrDefault(d => d.EmployeeID == id);
+                db.EmployeeProjects.DeleteAllOnSubmit(employee.EmployeeProjects);
+                List<Salary> salaries = db.Salaries.Where(d => d.EmployeeID == id).ToList();
+                db.Salaries.DeleteAllOnSubmit(salaries);
                 db.Employees.DeleteOnSubmit(employee);
                 db.SubmitChanges();
                 MessageBox.Show("Xoá nhân viên thành công!");

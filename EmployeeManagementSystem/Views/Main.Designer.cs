@@ -305,6 +305,7 @@
             this.Btn_LeaveManagement.TabIndex = 0;
             this.Btn_LeaveManagement.Text = "Leave Management";
             this.Btn_LeaveManagement.UseVisualStyleBackColor = true;
+            this.Btn_LeaveManagement.Visible = false;
             this.Btn_LeaveManagement.Click += new System.EventHandler(this.Btn_LeaveManagement_Click);
             // 
             // LogoutContainer
@@ -318,7 +319,7 @@
             // 
             // Btn_Logout
             // 
-            this.Btn_Logout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Logout.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Logout.Image")));
             this.Btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_Logout.Location = new System.Drawing.Point(0, 0);
