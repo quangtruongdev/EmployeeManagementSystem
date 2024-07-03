@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Forms.Department
 {
-    public partial class AddDepartment : Form
+    public partial class DepartmentForm : Form
     {
         private readonly string _departmentId;
         private readonly IDepartment _departmentService;
-        public AddDepartment(string departmentId = null)
+        public DepartmentForm(string departmentId = null)
         {
             InitializeComponent();
             _departmentService = new DepartmentService();
@@ -43,16 +43,20 @@ namespace EmployeeManagementSystem.Forms.Department
 
             try
             {
-                if (_departmentId != null)
+                if (ValidateForm())
                 {
-                    department.DepartmentID = _departmentId;
-                    _departmentService.UpdateDepartment(department);
-                    MessageBox.Show("Department updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    _departmentService.AddDepartment(department);
-                    MessageBox.Show("Department added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (_departmentId != null)
+                    {
+                        department.DepartmentID = _departmentId;
+                        _departmentService.UpdateDepartment(department);
+                    }
+                    else
+                    {
+                        _departmentService.AddDepartment(department);
+                    }
+                    MessageBox.Show("Department saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -69,7 +73,7 @@ namespace EmployeeManagementSystem.Forms.Department
             txtDepartmentName.Text = department.DepartmentName;
         }
 
-        private void ValidateForm()
+        private bool ValidateForm()
         {
             bool isFormValid = true;
             string departmentName = txtDepartmentName.Text.Trim();
@@ -79,6 +83,7 @@ namespace EmployeeManagementSystem.Forms.Department
                 isFormValid = false;
             }
             Btn_Submit.Enabled = isFormValid;
+            return isFormValid;
         }
     }
 }

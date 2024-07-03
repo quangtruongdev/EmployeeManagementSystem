@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Forms.Department
 {
-    public partial class Department : Form
+    public partial class DepartmentLists : Form
     {
         private readonly IDepartment _departmentService;
         private int currentPage = 1;
         private int pageSize = 2;
-        public Department()
+        public DepartmentLists()
         {
             InitializeComponent();
             _departmentService = new DepartmentService();
@@ -18,7 +18,7 @@ namespace EmployeeManagementSystem.Forms.Department
 
         private void Btn_AddDepartment_Click(object sender, System.EventArgs e)
         {
-            AddDepartment addDepartment = new AddDepartment();
+            DepartmentForm addDepartment = new DepartmentForm();
             if (addDepartment.ShowDialog() == DialogResult.OK)
             {
                 LoadDepartments();
@@ -27,22 +27,11 @@ namespace EmployeeManagementSystem.Forms.Department
 
         private void LoadDepartments()
         {
-            //var departments = _departmentService.GetDepartments();
             var results = _departmentService.GetDepartments(currentPage, pageSize);
             var departments = results.Departments;
             var totalPages = results.TotalPages;
-            //var totalDepartments = results.totalDepartments;
 
             Tbl_Departments.Columns.Clear();
-
-            //var sttColumn = new DataGridViewTextBoxColumn
-            //{
-            //    HeaderText = "STT",
-            //    Name = "STT",
-            //    ReadOnly = true,
-            //    Width = 50
-            //};
-            //Tbl_Departments.Columns.Add(sttColumn);
 
             var departmentId = new DataGridViewTextBoxColumn
             {
@@ -87,12 +76,6 @@ namespace EmployeeManagementSystem.Forms.Department
 
             Tbl_Departments.DataSource = departments;
 
-            //for (int i = 0; i < departments.Count; i++)
-            //{
-            //    Tbl_Departments.Rows[i].Cells["STT"].Value = (currentPage - 1) * pageSize + i + 1;
-            //}
-
-
             PageOnPage.Text = $"{currentPage}/{totalPages}";
 
             Btn_Pre.Enabled = currentPage > 1;
@@ -101,7 +84,7 @@ namespace EmployeeManagementSystem.Forms.Department
 
         private void EditDepartment(string departmentId)
         {
-            AddDepartment addDepartment = new AddDepartment(departmentId);
+            DepartmentForm addDepartment = new DepartmentForm(departmentId);
             if (addDepartment.ShowDialog() == DialogResult.OK)
             {
                 LoadDepartments();

@@ -1,4 +1,5 @@
-﻿using EmployeeManagementSystem.Interfaces;
+﻿using EmployeeManagementSystem.Forms.Register;
+using EmployeeManagementSystem.Interfaces;
 using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.Services;
 using EmployeeManagementSystem.Utils;
@@ -116,17 +117,22 @@ namespace EmployeeManagementSystem.Forms.Login
 
         private void Link_Register_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    RegisterForm register = new RegisterForm();
-            //    register.Show();
-            //    this.Hide();
-            //    MessageBox.Show("This feature is not available in this version");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"An error occurred: {ex.Message}");
-            //}
+            try
+            {
+                RegisterForm register = new RegisterForm();
+                register.Show();
+                this.Hide();
+                //MessageBox.Show("This feature is not available in this version");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

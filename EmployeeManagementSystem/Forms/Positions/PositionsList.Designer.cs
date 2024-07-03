@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem.Forms.Positons
 {
-    partial class PositonsList
+    partial class PositionsList
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             this.Btn_Pre = new System.Windows.Forms.Button();
             this.Tbl_Positions = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PositonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btn_Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Btn_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -54,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 60);
+            this.panel1.Size = new System.Drawing.Size(1147, 60);
             this.panel1.TabIndex = 4;
             // 
             // Btn_AddPositon
@@ -62,7 +63,7 @@
             this.Btn_AddPositon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_AddPositon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_AddPositon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_AddPositon.Location = new System.Drawing.Point(588, 5);
+            this.Btn_AddPositon.Location = new System.Drawing.Point(935, 5);
             this.Btn_AddPositon.Name = "Btn_AddPositon";
             this.Btn_AddPositon.Size = new System.Drawing.Size(200, 45);
             this.Btn_AddPositon.TabIndex = 1;
@@ -84,9 +85,9 @@
             // 
             this.panel2.Controls.Add(this.PagingContainer);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 350);
+            this.panel2.Location = new System.Drawing.Point(0, 486);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 100);
+            this.panel2.Size = new System.Drawing.Size(1147, 100);
             this.panel2.TabIndex = 5;
             // 
             // PagingContainer
@@ -95,7 +96,7 @@
             this.PagingContainer.Controls.Add(this.PageOnPage);
             this.PagingContainer.Controls.Add(this.Btn_Next);
             this.PagingContainer.Controls.Add(this.Btn_Pre);
-            this.PagingContainer.Location = new System.Drawing.Point(559, 6);
+            this.PagingContainer.Location = new System.Drawing.Point(906, 6);
             this.PagingContainer.Name = "PagingContainer";
             this.PagingContainer.Size = new System.Drawing.Size(230, 40);
             this.PagingContainer.TabIndex = 0;
@@ -138,6 +139,7 @@
             this.Tbl_Positions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Tbl_Positions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
+            this.col_id,
             this.PositonName,
             this.Btn_Edit,
             this.Btn_Delete});
@@ -146,7 +148,7 @@
             this.Tbl_Positions.Name = "Tbl_Positions";
             this.Tbl_Positions.RowHeadersWidth = 51;
             this.Tbl_Positions.RowTemplate.Height = 24;
-            this.Tbl_Positions.Size = new System.Drawing.Size(800, 290);
+            this.Tbl_Positions.Size = new System.Drawing.Size(1147, 426);
             this.Tbl_Positions.TabIndex = 6;
             this.Tbl_Positions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tbl_Positions_CellContentClick);
             // 
@@ -157,10 +159,18 @@
             this.STT.Name = "STT";
             this.STT.Width = 50;
             // 
+            // col_id
+            // 
+            this.col_id.DataPropertyName = "PositionID";
+            this.col_id.HeaderText = "PositionID";
+            this.col_id.MinimumWidth = 6;
+            this.col_id.Name = "col_id";
+            this.col_id.Width = 125;
+            // 
             // PositonName
             // 
             this.PositonName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PositonName.DataPropertyName = "PositonName";
+            this.PositonName.DataPropertyName = "PositionName";
             this.PositonName.HeaderText = "Positon Name";
             this.PositonName.MinimumWidth = 6;
             this.PositonName.Name = "PositonName";
@@ -170,6 +180,8 @@
             this.Btn_Edit.HeaderText = "Actions";
             this.Btn_Edit.MinimumWidth = 6;
             this.Btn_Edit.Name = "Btn_Edit";
+            this.Btn_Edit.Text = "Edit";
+            this.Btn_Edit.UseColumnTextForButtonValue = true;
             this.Btn_Edit.Width = 50;
             // 
             // Btn_Delete
@@ -177,18 +189,20 @@
             this.Btn_Delete.HeaderText = "";
             this.Btn_Delete.MinimumWidth = 6;
             this.Btn_Delete.Name = "Btn_Delete";
+            this.Btn_Delete.Text = "Delete";
+            this.Btn_Delete.UseColumnTextForButtonValue = true;
             this.Btn_Delete.Width = 50;
             // 
-            // PositonsList
+            // PositionsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1147, 586);
             this.Controls.Add(this.Tbl_Positions);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PositonsList";
+            this.Name = "PositionsList";
             this.Text = "PositonsList";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -212,6 +226,7 @@
         private System.Windows.Forms.Button Btn_Pre;
         private System.Windows.Forms.DataGridView Tbl_Positions;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn PositonName;
         private System.Windows.Forms.DataGridViewButtonColumn Btn_Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Btn_Delete;

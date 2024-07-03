@@ -157,6 +157,7 @@
             this.PasswordInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.PasswordInput.Location = new System.Drawing.Point(0, 16);
             this.PasswordInput.Name = "PasswordInput";
+            this.PasswordInput.PasswordChar = '*';
             this.PasswordInput.Size = new System.Drawing.Size(300, 22);
             this.PasswordInput.TabIndex = 1;
             // 
@@ -194,6 +195,7 @@
             this.ConfirmPasswordInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.ConfirmPasswordInput.Location = new System.Drawing.Point(0, 16);
             this.ConfirmPasswordInput.Name = "ConfirmPasswordInput";
+            this.ConfirmPasswordInput.PasswordChar = '*';
             this.ConfirmPasswordInput.Size = new System.Drawing.Size(300, 22);
             this.ConfirmPasswordInput.TabIndex = 1;
             // 
@@ -229,6 +231,7 @@
             // Link_Login
             // 
             this.Link_Login.AutoSize = true;
+            this.Link_Login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Link_Login.Dock = System.Windows.Forms.DockStyle.Right;
             this.Link_Login.ForeColor = System.Drawing.Color.RoyalBlue;
             this.Link_Login.Location = new System.Drawing.Point(135, 0);
@@ -263,6 +266,7 @@
             this.Controls.Add(this.PictureContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.PictureContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
